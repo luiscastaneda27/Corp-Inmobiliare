@@ -237,7 +237,7 @@ public class extensionCotizacion {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'La cotización tiene un proyecto que usted no administra.')); 
                 return;}
         } else {
-            cotizacion.Estado__c = 'Vigente';
+            cotizacion.Estado__c = 'Nueva';
             try{
                 oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, Account.CI_celular__c, 
                                Fecha_de_Reserva__c,Account.CI_Tipo_Identi__c, Estado_de_Venta__c, Estado_de_Aprobacion__c,
@@ -358,7 +358,7 @@ public class extensionCotizacion {
         cotizacion.CI_Dscto_Precio__c = descuento; 
         cotizacion.CI_Plazo__c = 'M'; 
         cotizacion.CI_Cuota_Inicial__c = cuotaPrima.monto; 
-        System.debug('Hola: ' + cotizacion.CI_Cuota_Inicial__c);
+        cotizacion.Estado__c = 'Vigente';
         cotizacion.Numero_Total_de_Cuotas__c = getNumeroPagosEntrada(); 
         if(listaCuotasEntrada != null && listaCuotasEntrada.size()>0){
             cotizacion.Fecha_de_Ultima_Cuota__c = listaCuotasEntrada[listaCuotasEntrada.size()-1].cuo.Fecha__c;
