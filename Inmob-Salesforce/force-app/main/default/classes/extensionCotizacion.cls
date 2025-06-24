@@ -237,7 +237,7 @@ public class extensionCotizacion {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'La cotización tiene un proyecto que usted no administra.')); 
                 return;}
         } else {
-            cotizacion.Estado__c = 'Nueva';
+            cotizacion.Estado__c = 'Vigente';
             try{
                 oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, Account.CI_celular__c, 
                                Fecha_de_Reserva__c,Account.CI_Tipo_Identi__c, Estado_de_Venta__c, Estado_de_Aprobacion__c,
@@ -287,7 +287,8 @@ public class extensionCotizacion {
         
         if(propiedadSeleccionada == null){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Debe seleccionar una propiedad para continuar con el guardado de la cotizacion.'));
-            return null; } 
+            return null; 
+        } 
         cotizacion.Descuento_Porcentaje__c = descuentoPor;
         cotizacion.Implantaci_n_Principal__c = propiedadSeleccionada.implan.Id;
         cotizacion.Lote__c = propiedadSeleccionada.implan.Lote__c;
@@ -295,8 +296,12 @@ public class extensionCotizacion {
         if(Cotizacion.Venta_Anterior__c != null) { 
             try{ 
                 Cotizacion__c cotizacionAnterior = [SELECT ID FROM Cotizacion__c WHERE Codigo_Venta__c = :Cotizacion.Venta_Anterior__c];
-            }catch(Exception e) { ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Error al almacenar cotización. No existe el código de venta registrado.')); return null; }
-        } try{
+            }catch(Exception e) {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Error al almacenar cotización. No existe el código de venta registrado.'));
+                return null; 
+            }
+        }
+        try{
             financiamiento = [SELECT Id, Cotizacion__c FROM Financiamiento__c WHERE Id = :cotizacion.Financiamiento__c LIMIT 1];
         }catch(Exception e){
             system.debug('No existe financiamiento');
@@ -348,10 +353,12 @@ public class extensionCotizacion {
         cotizacion.CI_Tipo_Identi__c = oportunidad.Account.CI_Tipo_Identi__c; 
         cotizacion.CI_Manzana__c = propiedadSeleccionada.implan.Lote__r.CI_manzana__c; 
         cotizacion.CI_Etapa__c = propiedadSeleccionada.implan.Lote__r.CI_manzana__r.Etapa__c;
-        cotizacion.Valor__c = getValorAdicionales(); cotizacion.CI_Obras_Ad__c = getValorAdicionales();
+        cotizacion.Valor__c = getValorAdicionales(); 
+        cotizacion.CI_Obras_Ad__c = getValorAdicionales();
         cotizacion.CI_Dscto_Precio__c = descuento; 
         cotizacion.CI_Plazo__c = 'M'; 
         cotizacion.CI_Cuota_Inicial__c = cuotaPrima.monto; 
+        System.debug('Hola: ' + cotizacion.CI_Cuota_Inicial__c);
         cotizacion.Numero_Total_de_Cuotas__c = getNumeroPagosEntrada(); 
         if(listaCuotasEntrada != null && listaCuotasEntrada.size()>0){
             cotizacion.Fecha_de_Ultima_Cuota__c = listaCuotasEntrada[listaCuotasEntrada.size()-1].cuo.Fecha__c;
@@ -494,7 +501,8 @@ public class extensionCotizacion {
     public PageReference getvaluesFilter() {
         
         queryImp = 'Select Id, Name, Lote__r.CI_Metros_Terreno__c, Lote__r.Name, Lote__r.Codigo_Empresa__c, Modelo__r.Name, Lote__r.CI_Proyecto__r.Name, Lote__r.CI_manzana__r.Name, Lote__r.CI_manzana__r.Etapa__r.Name, Lote__r.Codigo_Etapa__c, Lote__r.CI_Codigo_Inmueble__c, '+
-            'Lote__r.CI_Manzana__r.Etapa__c, Precio_Lista__c,Lote__r.CI_Fecha_Limite_Venta__c, Lote__r.CI_Proyecto__r.Codigo_Proyecto__c, Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c From Implantacion__c Where Activo__c = true';
+            'Lote__r.CI_Manzana__r.Etapa__c, Precio_Lista__c,Lote__r.CI_Fecha_Limite_Venta__c, Lote__r.CI_Proyecto__r.Codigo_Proyecto__c, Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c From Implantacion__c ';
+        queryImp += 'Where Activo__c = true and Lote__r.ParametroConfigurados__c > 0 and Lote__r.CI_manzana__r.Etapa__r.ParametroConfigurados__c > 0 ';
         
         propiedadSeleccionada = null;
         

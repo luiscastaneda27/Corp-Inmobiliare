@@ -162,6 +162,6 @@
     </nameField>
     <pluralLabel>Parametros por Etapas</pluralLabel>
     <searchLayouts></searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
