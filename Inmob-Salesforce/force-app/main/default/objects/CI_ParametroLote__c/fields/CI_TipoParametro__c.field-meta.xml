@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_TipoParametro__c</fullName>
+    <label>Tipo Parámetro</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Categoria</fullName>
+                <default>false</default>
+                <label>Categoria</label>
+            </value>
+            <value>
+                <fullName>Tipo Financiamiento</fullName>
+                <default>false</default>
+                <label>Tipo Financiamiento</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
