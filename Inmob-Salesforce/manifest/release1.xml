@@ -6,12 +6,19 @@
 		<name>ApexClass</name>
 	</types>
 	<types>
+		<members>CI_Formato_Cotizacion</members>
+		<members>CI_Formato_PP</members>
 		<members>vfCotizacionNew</members>
 		<members>vfNewFinanciamiento</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
 		<members>Cotizacion__c.Estado__c</members>
+		<members>Cotizacion__c.CI_Precio_Neto__c</members>
+		<members>Cotizacion__c.EntradaEntrega__c</members>
+		<members>Cotizacion__c.Monto_Base__c</members>
+		<members>Cotizacion__c.Precio_Venta__c</members>
+		<members>User.Gerente__c</members>
 		<members>Cotizacion__c.UsuarioAprobador__c</members>
 		<members>Lote__c.ParametroConfigurados__c</members>
 		<members>Urbanizacion__c.ParametroConfigurados__c</members>
@@ -33,6 +40,7 @@
 		<members>Descuento__c-Formato Descuento</members>
 		<members>Lote__c-Formato Inmueble</members>
 		<members>Urbanizacion__c-Formato Etapa</members>
+		<members>User-User Layout</members>
 		<name>Layout</name>
 	</types>
 	<types>

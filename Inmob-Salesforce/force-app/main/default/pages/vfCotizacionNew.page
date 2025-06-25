@@ -397,10 +397,10 @@
           </div>
             <apex:outputPanel rendered="{!propiedadSeleccionada != null}">
                 <p style="font-size; 24px;white-space: pre;">
-                    <b>Precio de lista: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!precioLista}" /></apex:outputText> <br/>
+                    <b>Precio de lista: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!precioLista}" /></apex:outputText> <br/>
                     <b>&nbsp;+ Total Adicionales&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!totalAdicionales}" /></apex:outputText> <br/>
                     <b>&nbsp;- Descuento&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!totalDescuento}" /></apex:outputText> <br/>
-                    <b>Precio cotizado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!valorCotizado}" /></apex:outputText>
+                    <b>Precio cotizado: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!valorCotizado}" /></apex:outputText>
                 </p>
             </apex:outputPanel>
         </article>

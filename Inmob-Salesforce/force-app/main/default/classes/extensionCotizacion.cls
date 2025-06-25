@@ -90,6 +90,7 @@ public class extensionCotizacion {
         fields.add('CI_Proyecto__c');
         fields.add('Ingresa_Preferencial__c');
         fields.add('CreatedDate');
+        fields.add('EntradaEntrega__c');
         if(!test.isRunningTest()) { stdController.addFields(fields);
         }   
         
@@ -188,6 +189,7 @@ public class extensionCotizacion {
                 cuotaFecha = new Cuota(this);
                 CuotaFecha.Cuo.Fecha__c = fechaInicio;
                 
+                propiedadSeleccionada.entradaEntrega = cotizacion.EntradaEntrega__c;
                 precioLista = cotizacion.Precio_Lista__c;
                 totalAdicionales = getValorAdicionales();
                 totalDescuento = cotizacion.Monto_Descuento__c != null ? cotizacion.Monto_Descuento__c : totalDescuento;
@@ -359,6 +361,7 @@ public class extensionCotizacion {
         cotizacion.CI_Plazo__c = 'M'; 
         cotizacion.CI_Cuota_Inicial__c = cuotaPrima.monto; 
         cotizacion.Estado__c = 'Vigente';
+        cotizacion.EntradaEntrega__c = propiedadSeleccionada.entradaEntrega;
         cotizacion.Numero_Total_de_Cuotas__c = getNumeroPagosEntrada(); 
         if(listaCuotasEntrada != null && listaCuotasEntrada.size()>0){
             cotizacion.Fecha_de_Ultima_Cuota__c = listaCuotasEntrada[listaCuotasEntrada.size()-1].cuo.Fecha__c;
@@ -582,9 +585,19 @@ public class extensionCotizacion {
             valuesFilter = Database.query(queryImp);
             
             listaPropiedad = new List<Propiedad>();
+            List<String> lotesIds = new List<String>();
+            Map<Id, CI_ParametroLote__c> mapParametro =new Map<Id, CI_ParametroLote__c>();
+            for(Implantacion__c item: valuesFilter){
+                lotesIds.add(item.lote__c);
+            }
+            for(CI_ParametroLote__c item: [Select CI_Lote__c, CI_PlazoEntrada__c, CI_PlazoEntrega__c from CI_ParametroLote__c Where CI_Lote__c in :lotesIds and CI_FormaPago__c = '1']){
+                mapParametro.put(item.CI_Lote__c, item);
+            }
             
             for(Implantacion__c item: valuesFilter){
                 Propiedad nueva = new Propiedad(this, item);
+                CI_ParametroLote__c pl = mapParametro.get(item.Lote__c);
+                nueva.entradaEntrega = ((Integer) pl.CI_PlazoEntrada__c + ' - ' + (Integer) pl.CI_PlazoEntrega__c);
                 listaPropiedad.add(nueva);
             }
             
@@ -790,6 +803,7 @@ public class extensionCotizacion {
         public Implantacion__c implan {get;set;}
         List<Implantacion__c> listaImpantacion {get;set;}
         public string modeloSeleccionado {get;set;}
+        public string entradaEntrega {get;set;}
         public decimal montoFinal {get;set;}
         
         public propiedad(extensionCotizacion cont, Implantacion__c lot){
@@ -802,7 +816,9 @@ public class extensionCotizacion {
         
         public decimal getMontoTotal(){
             if(implan  != null){
-                return montoFinal; } return lote.CI_Precio_Actual__c;
+                return montoFinal; 
+            }
+            return lote.CI_Precio_Actual__c;
         }
                 
         public void changeModelo(){

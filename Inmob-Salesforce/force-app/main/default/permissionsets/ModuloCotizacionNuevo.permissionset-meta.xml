@@ -87,6 +87,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Cotizacion__c.EntradaEntrega__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Cotizacion__c.UsuarioAprobador__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -107,6 +112,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Descuento__c.Etapa__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Descuento__c.MesesEntrega__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -123,6 +133,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Urbanizacion__c.ParametroConfigurados__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Gerente__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>

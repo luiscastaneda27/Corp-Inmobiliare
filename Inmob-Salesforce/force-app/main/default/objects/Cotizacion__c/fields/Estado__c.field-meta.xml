@@ -46,21 +46,6 @@
                 <default>false</default>
                 <label>Vendido</label>
             </value>
-            <value>
-                <fullName>Reestructurado</fullName>
-                <default>false</default>
-                <label>Reestructurado</label>
-            </value>
-            <value>
-                <fullName>Resciliado</fullName>
-                <default>false</default>
-                <label>Resciliado</label>
-            </value>
-            <value>
-                <fullName>Estructurado</fullName>
-                <default>false</default>
-                <label>Estructurado</label>
-            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

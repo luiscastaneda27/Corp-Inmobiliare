@@ -1,47 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	<types>
-		<members>extensionCotizacion</members>
-		<members>extensionCotizacion_test</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>vfCotizacionNew</members>
-		<members>vfNewFinanciamiento</members>
-		<name>ApexPage</name>
-	</types>
-	<types>
-		<members>Cotizacion__c.Estado__c</members>
-		<members>Cotizacion__c.UsuarioAprobador__c</members>
-		<members>Lote__c.ParametroConfigurados__c</members>
-		<members>Urbanizacion__c.ParametroConfigurados__c</members>
-		<name>CustomField</name>
-	</types>
-	<types>
-		<members>CI_ParametroEtapa__c</members>
-		<members>CI_ParametroLote__c</members>
-		<members>Descuento__c</members>
-		<name>CustomObject</name>
-	</types>
-	<types>
-		<members>Cotizaci_n_P_gina_de_registro</members>
-		<name>FlexiPage</name>
-	</types>
-	<types>
-		<members>CI_ParametroEtapa__c-Parámetro por Etapa Layout</members>
-		<members>CI_ParametroLote__c-Parámetro por Lote Layout</members>
-		<members>Descuento__c-Formato Descuento</members>
-		<members>Lote__c-Formato Inmueble</members>
-		<members>Urbanizacion__c-Formato Etapa</members>
-		<name>Layout</name>
-	</types>
-	<types>
-		<members>Cotizacion</members>
-		<name>PathAssistant</name>
-	</types>
-	<types>
-		<members>ModuloCotizacionNuevo</members>
-		<name>PermissionSet</name>
-	</types>
+	
 	<version>62.0</version>
 </Package>

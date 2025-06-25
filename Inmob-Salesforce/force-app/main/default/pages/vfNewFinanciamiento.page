@@ -566,15 +566,15 @@
                                                     <div class="slds-form-element__row">
                                                         <div class="slds-form-element slds-size_1-of-2">
                                                             <label class="slds-form-element__label" for="input-04">Cuotas</label>
-                                                            <apex:inputText value="{!plazoEntrega}" label="Cuotas" rendered="{!tipoFinanciamiento != 'CH'}" styleClass="slds-input">
+                                                            <apex:outputText value="{!plazoEntrega}" label="Cuotas" rendered="{!tipoFinanciamiento != 'CH'}" styleClass="slds-input">
                                                                 <apex:actionSupport action="{!calcularCoutasSaldo}" event="onchange" status="status" reRender="theForm" oncomplete="toggleFinanciamientoEntrada();"/>
-                                                            </apex:inputText>
+                                                            </apex:outputText>
                                                         </div>
                                                         <div class="slds-form-element slds-size_1-of-2">
                                                             <label class="slds-form-element__label" for="input-05">Tasa de Interes(%)</label>
-                                                            <apex:inputText value="{!tasaInteresSaldoCredito}" Label="Tasa Interes Saldo" styleClass="slds-input">
+                                                            <apex:outputText value="{!tasaInteresSaldoCredito}" Label="Tasa Interes Saldo" styleClass="slds-input">
                                                                 <apex:actionSupport action="{!calcularCoutasSaldo}" event="onchange" reRender="theForm" status="status" oncomplete="toggleFinanciamientoEntrada();"/>
-                                                            </apex:inputText>
+                                                            </apex:outputText>
                                                         </div>
                                                     </div>
                                                 </div>
