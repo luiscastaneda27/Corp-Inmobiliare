@@ -91,8 +91,8 @@ public class extensionCotizacion {
         fields.add('Ingresa_Preferencial__c');
         fields.add('CreatedDate');
         fields.add('EntradaEntrega__c');
-        if(!test.isRunningTest()) { stdController.addFields(fields);
-        }   
+        fields.add('DiferenciaEntregaEntrada__c');
+        if(!test.isRunningTest()) { stdController.addFields(fields);}   
         
         controller = stdController;
         cotizacion = (Cotizacion__c)controller.getRecord();
@@ -123,24 +123,32 @@ public class extensionCotizacion {
             oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, 
                            Account.CI_celular__c, Fecha_de_Reserva__c, Account.CI_Tipo_Identi__c, Estado_de_Venta__c,
                            Estado_de_Aprobacion__c, Owner.CI_Nombre_Funcion__c, Proyecto__c,
-                           Cotizacion__c, StageName 
+                           Cotizacion__c, StageName, Owner.managerId, Owner.Gerente__c, Owner.Director__c
                            FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
             // Lista de Proyectos
             listaProyectos = [SELECT ID, Name, Minimo_Reserva__c, CI_Porcentaje_Entrada__c, Maximo_de_Cuotas__c 
                               FROM Proyecto__c]; opcionesProyecto = new List<SelectOption>(); 
-            for(Proyecto__c item:listaProyectos) { opcionesProyecto.add(new SelectOption(item.Id,item.Name)); 
-             if(item.Id==cotizacion.CI_Proyecto__c)
-             { proyectoSeleccionado = cotizacion.Implantaci_n_Principal__r.Lote__r.CI_Proyecto__c; } } 
-            NoModificable = true; NoFinanciable = true; 
-            if(Oportunidad.Estado_de_Venta__c!='Vendido' && Oportunidad.Estado_de_Aprobacion__c=='Aprobado')
-            { NoModificable = false; NoFinanciable = false; } 
-            if(!usuario.profile.Name.contains('Asesor') && oportunidad.Cotizacion__c == null)
-            { NoModificable = false; } 
-            if(usuario.profile.Name != 'Asesor de Ventas' && Oportunidad.Estado_de_Venta__c!='Vendido' && Oportunidad.Estado_de_Aprobacion__c!='Aprobado') 
-            { NoModificable = false; } 
+            for(Proyecto__c item:listaProyectos) { 
+                opcionesProyecto.add(new SelectOption(item.Id,item.Name)); 
+                if(item.Id==cotizacion.CI_Proyecto__c){ 
+                    proyectoSeleccionado = cotizacion.Implantaci_n_Principal__r.Lote__r.CI_Proyecto__c;
+                } 
+            } 
+            NoModificable = true;
+            NoFinanciable = true; 
+            if(Oportunidad.Estado_de_Venta__c!='Vendido' && Oportunidad.Estado_de_Aprobacion__c=='Aprobado'){
+                NoModificable = false;
+                NoFinanciable = false; 
+            } 
+            if(!usuario.profile.Name.contains('Asesor') && oportunidad.Cotizacion__c == null){
+                NoModificable = false; 
+            } 
+            if(usuario.profile.Name != 'Asesor de Ventas' && Oportunidad.Estado_de_Venta__c!='Vendido' && Oportunidad.Estado_de_Aprobacion__c!='Aprobado') {
+                NoModificable = false;
+            } 
             Sales_SLA_config__mdt configSLA = [SELECT MasterLabel, Valor_de_Comparacion__c 
                                                FROM Sales_SLA_config__mdt WHERE QualifiedApiName='MOD1_Dias_modificacion'];
-            if(cotizacion.CreatedDate.addDays((integer.valueOf(configSLA.Valor_de_Comparacion__c)))>system.now()){
+            if(cotizacion.CreatedDate.addDays((Integer.valueOf(configSLA.Valor_de_Comparacion__c)))>system.now()){
                 NoModificable = false; 
                 NoFinanciable = false; 
             }
@@ -168,20 +176,18 @@ public class extensionCotizacion {
                 monto = cotizacion.Valor_Contrato__c; 
                 entrada = cotizacion.Valor_de_Entrada__c; 
                 saldo = cotizacion.Valor_Saldo__c; 
-                entradaPor = cotizacion.Porcentaje_Cuota_Entrada__c;
-                if(entradaPor==null){
-                    entradaPor=0;
-                }
-                saldoPor = 100-entradaPor;
+                entradaPor = cotizacion.Porcentaje_Cuota_Entrada__c != null ? cotizacion.Porcentaje_Cuota_Entrada__c : 0;
+                
+                saldoPor = 100 - entradaPor;
                 plazoEntrada = cotizacion.Plazo_Cuota_Entrada__c;
                 plazoEntrega = cotizacion.Plazo_Entrada_Saldo__c; 
-                diferenciaPlazo = plazoEntrega - plazoEntrada;
+                diferenciaPlazo = cotizacion.DiferenciaEntregaEntrada__c != null ? cotizacion.DiferenciaEntregaEntrada__c : 0;
                 FechaInicio = cotizacion.Fecha_Cuota_Entrada__c;
                 descuento = cotizacion.Monto_Descuento__c; 
                 cuotaExtraEntrada = new Cuota(this);
                 cuotaExtraSaldo = new Cuota(this); 
                 montoDescuentoMaximo = cotizacion.Valor_Saldo__c; 
-                descuentoPor = descuento/monto * 100;
+                descuentoPor = cotizacion.Descuento_Porcentaje__c;
                 FechaSaldo = cotizacion.Fecha_Cuota_Saldo__c; 
                 cuotaExtraSaldo = new Cuota(this);
                 tasaInteresSaldoCredito = cotizacion.Tasa_De_Interes_anual__c;
@@ -237,13 +243,14 @@ public class extensionCotizacion {
                 calcularCoutasSaldoEntrada();
             }catch(Exception e) {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'La cotización tiene un proyecto que usted no administra.')); 
-                return;}
+                return;
+            }
         } else {
             cotizacion.Estado__c = 'Nueva';
             try{
                 oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, Account.CI_celular__c, 
                                Fecha_de_Reserva__c,Account.CI_Tipo_Identi__c, Estado_de_Venta__c, Estado_de_Aprobacion__c,
-                               Owner.CI_Nombre_Funcion__c,Proyecto__c 
+                               Owner.CI_Nombre_Funcion__c,Proyecto__c, Owner.managerId, Owner.Gerente__c, Owner.Director__c
                                FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
                 // Lista de Proyectos
                 listaProyectos = [SELECT ID, Name, Minimo_Reserva__c, CI_Porcentaje_Entrada__c, Maximo_de_Cuotas__c 
@@ -255,7 +262,8 @@ public class extensionCotizacion {
                     if(item.Id==proyectoSeleccionado) { proyecto = item; ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No hay parámetros configurados para el proyecto seleccionado, por favor contacte a su administrador.')); return;
                     }
                 }
-            }catch(Exception e) { ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Para ingresar una cotización nueva debe generarla desde la pantalla de una Oportunidad Activa.')); return;
+            }catch(Exception e) { 
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Para ingresar una cotización nueva debe generarla desde la pantalla de una Oportunidad Activa.')); return;
             }
         }
     }
@@ -280,7 +288,8 @@ public class extensionCotizacion {
     public void refreshInmueble(){
         listaInmuebles = [SELECT ID, Name, CI_Manzana__c,CI_Fecha_Limite_Venta__c  FROM Lote__c where CI_Manzana__c=:manzanaSeleccionada order by name Asc];
         opcionesInmueble = new List<SelectOption>();
-        for(Lote__c item:listaInmuebles) { opcionesInmueble.add(new SelectOption(item.Id,item.Name));
+        for(Lote__c item:listaInmuebles) { 
+            opcionesInmueble.add(new SelectOption(item.Id,item.Name));
         }
     }
     
@@ -361,6 +370,8 @@ public class extensionCotizacion {
         cotizacion.CI_Plazo__c = 'M'; 
         cotizacion.CI_Cuota_Inicial__c = cuotaPrima.monto; 
         cotizacion.Estado__c = 'Vigente';
+        cotizacion.UsuarioAprobador__c = getUsuarioAprobador();
+        cotizacion.DiferenciaEntregaEntrada__c = diferenciaPlazo;
         cotizacion.EntradaEntrega__c = propiedadSeleccionada.entradaEntrega;
         cotizacion.Numero_Total_de_Cuotas__c = getNumeroPagosEntrada(); 
         if(listaCuotasEntrada != null && listaCuotasEntrada.size()>0){
@@ -395,13 +406,14 @@ public class extensionCotizacion {
             item.Cuo.Monto_sin_Descuento__c = item.montoSinDescuento; 
         }
         CuotaPrima.cuo.tipo__c = '1';
+        System.debug('listaCuotas: ' + JSON.serialize(listaCuotas[0].Cuo));
         for(Cuota item:listaCuotas){ 
             cuotasInsert.add(item.Cuo);
             item.Cuo.tipo__c = '5'; 
             item.Cuo.Orden__c = item.numeroCuota;
             item.Cuo.Interes_Saldo__c = item.Cuo.Interes_Saldo__c.setScale(2);
             item.Cuo.Cotizacion__c = cotizacion.Id;
-            item.Cuo.Valor_Saldo__c = item.Cuo.Monto_Pago__c-item.Cuo.Interes_Saldo__c; 
+            item.Cuo.Valor_Saldo__c = item.Cuo.Monto_Pago__c - item.Cuo.Interes_Saldo__c; 
             item.Cuo.Valor_Presente__c = item.valorPresente; 
             item.Cuo.Fecha_de_Vencimiento__c = item.Cuo.Fecha__c; 
             item.Cuo.Financiamiento__c = financiamiento.Id;
@@ -452,6 +464,23 @@ public class extensionCotizacion {
         }
         insert detallesInsert; 
         return direccionFin;
+    }
+    
+    public String getUsuarioAprobador(){
+        Integer entrega = cotizacion.Fecha_Cuota_Entrada__c.daysBetween(cotizacion.Fecha_Cuota_Saldo__c);
+        entrega = Math.round( (Decimal) entrega / 30);
+        String userId;
+        for(Descuento__c d :[Select DescuentoEjecutivo__c, DescuentoJefe__c, DescuentoGerente__c from Descuento__c where MesesEntrega__c = :entrega and Etapa__c = :cotizacion.CI_Etapa__c ]){
+            if(descuentoPor > d.DescuentoEjecutivo__c && descuentoPor <= d.DescuentoJefe__c){
+                userId = oportunidad.Owner.managerId;
+            }else if(descuentoPor > d.DescuentoJefe__c && descuentoPor <= d.DescuentoGerente__c){
+                userId = [Select Id From User Where UserName = : oportunidad.Owner.Gerente__c].Id;
+            }else if(descuentoPor > d.DescuentoGerente__c){
+                userId = [Select Id From User Where UserName = : oportunidad.Owner.Director__c].Id;
+            }
+        }
+        System.debug('entrega: ' + entrega + ', userId: ' + userId);
+        return userId;
     }
     
     public void SeleccionarPropiedadLote(){
@@ -706,10 +735,15 @@ public class extensionCotizacion {
     //Método de Filtrado de Promociones
     public List<Promocion_Agregada__c> getvaluesFilterAdi() {
         System.debug('Datos filtro: '+urbanizacionSeleccionada+'--'+metrosTerreno+'--'+empresaImplantacion+'--'+proyectoImplantacion);
-        string query = 'Select id, name, Etapa__c, Modelo__c, CI_Metros_Terreno__c, Nivel__c, Etapa__r.Name, Etapa__r.Codigo_Empresa__c, Etapa__r.Proyecto__c, Promocion__c, Promocion__r.Nivel__c, Promocion__r.Name, Promocion__r.Estado__c, promocion__r.Codigo__c, Promocion__r.Prescindible__c, Vigencia_Inicio__c, Vigencia_Fin__c, Valor__c '+
-            'FROM Promocion_Agregada__c '+
-            'WHERE valor__c!=0 and Etapa__c=\''+urbanizacionSeleccionada+'\' and Etapa__r.Codigo_Empresa__c = \''+empresaImplantacion+'\' and Etapa__r.Proyecto__c = \''+proyectoImplantacion+'\' '+
-            'and Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY ORDER BY Promocion__r.Name';
+        string query = 'Select Id, Name, Etapa__c, Modelo__c, CI_Metros_Terreno__c, Nivel__c, Etapa__r.Name, ';
+        query += 'Etapa__r.Codigo_Empresa__c, Etapa__r.Proyecto__c, Promocion__c, Promocion__r.Nivel__c,';
+        query += 'Promocion__r.Name, Promocion__r.Estado__c, promocion__r.Codigo__c, Promocion__r.Prescindible__c, ';
+        query += 'Vigencia_Inicio__c, Vigencia_Fin__c, Valor__c ';
+        query += 'FROM Promocion_Agregada__c ';
+        query += 'WHERE valor__c!=0 and Etapa__c=\''+urbanizacionSeleccionada+'\' and ';
+        query += 'Etapa__r.Codigo_Empresa__c = \''+empresaImplantacion+'\' and ';
+        query += 'Etapa__r.Proyecto__c = \''+proyectoImplantacion+'\' and ';
+        query += 'Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY ORDER BY Promocion__r.Name';
                
         List<string> listaPromocionIds = new List<string>();
         //List<string> listaEtapasCodigos = new List<string>();
@@ -1024,6 +1058,10 @@ public class extensionCotizacion {
         EntradaPor = mapParametroEtapa.containsKey(etapa + formaPago) ? mapParametroEtapa.get(etapa + formaPago).CI_CuotaEntrada__c : 30;
         porcentajeCuotaPrima = mapParametroEtapa.containsKey(etapa + formaPago) ? mapParametroEtapa.get(etapa + formaPago).CI_CuotaInicial__c : 15;
         actualizarMonto();
+        if(descuento > 0){
+            actualizarDescuento(); 
+        }
+        
     }
     
     public void actualizarMonto(){
@@ -1059,14 +1097,15 @@ public class extensionCotizacion {
     }
     
     public void recalcularDescuentoPor(){
-        if(descuento == null){ descuento = 0;
-        }
+        descuento = descuento != null ? descuento : 0;
+        
         decimal diferencial = 0;
         if(montoDescuentoMaximo != null && montoDescuentoMaximo != 0){
             diferencial = ((descuento/(propiedadSeleccionada.getMontoTotal() + getValorAdicionales())))*100;
             diferencial = diferencial.setScale(2);
         }
-        if(diferencial!=0){ descuentoPor = diferencial; descuentoPor = descuentoPor.setScale(2);
+        if(diferencial != 0){
+            descuentoPor = diferencial; descuentoPor = descuentoPor.setScale(2);
         }else{
             descuentoPor = 0;
         }
@@ -1426,6 +1465,7 @@ public class extensionCotizacion {
             Decimal plazoEntradaTemp = mapParametroLote.containsKey(propiedadSeleccionada.implan.Lote__c + formaPago) ?  mapParametroLote.get(propiedadSeleccionada.implan.Lote__c + formaPago).CI_PlazoEntrada__c : plazoEntrada;
             FechaSaldo = listaCuotasEntradaVisible[listaCuotasEntradaVisible.size()-1].Cuo.Fecha__c.addMonths(Integer.valueOf(diferenciaPlazo)); 
             System.debug('getNumeroPagosEntrada(): ' + getNumeroPagosEntrada() + ', ' + plazoEntradaTemp);
+            System.debug('diferenciaPlazo: ' + diferenciaPlazo);
             if(getNumeroPagosEntrada() < plazoEntradaTemp){
                  FechaSaldo = listaCuotasEntradaVisible[0].Cuo.Fecha__c.addMonths(Integer.valueOf(plazoEntregaTemp)); 
             }

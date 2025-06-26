@@ -13,15 +13,17 @@
 		<name>ApexPage</name>
 	</types>
 	<types>
-		<members>Cotizacion__c.Estado__c</members>
 		<members>Cotizacion__c.CI_Precio_Neto__c</members>
+		<members>Cotizacion__c.DiferenciaEntregaEntrada__c</members>
 		<members>Cotizacion__c.EntradaEntrega__c</members>
+		<members>Cotizacion__c.Estado__c</members>
 		<members>Cotizacion__c.Monto_Base__c</members>
 		<members>Cotizacion__c.Precio_Venta__c</members>
-		<members>User.Gerente__c</members>
 		<members>Cotizacion__c.UsuarioAprobador__c</members>
 		<members>Lote__c.ParametroConfigurados__c</members>
 		<members>Urbanizacion__c.ParametroConfigurados__c</members>
+		<members>User.Director__c</members>
+		<members>User.Gerente__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>

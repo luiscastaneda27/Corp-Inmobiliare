@@ -87,6 +87,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Cotizacion__c.DiferenciaEntregaEntrada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Cotizacion__c.EntradaEntrega__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -133,6 +138,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Urbanizacion__c.ParametroConfigurados__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Director__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

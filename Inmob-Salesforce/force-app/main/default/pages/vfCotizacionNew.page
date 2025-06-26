@@ -385,6 +385,11 @@
                             <apex:outputField value="{!item.implan.Lote__r.CI_Metros_Terreno__c}"/>
                         </div>
                     </apex:column>
+                    <apex:column headerValue="Entrada - Entrega" onclick="highlighRowLote('{!item.implan.Id}')">
+                        <div class="slds-truncate" title="{!item.implan.Lote__r.CI_Metros_Terreno__c}">
+                            <apex:outputText value="{!item.entradaEntrega}"/>
+                        </div>
+                    </apex:column>
                     <apex:column headerValue="Precio lista" >
                         <apex:outputText value="{0, number, Currency}" >
                             <apex:param value="{!item.montoTotal}" />
