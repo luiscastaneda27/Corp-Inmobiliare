@@ -17,6 +17,7 @@
 		<members>Cotizacion__c.DiferenciaEntregaEntrada__c</members>
 		<members>Cotizacion__c.EntradaEntrega__c</members>
 		<members>Cotizacion__c.Estado__c</members>
+		<members>Cotizacion__c.Gerente__c</members>
 		<members>Cotizacion__c.Monto_Base__c</members>
 		<members>Cotizacion__c.Precio_Venta__c</members>
 		<members>Cotizacion__c.UsuarioAprobador__c</members>
@@ -33,7 +34,7 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>Cotizaci_n_P_gina_de_registro</members>
+		<members>PaginaRegistroCotizacion</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>

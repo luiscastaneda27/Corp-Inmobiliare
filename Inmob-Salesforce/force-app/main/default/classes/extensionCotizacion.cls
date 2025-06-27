@@ -1,4 +1,4 @@
-public class extensionCotizacion {
+public without sharing  class extensionCotizacion {
         
     public ApexPages.StandardController controller {get;set;}
     
@@ -59,6 +59,7 @@ public class extensionCotizacion {
     public Decimal valorCotizado {get;set;}
     public Map<String, CI_ParametroEtapa__c> mapParametroEtapa {get;set;}
     public Map<String, CI_ParametroLote__c> mapParametroLote {get;set;}
+    public Decimal diasPorMes {get;set;}
     
     public extensionCotizacion(ApexPages.StandardController stdController) {
         
@@ -92,6 +93,7 @@ public class extensionCotizacion {
         fields.add('CreatedDate');
         fields.add('EntradaEntrega__c');
         fields.add('DiferenciaEntregaEntrada__c');
+        fields.add('Gerente__c');
         if(!test.isRunningTest()) { stdController.addFields(fields);}   
         
         controller = stdController;
@@ -104,6 +106,7 @@ public class extensionCotizacion {
         totalAdicionales = 0;
         totalDescuento = 0;
         valorCotizado = 0;
+        diasPorMes = 30.42;
         OpcionesModelo = new List<SelectOption>();
         
         usuario = [SELECT Id, profile.Name FROM User WHERE Id=:system.UserInfo.getUserId()];
@@ -130,8 +133,8 @@ public class extensionCotizacion {
                               FROM Proyecto__c]; opcionesProyecto = new List<SelectOption>(); 
             for(Proyecto__c item:listaProyectos) { 
                 opcionesProyecto.add(new SelectOption(item.Id,item.Name)); 
-                if(item.Id==cotizacion.CI_Proyecto__c){ 
-                    proyectoSeleccionado = cotizacion.Implantaci_n_Principal__r.Lote__r.CI_Proyecto__c;
+                if(item.Id == cotizacion.CI_Proyecto__c){ 
+                    proyectoSeleccionado = cotizacion.CI_Proyecto__c;
                 } 
             } 
             NoModificable = true;
@@ -243,6 +246,7 @@ public class extensionCotizacion {
                 calcularCoutasSaldoEntrada();
             }catch(Exception e) {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'La cotización tiene un proyecto que usted no administra.')); 
+                System.debug(e.getLineNumber() +', '+e.getMessage());
                 return;
             }
         } else {
@@ -468,15 +472,24 @@ public class extensionCotizacion {
     
     public String getUsuarioAprobador(){
         Integer entrega = cotizacion.Fecha_Cuota_Entrada__c.daysBetween(cotizacion.Fecha_Cuota_Saldo__c);
-        entrega = Math.round( (Decimal) entrega / 30);
+        entrega = Math.round( (Decimal) entrega / diasPorMes) + 1;
         String userId;
+        cotizacion.Gerente__c = null;
         for(Descuento__c d :[Select DescuentoEjecutivo__c, DescuentoJefe__c, DescuentoGerente__c from Descuento__c where MesesEntrega__c = :entrega and Etapa__c = :cotizacion.CI_Etapa__c ]){
             if(descuentoPor > d.DescuentoEjecutivo__c && descuentoPor <= d.DescuentoJefe__c){
                 userId = oportunidad.Owner.managerId;
+                cotizacion.Gerente__c = [Select Id From User Where UserName = : oportunidad.Owner.Gerente__c].Id;
             }else if(descuentoPor > d.DescuentoJefe__c && descuentoPor <= d.DescuentoGerente__c){
                 userId = [Select Id From User Where UserName = : oportunidad.Owner.Gerente__c].Id;
             }else if(descuentoPor > d.DescuentoGerente__c){
-                userId = [Select Id From User Where UserName = : oportunidad.Owner.Director__c].Id;
+                for(User u: [Select Id, UserName From User Where UserName = : oportunidad.Owner.Director__c Or UserName = : oportunidad.Owner.Gerente__c]){
+                    if(u.UserName == oportunidad.Owner.Director__c){
+                        userId = u.Id;
+                    }
+                    if(u.UserName == oportunidad.Owner.Gerente__c){
+                        cotizacion.Gerente__c = u.Id;
+                    }
+                }
             }
         }
         System.debug('entrega: ' + entrega + ', userId: ' + userId);
@@ -532,14 +545,18 @@ public class extensionCotizacion {
     //Método de Filtrado de Urbanizaciones y Propiedades
     public PageReference getvaluesFilter() {
         
-        queryImp = 'Select Id, Name, Lote__r.CI_Metros_Terreno__c, Lote__r.Name, Lote__r.Codigo_Empresa__c, Modelo__r.Name, Lote__r.CI_Proyecto__r.Name, Lote__r.CI_manzana__r.Name, Lote__r.CI_manzana__r.Etapa__r.Name, Lote__r.Codigo_Etapa__c, Lote__r.CI_Codigo_Inmueble__c, '+
-            'Lote__r.CI_Manzana__r.Etapa__c, Precio_Lista__c,Lote__r.CI_Fecha_Limite_Venta__c, Lote__r.CI_Proyecto__r.Codigo_Proyecto__c, Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c From Implantacion__c ';
+        queryImp = 'Select Id, Name, Lote__r.CI_Metros_Terreno__c, Lote__r.Name, Lote__r.Codigo_Empresa__c, Modelo__r.Name,';
+        queryImp += 'Lote__r.CI_Proyecto__r.Name, Lote__r.CI_manzana__r.Name, Lote__r.CI_manzana__r.Etapa__r.Name, ';
+        queryImp += 'Lote__r.Codigo_Etapa__c, Lote__r.CI_Codigo_Inmueble__c, ';
+        queryImp += 'Lote__r.CI_Manzana__r.Etapa__c, Precio_Lista__c,Lote__r.CI_Fecha_Limite_Venta__c,';
+        queryImp += 'Lote__r.CI_Proyecto__r.Codigo_Proyecto__c, Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c From Implantacion__c ';
         queryImp += 'Where Activo__c = true and Lote__r.ParametroConfigurados__c > 0 and Lote__r.CI_manzana__r.Etapa__r.ParametroConfigurados__c > 0 ';
         
         propiedadSeleccionada = null;
-        
+        System.debug('proyectoSeleccionado: ' + proyectoSeleccionado);
         //try {
-        if(proyectoSeleccionado == 'false') { ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Por favor seleccione el Proyecto.'));
+        if(proyectoSeleccionado == 'false') { 
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Por favor seleccione el Proyecto.'));
         } else if(proyectoSeleccionado != 'false' && urbanizacionSeleccionada != 'false') { 
             String manz= '%'+manzanaSeleccionada+'%'; String mod= '%'+modeloSeleccionado+'%';
             if((urbanizacionSeleccionada == null || urbanizacionSeleccionada == '') && (manzanaSeleccionada == null || manzanaSeleccionada == '') && (modeloSeleccionado == null || modeloSeleccionado == '')){

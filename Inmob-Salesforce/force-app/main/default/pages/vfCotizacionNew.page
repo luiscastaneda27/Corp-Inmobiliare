@@ -374,11 +374,11 @@
                         </div>
                     </apex:column>
                     <apex:column headerValue="Modelo">
-                        <apex:outputField value="{!item.implan.Modelo__r.Name}" rendered="{!propiedadSeleccionada == null || TieneHistorico || Oportunidad.Estado_de_Aprobacion__c=='Aprobado'}"/>
-                        <apex:selectList styleclass="slds-select" label="Proyecto" size="1" multiselect="false" value="{!item.modeloSeleccionado}" rendered="{!propiedadSeleccionada != null && NOT(TieneHistorico) && NOT(Oportunidad.Estado_de_Aprobacion__c=='Aprobado')}">
+                        <apex:outputField value="{!item.implan.Modelo__r.Name}" />
+                        <!--apex:selectList styleclass="slds-select" label="Proyecto" size="1" multiselect="false" value="{!item.modeloSeleccionado}" rendered="{!propiedadSeleccionada != null && NOT(TieneHistorico) && NOT(Oportunidad.Estado_de_Aprobacion__c=='Aprobado')}">
                             <apex:selectOptions value="{!opcionesModelo}"/> 
                             <apex:actionSupport event="onchange" action="{!item.changeModelo}" reRender="theForm" status="loadingValues"/>
-                        </apex:selectList>
+                        </apex:selectList-->
                     </apex:column>
                     <apex:column headerValue="Metros Terrenos" onclick="highlighRowLote('{!item.implan.Id}')">
                         <div class="slds-truncate" title="{!item.implan.Lote__r.CI_Metros_Terreno__c}">

@@ -6,17 +6,15 @@
 	</types>
 	<types>
 		<members>vfCotizacionNew</members>
-		<members>vfNewFinanciamiento</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
-		<members>Cotizacion__c.DiferenciaEntregaEntrada__c</members>
-		<members>User.Director__c</members>
+		<members>Cotizacion__c.Gerente__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
-		<members>User-User Layout</members>
-		<name>Layout</name>
+		<members>PaginaRegistroCotizacion</members>
+		<name>FlexiPage</name>
 	</types>
 	<types>
 		<members>ModuloCotizacionNuevo</members>
