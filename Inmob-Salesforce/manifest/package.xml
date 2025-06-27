@@ -10,6 +10,7 @@
 		<name>ApexPage</name>
 	</types>
 	<types>
+		<members>Cotizacion__c.CI_Tipo_Venta__c</members>
 		<members>Cotizacion__c.Institucion_Financiera__c</members>
 		<name>CustomField</name>
 	</types>
