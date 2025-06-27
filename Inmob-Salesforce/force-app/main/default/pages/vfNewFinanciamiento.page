@@ -291,7 +291,21 @@
                                 <fieldset class="slds-form-element">
                                     <div class="slds-form-element__group">
                                         <div class="slds-form-element__row">
-                                            <div class="slds-form-element slds-size_1-of-1">
+                                            <div class="slds-form-element slds-size_1-of-2">
+                                                <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" style="position:relative;top:5px;" title="Tipo de Venta">Tipo de Venta</p>
+                                                <apex:inputField styleclass="slds-select" style="position:relative;top:5px;" value="{!Cotizacion__c.CI_Tipo_Venta__c}">
+                                                    <apex:actionSupport event="onchange" action="{!changeFinanciamiento}" oncomplete="Rendertable2()" reRender="theForm" status="status"/>
+                                                </apex:inputField>
+                                            </div>
+                                            <div class="slds-form-element slds-size_1-of-2">
+                                                <apex:outputPanel rendered="{!Cotizacion__c.CI_Tipo_Venta__c = '1'}">
+                                                    <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" style="position:relative;top:5px;" title="Institución Financiera">Institución Financiera</p>
+                                                    <apex:inputField styleclass="slds-select" style="position:relative;top:5px;" value="{!Cotizacion__c.Institucion_Financiera__c}" />
+                                                </apex:outputPanel>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element__row">
+                                            <div class="slds-form-element slds-size_1-of-2">
                                                 <label class="slds-form-element__label" for="input-01">Descuento</label>
                                                 <apex:inputText value="{!descuento}" label="Descuento" styleclass="slds-input" onkeydown="return checkDecimal(this);" rendered="{!Oportunidad.Estado_de_Aprobacion__c!='Aprobado'}">
                                                     <apex:actionSupport event="onchange" action="{!actualizarDescuento}" status="status" reRender="theForm" oncomplete="toggleVerFinanciamiento();"/>
@@ -300,9 +314,7 @@
                                                     <apex:param value="{!descuento}" />
                                                 </apex:outputText>
                                             </div>
-                                        </div>
-                                        <div class="slds-form-element__row">
-                                            <div class="slds-form-element slds-size_1-of-1">
+                                            <div class="slds-form-element slds-size_1-of-2">
                                                 <label class="slds-form-element__label" for="input-02">Porcentaje</label>
                                                 <apex:inputText value="{!descuentoPor}" label="Porcentaje Descuento" styleclass="slds-input" onkeydown="return checkDecimal(this);" rendered="{!Oportunidad.Estado_de_Aprobacion__c!='Aprobado'}">
                                                     <apex:actionSupport event="onchange" action="{!actualizarDescuentoPor}" status="status" reRender="theForm" oncomplete="toggleVerFinanciamiento();"/>

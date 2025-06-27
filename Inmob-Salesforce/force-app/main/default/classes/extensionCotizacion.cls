@@ -120,7 +120,7 @@ public without sharing  class extensionCotizacion {
             //Inicio validando que exista proceso de aprobación
             list<ProcessInstance> existingApprovals = [SELECT Id, TargetObjectId, status FROM ProcessInstance WHERE TargetObjectId =: cotizacion.id order by createdDate Desc];
             	//Ocultar botón *Guardar* si la cotización preferencial está en aprobación
-            if(existingApprovals.size() > 0 && existingApprovals[0].status == 'Pending') { hidesave = 'display:none;'; } else { hidesave = 'display:row;'; }
+            hidesave = existingApprovals.size() > 0 && existingApprovals[0].status == 'Pending' ? 'display:none;' : 'display:row;'; 
             //Fin validando que exista proceso de aprobación
             
             oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, 
@@ -130,12 +130,11 @@ public without sharing  class extensionCotizacion {
                            FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
             // Lista de Proyectos
             listaProyectos = [SELECT ID, Name, Minimo_Reserva__c, CI_Porcentaje_Entrada__c, Maximo_de_Cuotas__c 
-                              FROM Proyecto__c]; opcionesProyecto = new List<SelectOption>(); 
+                              FROM Proyecto__c where Id = :oportunidad.Proyecto__c]; 
+            opcionesProyecto = new List<SelectOption>(); 
+            proyectoSeleccionado = cotizacion.CI_Proyecto__c;
             for(Proyecto__c item:listaProyectos) { 
                 opcionesProyecto.add(new SelectOption(item.Id,item.Name)); 
-                if(item.Id == cotizacion.CI_Proyecto__c){ 
-                    proyectoSeleccionado = cotizacion.CI_Proyecto__c;
-                } 
             } 
             NoModificable = true;
             NoFinanciable = true; 
@@ -251,6 +250,7 @@ public without sharing  class extensionCotizacion {
             }
         } else {
             cotizacion.Estado__c = 'Nueva';
+            Cotizacion.CI_Tipo_Venta__c = String.isNotBlank(Cotizacion.CI_Tipo_Venta__c) ? Cotizacion.CI_Tipo_Venta__c : '1';
             try{
                 oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, Account.CI_celular__c, 
                                Fecha_de_Reserva__c,Account.CI_Tipo_Identi__c, Estado_de_Venta__c, Estado_de_Aprobacion__c,
@@ -261,10 +261,13 @@ public without sharing  class extensionCotizacion {
                                   //FROM Proyecto__c Where Name=:oportunidad.Owner.CI_Nombre_Funcion__c
                                   FROM Proyecto__c Where id=:oportunidad.Proyecto__c];//ccr
                 opcionesProyecto = new List<SelectOption>();
+                opcionesProyecto.add(new SelectOption('', ' -- Ninguno -- '));
                 for(Proyecto__c item:listaProyectos) {
                     opcionesProyecto.add(new SelectOption(item.Id,item.Name));
-                    if(item.Id==proyectoSeleccionado) { proyecto = item; ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No hay parámetros configurados para el proyecto seleccionado, por favor contacte a su administrador.')); return;
-                    }
+                    /*if(item.Id==proyectoSeleccionado) {
+                        proyecto = item; 
+                        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No hay parámetros configurados para el proyecto seleccionado, por favor contacte a su administrador.')); return;
+                    }*/
                 }
             }catch(Exception e) { 
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Para ingresar una cotización nueva debe generarla desde la pantalla de una Oportunidad Activa.')); return;
@@ -273,15 +276,46 @@ public without sharing  class extensionCotizacion {
     }
     
     public void refreshUrbaninzacion(){
-        listaUrbanizaciones = [SELECT ID, Name, Proyecto__c FROM Urbanizacion__c where Proyecto__c=:proyectoSeleccionado];
+        //listaUrbanizaciones = [SELECT ID, Name, Proyecto__c FROM Urbanizacion__c where Proyecto__c=:proyectoSeleccionado];
+        
         opcionesUrbanizacion = new List<SelectOption>();
-        for(Urbanizacion__c item:listaUrbanizaciones) {
+        opcionesInmueble = new List<SelectOption>();
+        opcionesModelo = new List<SelectOption>();
+        if(Cotizacion.Id == null){
+            opcionesInmueble.add(new SelectOption('', '-- Ninguno --'));
+            opcionesModelo.add(new SelectOption('', '-- Ninguno --'));
+            opcionesUrbanizacion.add(new SelectOption('', '-- Ninguno --'));
+        }
+        
+        
+       /* for(Urbanizacion__c item:listaUrbanizaciones) {
             opcionesUrbanizacion.add(new SelectOption(item.Id,item.Name));
+        }*/
+        queryImp = 'Select Lote__c,Lote__r.Name, Modelo__c, Modelo__r.Name, Lote__r.CI_Manzana__r.Etapa__c,';
+        queryImp += 'Lote__r.CI_Manzana__r.Etapa__r.Name From Implantacion__c ';
+        queryImp += 'Where Activo__c = true and Lote__r.ParametroConfigurados__c > 0 and ';
+        queryImp += 'Lote__r.CI_manzana__r.Etapa__r.ParametroConfigurados__c > 0 and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado+'\'';
+        queryImp += String.isNotBlank(Cotizacion.Id) ? ' and Id =\'' + cotizacion.Implantaci_n_Principal__c + '\'' : '';
+        String flag = '';
+          
+        for(Implantacion__c i: Database.Query(queryImp)){
+            if(!flag.contains(i.Lote__c)){
+                flag += i.Lote__c + ',';
+                opcionesInmueble.add(new SelectOption(i.Lote__c, i.Lote__r.Name));
+            }
+            if(!flag.contains(i.Modelo__c)){
+                flag += i.Modelo__c + ',';
+                opcionesModelo.add(new SelectOption(i.Modelo__c, i.Modelo__r.Name));
+            }
+            if(!flag.contains(i.Lote__r.CI_Manzana__r.Etapa__c)){
+                flag += i.Lote__r.CI_Manzana__r.Etapa__c + ',';
+                opcionesUrbanizacion.add(new SelectOption(i.Lote__r.CI_Manzana__r.Etapa__c, i.Lote__r.CI_Manzana__r.Etapa__r.Name));
+            }
         }
         getvaluesFilter();
     }
     
-    public void refreshManzana(){
+    /*public void refreshManzana(){
         listaManzanas = [SELECT ID, Name, Etapa__c FROM Manzana__c where Etapa__c=:urbanizacionSeleccionada];
         opcionesManzana = new List<SelectOption>();
         for(Manzana__c item:listaManzanas) {
@@ -295,7 +329,7 @@ public without sharing  class extensionCotizacion {
         for(Lote__c item:listaInmuebles) { 
             opcionesInmueble.add(new SelectOption(item.Id,item.Name));
         }
-    }
+    }*/
     
     public PageReference Guardar() {
         monto = getMontoCotizado();
@@ -505,7 +539,8 @@ public without sharing  class extensionCotizacion {
                     propiedadSeleccionada = item;
                 }
             }
-            if(opcionesModelo == null || opcionesModelo.size()==0) { placeOpcionesModelo(); 
+            if(opcionesModelo == null || opcionesModelo.size()==0) {
+                placeOpcionesModelo(); 
             }
             
             propiedadSeleccionada.seleccionada = true;
@@ -535,7 +570,10 @@ public without sharing  class extensionCotizacion {
     
     public PageReference redirectToFinanciamiento() {
         if(propiedadSeleccionada != null){
-            return new PageReference('/apex/vfNewFinanciamiento?id='+cotizacion.id); } else { ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Debe seleccionar una propiedad para Financiar.')); return null;
+            return new PageReference('/apex/vfNewFinanciamiento?id='+cotizacion.id); 
+        } else { 
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Debe seleccionar una propiedad para Financiar.')); 
+            return null;
         }    
     }
     
@@ -544,90 +582,20 @@ public without sharing  class extensionCotizacion {
     
     //Método de Filtrado de Urbanizaciones y Propiedades
     public PageReference getvaluesFilter() {
-        
-        queryImp = 'Select Id, Name, Lote__r.CI_Metros_Terreno__c, Lote__r.Name, Lote__r.Codigo_Empresa__c, Modelo__r.Name,';
-        queryImp += 'Lote__r.CI_Proyecto__r.Name, Lote__r.CI_manzana__r.Name, Lote__r.CI_manzana__r.Etapa__r.Name, ';
-        queryImp += 'Lote__r.Codigo_Etapa__c, Lote__r.CI_Codigo_Inmueble__c, ';
-        queryImp += 'Lote__r.CI_Manzana__r.Etapa__c, Precio_Lista__c,Lote__r.CI_Fecha_Limite_Venta__c,';
-        queryImp += 'Lote__r.CI_Proyecto__r.Codigo_Proyecto__c, Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c From Implantacion__c ';
-        queryImp += 'Where Activo__c = true and Lote__r.ParametroConfigurados__c > 0 and Lote__r.CI_manzana__r.Etapa__r.ParametroConfigurados__c > 0 ';
-        
         propiedadSeleccionada = null;
-        System.debug('proyectoSeleccionado: ' + proyectoSeleccionado);
-        //try {
-        if(proyectoSeleccionado == 'false') { 
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Por favor seleccione el Proyecto.'));
-        } else if(proyectoSeleccionado != 'false' && urbanizacionSeleccionada != 'false') { 
-            String manz= '%'+manzanaSeleccionada+'%'; String mod= '%'+modeloSeleccionado+'%';
-            if((urbanizacionSeleccionada == null || urbanizacionSeleccionada == '') && (manzanaSeleccionada == null || manzanaSeleccionada == '') && (modeloSeleccionado == null || modeloSeleccionado == '')){
-                queryImp += ' and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado +'\'';
-            } else if((urbanizacionSeleccionada != null || urbanizacionSeleccionada != '') && (manzanaSeleccionada == null || manzanaSeleccionada == '') && (modeloSeleccionado == null || modeloSeleccionado == '')) {
-
-                queryImp += ' and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado+'\' and Lote__r.CI_manzana__r.Etapa__c = \''+urbanizacionSeleccionada+'\'';
-                
-                if(cotizacion.Id==null){
-                    queryImp += ' and Lote__r.CI_Estado__c = \'D\'';
-                }else{
-                    queryImp += ' and Lote__c = \''+cotizacion.Implantaci_n_Principal__r.Lote__c+'\''; 
-                }        
-                valuesFilter = Database.query(queryImp);
-                listaPropiedad = new List<Propiedad>();
-                for(Implantacion__c item: valuesFilter){
-                    listaPropiedad.add(new Propiedad(this, item));
-                }
-            } else if((urbanizacionSeleccionada != null || urbanizacionSeleccionada != '') && (manzanaSeleccionada != null || manzanaSeleccionada != '') && (modeloSeleccionado == null || modeloSeleccionado == '')) {
-                queryImp += ' and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado +'\' and Lote__r.CI_manzana__r.Etapa__c = \''+urbanizacionSeleccionada+'\' and Lote__r.CI_manzana__r.Name LIKE :manz';
-                if(cotizacion.Id==null){
-                    queryImp += ' and Lote__r.CI_Estado__c = \'D\'';
-                }else{
-                    queryImp += ' and Lote__c = \''+cotizacion.Implantaci_n_Principal__r.Lote__c+'\''; 
-                }        
-                
-                valuesFilter = Database.query(queryImp);
-                listaPropiedad = new List<Propiedad>();
-                for(Implantacion__c item: valuesFilter){
-                    listaPropiedad.add(new Propiedad(this, item));
-                }
-            } else if((urbanizacionSeleccionada != null || urbanizacionSeleccionada != '') && (manzanaSeleccionada != null || manzanaSeleccionada != '') && (modeloSeleccionado != null || modeloSeleccionado != '')) {
-                queryImp += ' and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado +'\' and Lote__r.CI_manzana__r.Etapa__c = \''+urbanizacionSeleccionada+'\' and Lote__r.CI_manzana__r.Name LIKE :manz and Modelo__r.Name LIKE :mod';
-                if(cotizacion.Id==null){
-                    queryImp += ' and Lote__r.CI_Estado__c = \'D\'';
-                }else{
-                    queryImp += ' and Lote__c = \''+cotizacion.Implantaci_n_Principal__r.Lote__c+'\''; 
-                }        
-                
-                valuesFilter = Database.query(queryImp);
-                listaPropiedad = new List<Propiedad>();
-                for(Implantacion__c item: valuesFilter){
-                    listaPropiedad.add(new Propiedad(this, item));
-                }
-            }else{
-                queryImp += ' and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado +'\'';
-            }
-        } else {
+        if( String.isNotBlank(proyectoSeleccionado)) { 
+            queryImp = 'Select Id, Name, Lote__r.CI_Metros_Terreno__c, Lote__r.Name, Lote__r.Codigo_Empresa__c, Modelo__r.Name,';
+            queryImp += 'Lote__r.CI_Proyecto__r.Name, Lote__r.CI_manzana__r.Name, Lote__r.CI_manzana__r.Etapa__r.Name, ';
+            queryImp += 'Lote__r.Codigo_Etapa__c, Lote__r.CI_Codigo_Inmueble__c, ';
+            queryImp += 'Lote__r.CI_Manzana__r.Etapa__c, Precio_Lista__c,Lote__r.CI_Fecha_Limite_Venta__c,';
+            queryImp += 'Lote__r.CI_Proyecto__r.Codigo_Proyecto__c, Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c From Implantacion__c ';
+            queryImp += 'Where Activo__c = true and Lote__r.ParametroConfigurados__c > 0 and Lote__r.CI_manzana__r.Etapa__r.ParametroConfigurados__c > 0 ';
             queryImp += ' and Lote__r.CI_Proyecto__c = \''+proyectoSeleccionado +'\'';
-        }
-        
-        if(cotizacion.Id==null){
-            queryImp += ' and Lote__r.CI_Estado__c = \'D\''; } else { queryImp += ' and Lote__c = \''+cotizacion.Implantaci_n_Principal__r.Lote__c+'\''; 
-        }        
-        
-        queryImp += ' LIMIT 500';
-        System.debug('queryImp es: '+queryImp);
-        
-        if(proyectoSeleccionado != null && proyectoSeleccionado != 'false' && (proyecto == null || (proyecto != null && proyectoSeleccionado !=proyecto.Id))){
-            proyecto = null;
-            
-            for(Proyecto__c item:listaProyectos) {
-                if(proyectoSeleccionado!= null && proyectoSeleccionado != 'false' && item.Id==proyectoSeleccionado){
-                    proyecto = item;
-                }
-            }
-            propiedadSeleccionada = null;
-            if(proyecto==null) { listaPropiedad = new List<Propiedad>(); return null;
-            }
-            
-            
+            queryImp += String.isNotBlank(urbanizacionSeleccionada) ? ' and Lote__r.CI_manzana__r.Etapa__c = \'' + urbanizacionSeleccionada + '\'' : '';
+            queryImp += String.isBlank(Cotizacion.Id) ? ' and Lote__r.CI_Estado__c = \'D\'' : ' and Lote__c = \''+cotizacion.Implantaci_n_Principal__r.Lote__c+'\'';
+            queryImp += String.isNotBlank(inmuebleSeleccionado) ? ' and Lote__r.Id = \'' + inmuebleSeleccionado + '\'': '';
+            queryImp += String.isNotBlank(modeloSeleccionado) ?  ' and Modelo__c = \'' + modeloSeleccionado + '\'' : '';
+            System.debug('queryImp: ' + queryImp);
             valuesFilter = Database.query(queryImp);
             
             listaPropiedad = new List<Propiedad>();
@@ -646,11 +614,8 @@ public without sharing  class extensionCotizacion {
                 nueva.entradaEntrega = ((Integer) pl.CI_PlazoEntrada__c + ' - ' + (Integer) pl.CI_PlazoEntrega__c);
                 listaPropiedad.add(nueva);
             }
-            
-            placeOpcionesModelo();
         }else{
-            if(proyectoSeleccionado != null && proyectoSeleccionado == 'false') { proyecto = null; listaPropiedad = new List<Propiedad>();
-            }
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Por favor seleccione el Proyecto.'));
         }
         
         return null;        
@@ -1137,9 +1102,8 @@ public without sharing  class extensionCotizacion {
     }
         
     public void changeFinanciamiento(){
-        if(propiedadSeleccionada == null) { return;
-        }
-        
+        if(propiedadSeleccionada == null) { return;}
+        System.debug(Cotizacion.CI_Tipo_Venta__c);
         if(Cotizacion.CI_Tipo_Venta__c == '1'){
             
             String etapa = propiedadSeleccionada.implan.Lote__r.CI_manzana__r.Etapa__c;
@@ -1218,13 +1182,14 @@ public without sharing  class extensionCotizacion {
     }
     
     public PageReference redirectFromFinanciamiento(){
-        
         validateSLA();
-        
-        permiteSalirRef = true;
-        
+        permiteSalirRef = !(cotizacion.CI_Tipo_Venta__c == '1' && String.isBlank(cotizacion.Institucion_Financiera__c));
+        cotizacion.Institucion_Financiera__c = cotizacion.CI_Tipo_Venta__c == '1' ? cotizacion.Institucion_Financiera__c : null;
         if(permiteSalirRef){
-            return new PageReference('/apex/vfCotizacionNew'); } else { return null;
+            return new PageReference('/apex/vfCotizacionNew'); 
+        } else {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Debe completar la institución financiera')); 
+            return null;
         }
     }
     

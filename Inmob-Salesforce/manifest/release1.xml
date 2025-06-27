@@ -18,6 +18,7 @@
 		<members>Cotizacion__c.EntradaEntrega__c</members>
 		<members>Cotizacion__c.Estado__c</members>
 		<members>Cotizacion__c.Gerente__c</members>
+		<members>Cotizacion__c.Institucion_Financiera__c</members>
 		<members>Cotizacion__c.Monto_Base__c</members>
 		<members>Cotizacion__c.Precio_Venta__c</members>
 		<members>Cotizacion__c.UsuarioAprobador__c</members>
@@ -40,6 +41,7 @@
 	<types>
 		<members>CI_ParametroEtapa__c-Parámetro por Etapa Layout</members>
 		<members>CI_ParametroLote__c-Parámetro por Lote Layout</members>
+		<members>Cotizacion__c-Formato Cotización</members>
 		<members>Descuento__c-Formato Descuento</members>
 		<members>Lote__c-Formato Inmueble</members>
 		<members>Urbanizacion__c-Formato Etapa</members>

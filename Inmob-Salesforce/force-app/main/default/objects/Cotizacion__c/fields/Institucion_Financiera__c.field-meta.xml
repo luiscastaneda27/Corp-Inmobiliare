@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Institucion_Financiera__c</fullName>
+    <label>Institución Financiera</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0000000000005</fullName>
+                <default>false</default>
+                <label>BANCO PRODUBANCO</label>
+            </value>
+            <value>
+                <fullName>0000000000250</fullName>
+                <default>false</default>
+                <label>I.E.S.S.</label>
+            </value>
+            <value>
+                <fullName>0000000011115</fullName>
+                <default>false</default>
+                <label>BANCO PROAMERICA</label>
+            </value>
+            <value>
+                <fullName>0190055965001</fullName>
+                <default>false</default>
+                <label>BANCO DEL AUSTRO</label>
+            </value>
+            <value>
+                <fullName>0790002350001</fullName>
+                <default>false</default>
+                <label>BANCO DE MACHALA</label>
+            </value>
+            <value>
+                <fullName>0990005737001</fullName>
+                <default>false</default>
+                <label>BANCO DEL PACIFICO</label>
+            </value>
+            <value>
+                <fullName>0990029105001</fullName>
+                <default>false</default>
+                <label>BANCO TERRITORIAL</label>
+            </value>
+            <value>
+                <fullName>0990048673001</fullName>
+                <default>false</default>
+                <label>BANCO DELBANK S.A.</label>
+            </value>
+            <value>
+                <fullName>0990049459001</fullName>
+                <default>false</default>
+                <label>BANCO DE GUAYAQUIL</label>
+            </value>
+            <value>
+                <fullName>0990141516172</fullName>
+                <default>false</default>
+                <label>BANCO DEL PICHINCHA</label>
+            </value>
+            <value>
+                <fullName>0990579017007</fullName>
+                <default>false</default>
+                <label>BANCO BOLIVARIANO C.A.</label>
+            </value>
+            <value>
+                <fullName>1760002600001</fullName>
+                <default>false</default>
+                <label>BANCO CENTRAL DEL ECUADOR</label>
+            </value>
+            <value>
+                <fullName>1760002790021</fullName>
+                <default>false</default>
+                <label>BANCO NACIONAL DE FOMENTO</label>
+            </value>
+            <value>
+                <fullName>1768022190001</fullName>
+                <default>false</default>
+                <label>ISSFA</label>
+            </value>
+            <value>
+                <fullName>1790010937001</fullName>
+                <default>false</default>
+                <label>BANCO DEL PICHINCHA S.A.</label>
+            </value>
+            <value>
+                <fullName>1790022186005</fullName>
+                <default>false</default>
+                <label>BANCO AMAZONAS</label>
+            </value>
+            <value>
+                <fullName>1790075494001</fullName>
+                <default>false</default>
+                <label>MUTUALISTA PICHINCHA</label>
+            </value>
+            <value>
+                <fullName>1790098354001</fullName>
+                <default>false</default>
+                <label>BANCO INTERNACIONAL S.A.</label>
+            </value>
+            <value>
+                <fullName>1790477142001</fullName>
+                <default>false</default>
+                <label>BANCO M.M. JARAMILLO ARTEAGA S.A.</label>
+            </value>
+            <value>
+                <fullName>1790864316001</fullName>
+                <default>false</default>
+                <label>BANCO RUMIÑAHUI</label>
+            </value>
+            <value>
+                <fullName>1790864316002</fullName>
+                <default>false</default>
+                <label>BANCO RUMIÐAHUI</label>
+            </value>
+            <value>
+                <fullName>1791109384001</fullName>
+                <default>false</default>
+                <label>BANCO SOLIDARIO</label>
+            </value>
+            <value>
+                <fullName>1791369378001</fullName>
+                <default>false</default>
+                <label>CORPORACION DE DESARROLLO DE MERCADO SECUNDARIO DE HIPOTECAS</label>
+            </value>
+            <value>
+                <fullName>1791423526001</fullName>
+                <default>false</default>
+                <label>BANCO INTERNACIONAL</label>
+            </value>
+            <value>
+                <fullName>9999999999999</fullName>
+                <default>false</default>
+                <label>I S S  F A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
