@@ -101,6 +101,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Cotizacion__c.NombrePropietario__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Cotizacion__c.UsuarioAprobador__c</field>
         <readable>true</readable>

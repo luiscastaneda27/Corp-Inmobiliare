@@ -241,7 +241,7 @@
                   </div>
                 </article>
               </li>
-              <li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-5">
+              <!--li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-5">
                 <article class="slds-tile slds-media slds-card__tile slds-hint-parent">
                   <div class="slds-media__body">
                     <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
@@ -256,7 +256,7 @@
                     </div>
                   </div>
                 </article>
-              </li>
+              </li-->
               <li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-5">
                 <article class="slds-tile slds-media slds-card__tile slds-hint-parent">
                   <div class="slds-media__body">
@@ -305,6 +305,22 @@
                   </div>
                 </article>
               </li>
+              <li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-5">
+                <article class="slds-tile slds-media slds-card__tile slds-hint-parent">
+                  <div class="slds-media__body">
+                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                      <h3 class="slds-tile__title slds-truncate" title="Proyeto">
+                        <a href="javascript:void(0);">Proyeto</a>
+                      </h3>
+                    </div>
+                    <div class="slds-tile__detail">
+                      <dl class="slds-list_horizontal slds-wrap">
+                        <dd class="slds-item_detail slds-truncate" title="{!Cotizacion__c.Oportunidad__r.CI_Proyecto__c}">{!Oportunidad.Proyecto__r.Name}</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+              </li>
                
             </ul>
           </div>
@@ -322,7 +338,7 @@
                     <apex:inputField styleclass="slds-select" style="position:relative;top:5px;" value="{!Cotizacion__c.CI_Tipo_Venta__c}">
                         <apex:actionSupport event="onchange" action="{!changeFinanciamiento}" oncomplete="Rendertable2()" reRender="theForm" status="status"/>
                     </apex:inputField>
-                </li-->
+                </li>
                 <li class="slds-page-header__detail-block slds-size_2-of-8">
                     <div class="slds-form-element">
                       <label class="slds-form-element__label" for="select-01">Proyecto</label>
@@ -330,16 +346,14 @@
                         <div class="slds-select_container">
                           <p class="slds-text-body_regular slds-truncate" title="{!proyectoSeleccionado}">                        
                           <apex:selectList styleclass="slds-select" label="Proyecto" size="1" multiselect="false" value="{!proyectoSeleccionado}">
-                              <!--apex:selectOption itemLabel=" -- Ninguno -- " itemValue="false"></apex:selectOption-->
                               <apex:selectOptions value="{!opcionesProyecto}"/> 
-                              <!-- apex:actionSupport event="onchange" onsubmit="table();" reRender="theForm" status="status"/ -->
                               <apex:actionSupport event="onchange" oncomplete="Rendertable2();cleanFields();" action="{!refreshUrbaninzacion}" reRender="theForm" status="loadingValues"/>
                           </apex:selectList>
                           </p>
                         </div>
                       </div>
                     </div>
-                </li>
+                </li-->
                 <li class="slds-page-header__detail-block slds-size_2-of-8">
                     <div class="slds-form-element">
                         <label class="slds-form-element__label" for="select-01">Etapa</label>
@@ -349,6 +363,14 @@
                             <apex:actionSupport event="onchange" oncomplete="Rendertable2();" action="{!getvaluesFilter}" reRender="theForm" status="loadingValues"/>
                         </apex:selectList>
                         </p>
+                    </div>
+                </li>
+                <li class="slds-page-header__detail-block slds-size_2-of-8">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">Manzana</label>
+                        <apex:inputText id="Manzana" styleclass="slds-input" value="{!manzanaSeleccionada}" label="Manzana" disabled="{!Cotizacion__c.Id != null}" >
+                            <apex:actionSupport event="onchange" oncomplete="Rendertable2()" action="{!getvaluesFilter}" reRender="theForm" status="loadingValues"/>
+                        </apex:inputText>
                     </div>
                 </li>
                 <li class="slds-page-header__detail-block slds-size_2-of-8">
@@ -373,14 +395,6 @@
                         </p>
                     </div>
                 </li>
-                <!--li class="slds-page-header__detail-block slds-size_1-of-8">
-                    <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="select-01">Manzana</label>
-                        <apex:inputText id="Manzana" styleclass="slds-input" value="{!manzanaSeleccionada}" label="Manzana">
-                            <apex:actionSupport event="onchange" oncomplete="Rendertable2()" action="{!getvaluesFilter}" reRender="theForm" status="loadingValues"/>
-                        </apex:inputText>
-                    </div>
-                </li-->
                 <apex:outputPanel rendered="{!Cotizacion__c.CI_Tipo_Venta__c=='6'}">
                 <li class="slds-page-header__detail-block slds-size_1-of-8">
                     <div class="slds-form-element">

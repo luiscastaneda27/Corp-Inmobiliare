@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>AprobacionDescuentoCotizacion</fullName>
+        <description>Aprobacion de Descuento en Cotizacion</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AprobacionDescuentoCotizacion</template>
+    </alerts>
+    <alerts>
+        <fullName>EnvioCorreoAprobador</fullName>
+        <description>Envio Correo para Aprobador</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>Gerente__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>UsuarioAprobador__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SolicitudDescuentoCotizacion</template>
+    </alerts>
+    <alerts>
+        <fullName>RechazoDescuento</fullName>
+        <description>Rechazo de Descuento</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/RechazoDescuentoCotizacion</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ActualizaEstadoAnulada</fullName>
+        <field>Estado__c</field>
+        <literalValue>Anulada</literalValue>
+        <name>Actualiza Estado a Anulada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ActualizaEstadoAprobado</fullName>
+        <field>Estado__c</field>
+        <literalValue>Aprobado</literalValue>
+        <name>Actualiza Estado a Aprobado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ActualizarEstadoaEnAprobacion</fullName>
+        <field>Estado__c</field>
+        <literalValue>En Aprobación</literalValue>
+        <name>Actualizar Estado a En Aprobacion</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

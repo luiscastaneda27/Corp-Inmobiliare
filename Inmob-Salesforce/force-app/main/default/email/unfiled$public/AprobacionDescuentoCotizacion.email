@@ -1,0 +1,7 @@
+Hola {!Cotizacion__c.NombrePropietario__c},
+
+Te informamos que el descuento solicitado para la cotización N.º {!Cotizacion__c.Name} ha sido aprobado.
+
+{!Cotizacion__c.Link}
+
+Saludos.

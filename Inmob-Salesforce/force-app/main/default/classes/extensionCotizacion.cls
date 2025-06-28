@@ -126,7 +126,8 @@ public without sharing  class extensionCotizacion {
             oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, 
                            Account.CI_celular__c, Fecha_de_Reserva__c, Account.CI_Tipo_Identi__c, Estado_de_Venta__c,
                            Estado_de_Aprobacion__c, Owner.CI_Nombre_Funcion__c, Proyecto__c,
-                           Cotizacion__c, StageName, Owner.managerId, Owner.Gerente__c, Owner.Director__c
+                           Cotizacion__c, StageName, Owner.managerId, Owner.Gerente__c, Owner.Director__c,
+                           Proyecto__r.Name
                            FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
             // Lista de Proyectos
             listaProyectos = [SELECT ID, Name, Minimo_Reserva__c, CI_Porcentaje_Entrada__c, Maximo_de_Cuotas__c 
@@ -254,22 +255,21 @@ public without sharing  class extensionCotizacion {
             try{
                 oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, Account.CI_celular__c, 
                                Fecha_de_Reserva__c,Account.CI_Tipo_Identi__c, Estado_de_Venta__c, Estado_de_Aprobacion__c,
-                               Owner.CI_Nombre_Funcion__c,Proyecto__c, Owner.managerId, Owner.Gerente__c, Owner.Director__c
+                               Owner.CI_Nombre_Funcion__c,Proyecto__c, Owner.managerId, Owner.Gerente__c, Owner.Director__c,
+                               Proyecto__r.Name
                                FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
+                proyectoSeleccionado = oportunidad.Proyecto__c;
                 // Lista de Proyectos
                 listaProyectos = [SELECT ID, Name, Minimo_Reserva__c, CI_Porcentaje_Entrada__c, Maximo_de_Cuotas__c 
-                                  //FROM Proyecto__c Where Name=:oportunidad.Owner.CI_Nombre_Funcion__c
                                   FROM Proyecto__c Where id=:oportunidad.Proyecto__c];//ccr
                 opcionesProyecto = new List<SelectOption>();
                 opcionesProyecto.add(new SelectOption('', ' -- Ninguno -- '));
                 for(Proyecto__c item:listaProyectos) {
                     opcionesProyecto.add(new SelectOption(item.Id,item.Name));
-                    /*if(item.Id==proyectoSeleccionado) {
-                        proyecto = item; 
-                        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No hay parámetros configurados para el proyecto seleccionado, por favor contacte a su administrador.')); return;
-                    }*/
                 }
+                refreshUrbaninzacion();
             }catch(Exception e) { 
+                System.debug(e.getLineNumber() + ', '+e.getMessage());
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Para ingresar una cotización nueva debe generarla desde la pantalla de una Oportunidad Activa.')); return;
             }
         }
@@ -595,6 +595,8 @@ public without sharing  class extensionCotizacion {
             queryImp += String.isBlank(Cotizacion.Id) ? ' and Lote__r.CI_Estado__c = \'D\'' : ' and Lote__c = \''+cotizacion.Implantaci_n_Principal__r.Lote__c+'\'';
             queryImp += String.isNotBlank(inmuebleSeleccionado) ? ' and Lote__r.Id = \'' + inmuebleSeleccionado + '\'': '';
             queryImp += String.isNotBlank(modeloSeleccionado) ?  ' and Modelo__c = \'' + modeloSeleccionado + '\'' : '';
+            queryImp += String.isNotBlank(manzanaSeleccionada) ?  ' and Lote__r.CI_manzana__r.Name LIKE \'%' + manzanaSeleccionada + '%\'' : '';
+            
             System.debug('queryImp: ' + queryImp);
             valuesFilter = Database.query(queryImp);
             
@@ -1007,7 +1009,7 @@ public without sharing  class extensionCotizacion {
             CuotaPrima.Cuo.Monto_Pago__c = CuotaPrima.monto;
             calcularCoutasSaldoEntrada(); 
         } else { 
-            montoCuotaPrima = monto*porcentajeCuotaPrima/100; 
+            montoCuotaPrima = monto * porcentajeCuotaPrima / 100; 
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No puede cambiar el valor de el primer pago a menor a 0.')); 
             return;
         }
@@ -1248,11 +1250,7 @@ public without sharing  class extensionCotizacion {
         Integer cuotasMod = 0;
         Integer cuotasElim = 0;
         Decimal entradaSinDescuento = 0;
-        if(cotizacion.ID==null){
-            entradaSinDescuento = (monto+descuento)*EntradaPor/100;
-        }else{
-            entradaSinDescuento = (monto+descuento)*EntradaPor/100;
-        }
+        entradaSinDescuento = ( monto + descuento ) * EntradaPor / 100;
         decimal sumaFinal = 0;
         decimal sumaCuotasEliminadas = 0;
         entradaSinDescuento = entradaSinDescuento.setScale(2);
