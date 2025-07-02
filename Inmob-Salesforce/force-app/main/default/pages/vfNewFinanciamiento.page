@@ -237,11 +237,8 @@
                         </div>
                         <div class="slds-col slds-no-flex slds-grid slds-align-top">
                             <div class="slds-button-group" role="group">
-                                <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Confirmar" action="{!redirectFromFinanciamiento}" / >
-                                
-                                <button class="slds-button slds-button_neutral" onclick="window.print();return false;">Imprimir</button>
-                                
-                                <apex:commandButton styleclass="slds-button slds-button_neutral" style="border-radius: 5px;" value="Cancelar" action="{!Cancel}"/>
+                                <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Confirmar"  rendered="{!mostrarConfirmar}" action="{!redirectFromFinanciamiento}" / >
+                                <apex:commandButton styleclass="slds-button slds-button_neutral" style="border-radius: 5px;" value="Cancelar" rendered="{!mostrarConfirmar}" action="{!Cancel}"/>
                             </div>
                         </div>
                     </div>

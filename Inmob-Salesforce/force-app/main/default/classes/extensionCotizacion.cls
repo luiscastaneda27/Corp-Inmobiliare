@@ -49,6 +49,7 @@ public without sharing  class extensionCotizacion {
     public Boolean NoModificable {get;set;}
     public Boolean IngresaPreferencial {get;set;}
     public Boolean NoFinanciable {get;set;}
+    public Boolean mostrarConfirmar {get;set;}
     
     public String hidesave {get;set;}
     
@@ -102,6 +103,7 @@ public without sharing  class extensionCotizacion {
         IngresaPreferencial = false;
         NoModificable = false;
         NoFinanciable = false;
+        mostrarConfirmar = true;
         precioLista = 0;
         totalAdicionales = 0;
         totalDescuento = 0;
@@ -109,7 +111,7 @@ public without sharing  class extensionCotizacion {
         diasPorMes = 30.42;
         OpcionesModelo = new List<SelectOption>();
         
-        usuario = [SELECT Id, profile.Name FROM User WHERE Id=:system.UserInfo.getUserId()];
+        usuario = [SELECT Id, profile.Name FROM User WHERE Id=: System.UserInfo.getUserId()];
         System.debug('La cotización es: '+cotizacion.Id);
         mapParametroEtapa = new Map<String, CI_ParametroEtapa__c>();
         for(CI_ParametroEtapa__c item:[Select Id, CI_CuotaEntrada__c, CI_CuotaInicial__c, CI_Etapa__c, CI_FormaPago__c From CI_ParametroEtapa__c ]){
@@ -127,11 +129,12 @@ public without sharing  class extensionCotizacion {
                            Account.CI_celular__c, Fecha_de_Reserva__c, Account.CI_Tipo_Identi__c, Estado_de_Venta__c,
                            Estado_de_Aprobacion__c, Owner.CI_Nombre_Funcion__c, Proyecto__c,
                            Cotizacion__c, StageName, Owner.managerId, Owner.Gerente__c, Owner.Director__c,
-                           Proyecto__r.Name
+                           Proyecto__r.Name, Proyecto__r.CI_Porcentaje_Entrada__c, Proyecto__r.Minimo_Reserva__c
                            FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
             // Lista de Proyectos
             listaProyectos = [SELECT ID, Name, Minimo_Reserva__c, CI_Porcentaje_Entrada__c, Maximo_de_Cuotas__c 
                               FROM Proyecto__c where Id = :oportunidad.Proyecto__c]; 
+            
             opcionesProyecto = new List<SelectOption>(); 
             proyectoSeleccionado = cotizacion.CI_Proyecto__c;
             for(Proyecto__c item:listaProyectos) { 
@@ -256,7 +259,7 @@ public without sharing  class extensionCotizacion {
                 oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, Account.CI_celular__c, 
                                Fecha_de_Reserva__c,Account.CI_Tipo_Identi__c, Estado_de_Venta__c, Estado_de_Aprobacion__c,
                                Owner.CI_Nombre_Funcion__c,Proyecto__c, Owner.managerId, Owner.Gerente__c, Owner.Director__c,
-                               Proyecto__r.Name
+                               Proyecto__r.Name, Proyecto__r.CI_Porcentaje_Entrada__c, Proyecto__r.Minimo_Reserva__c
                                FROM Opportunity WHERE Id = :cotizacion.Oportunidad__c];
                 proyectoSeleccionado = oportunidad.Proyecto__c;
                 // Lista de Proyectos
@@ -539,9 +542,9 @@ public without sharing  class extensionCotizacion {
                     propiedadSeleccionada = item;
                 }
             }
-            if(opcionesModelo == null || opcionesModelo.size()==0) {
+           /* if(opcionesModelo == null || opcionesModelo.size()==0) {
                 placeOpcionesModelo(); 
-            }
+            }*/
             
             propiedadSeleccionada.seleccionada = true;
             
@@ -645,23 +648,25 @@ public without sharing  class extensionCotizacion {
         return total;
     } 
     
-    public void placeOpcionesModelo(){
+    /*public void placeOpcionesModelo(){
         
         List<Modelo__c> modelos = [SELECT Id, Name FROM Modelo__c WHERE CI_Proyecto__c = : proyectoSeleccionado];
         opcionesModelo = new List<SelectOption>();
         for(Modelo__c m:modelos){
             opcionesModelo.add(new SelectOption(m.Id,m.Name));
         }
-    }
+    }*/
     
     List<Promocion_Agregada__c> valuesFilterPromo;
     //Método de Filtrado de Promociones
     public List<Promocion_Agregada__c> getvaluesFilterPromo() {
         
         if(urbanizacionSeleccionada != null){
-            string query = 'Select id, name, Etapa__c, Etapa__r.Name, Promocion__c, Promocion__r.Name, Promocion__r.Estado__c, Promocion__r.Prescindible__c, Vigencia_Inicio__c, Vigencia_Fin__c, Valor__c '+
-                'FROM Promocion_Agregada__c '+
-                'WHERE valor__c=0 and Etapa__c=\''+urbanizacionSeleccionada+'\' and Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY';
+            String query = 'Select Id, Name, Etapa__c, Etapa__r.Name, Promocion__c, Promocion__r.Name,';
+            query += 'Promocion__r.Estado__c, Promocion__r.Prescindible__c, Vigencia_Inicio__c, Vigencia_Fin__c, Valor__c ';
+            query += 'FROM Promocion_Agregada__c ';
+            query += 'WHERE Valor__c = 0 and Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY ';
+            query += 'and Etapa__c = \''+urbanizacionSeleccionada+'\' ';
             valuesFilterPromo = Database.query(query);
             listaPromociones = new List<PromocionFeedResponse>();
             for(Promocion_Agregada__c item:valuesFilterPromo){
@@ -680,11 +685,11 @@ public without sharing  class extensionCotizacion {
             }
             
             List<Historial_Promocion__c> listaHistorico = [SELECT Id,Name,Valor_Promocion__c,CI_Promocion__r.Name,CI_Promocion__r.Prescindible__c, CI_Promocion__c FROM Historial_Promocion__c 
-                                                       WHERE Codigo_Etapa__c = :propiedadSeleccionada.implan.Lote__r.Codigo_Etapa__c 
-                                                        and Codigo_Manzana__c = :propiedadSeleccionada.implan.Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c
-                                                        and Codigo_Proyecto__c = :propiedadSeleccionada.implan.Lote__r.CI_Proyecto__r.Codigo_Proyecto__c
-                                                        and Codigo_Solar__c = :propiedadSeleccionada.implan.Lote__r.CI_Codigo_Inmueble__c];
-        
+                                                           WHERE Codigo_Etapa__c = :propiedadSeleccionada.implan.Lote__r.Codigo_Etapa__c 
+                                                           and Codigo_Manzana__c = :propiedadSeleccionada.implan.Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c
+                                                           and Codigo_Proyecto__c = :propiedadSeleccionada.implan.Lote__r.CI_Proyecto__r.Codigo_Proyecto__c
+                                                           and Codigo_Solar__c = :propiedadSeleccionada.implan.Lote__r.CI_Codigo_Inmueble__c];
+            
             for(Historial_Promocion__c promo:listaHistorico){
                 integer index=-1;
                 for(integer i = 0;i<listaPromociones.size();i++){
@@ -703,30 +708,29 @@ public without sharing  class extensionCotizacion {
         return null;
     }
     
-    public boolean getesVendedor(){
-        if(usuario.profile.Name.contains('Asesor')) { return true;
-        }
-        return false;
+    public boolean getEsVendedor(){
+        return usuario.profile.Name.contains('Asesor');
     }
     
-    public boolean getTieneHistorico(){
+    /*public boolean getTieneHistorico(){
         if(listaHistoricos != null && listaHistoricos.size()>0){ return true;
         }
         return false;
-    }
+    }*/
     
     List<Promocion_Agregada__c> valuesFilterAdi;
     //Método de Filtrado de Promociones
     public List<Promocion_Agregada__c> getvaluesFilterAdi() {
         System.debug('Datos filtro: '+urbanizacionSeleccionada+'--'+metrosTerreno+'--'+empresaImplantacion+'--'+proyectoImplantacion);
-        string query = 'Select Id, Name, Etapa__c, Modelo__c, CI_Metros_Terreno__c, Nivel__c, Etapa__r.Name, ';
+        String query = 'Select Id, Name, Etapa__c, Modelo__c, CI_Metros_Terreno__c, Nivel__c, Etapa__r.Name, ';
         query += 'Etapa__r.Codigo_Empresa__c, Etapa__r.Proyecto__c, Promocion__c, Promocion__r.Nivel__c,';
         query += 'Promocion__r.Name, Promocion__r.Estado__c, promocion__r.Codigo__c, Promocion__r.Prescindible__c, ';
         query += 'Vigencia_Inicio__c, Vigencia_Fin__c, Valor__c ';
         query += 'FROM Promocion_Agregada__c ';
-        query += 'WHERE valor__c!=0 and Etapa__c=\''+urbanizacionSeleccionada+'\' and ';
+        query += 'WHERE valor__c != 0 and Etapa__c=\''+urbanizacionSeleccionada+'\' and ';
         query += 'Etapa__r.Codigo_Empresa__c = \''+empresaImplantacion+'\' and ';
         query += 'Etapa__r.Proyecto__c = \''+proyectoImplantacion+'\' and ';
+        //query += 'Modelo__c = \''+proyectoImplantacion+'\' and ';
         query += 'Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY ORDER BY Promocion__r.Name';
                
         List<string> listaPromocionIds = new List<string>();
@@ -746,7 +750,7 @@ public without sharing  class extensionCotizacion {
             //Misma Etapa, Misma Empresa Promoción agregada (se comparar contra el Lote en la implantación), Mismo Proyecto en Promoción agregada (se comparar contra el Lote en la implantación), 
             //Si tiene nivel en la Promoción, Mismo modelo en promoción agregada:
      		//	a- Si no tiene metros de terreno, muestra el adicional.
-            if(item.Promocion__r.Nivel__c == true && item.Modelo__c == modeloImplantacion && (item.CI_Metros_Terreno__c == null || item.CI_Metros_Terreno__c == 0)) {
+     		if(item.Promocion__r.Nivel__c == true && item.Modelo__c == modeloImplantacion && (item.CI_Metros_Terreno__c == null || item.CI_Metros_Terreno__c == 0)) {
             	mapValues.put(item.id, item);  
             }
             //	b- Si tiene metros de terreno debe coincidir el metraje de la implantación, para mostrar el adicional.
@@ -772,7 +776,7 @@ public without sharing  class extensionCotizacion {
             }
         }
         
-        List<Historial_Promocion__c> listaHistorico = [SELECT Id,Name,Valor_Promocion__c,Nivel__c,CI_Promocion__r.Name,CI_Promocion__r.Prescindible__c, CI_Promocion__c FROM Historial_Promocion__c 
+        List<Historial_Promocion__c> historialPromo = [SELECT Id,Name,Valor_Promocion__c,Nivel__c,CI_Promocion__r.Name,CI_Promocion__r.Prescindible__c, CI_Promocion__c FROM Historial_Promocion__c 
                                                        WHERE Codigo_Etapa__c = :propiedadSeleccionada.implan.Lote__r.Codigo_Etapa__c 
                                                         and Codigo_Manzana__c = :propiedadSeleccionada.implan.Lote__r.CI_Manzana__r.CI_Codigo_Manzana__c
                                                         and Codigo_Proyecto__c = :propiedadSeleccionada.implan.Lote__r.CI_Proyecto__r.Codigo_Proyecto__c
@@ -781,7 +785,7 @@ public without sharing  class extensionCotizacion {
         
         listaHistoricos = new List<PromocionFeedResponse>();
                        
-        for(Historial_Promocion__c promo:listaHistorico){
+        for(Historial_Promocion__c promo : historialPromo){
             listaHistoricos.add(new PromocionFeedResponse(promo));
             integer index=-1;
             for(integer i = 0;i<listaAdicionales.size();i++){
@@ -1008,6 +1012,11 @@ public without sharing  class extensionCotizacion {
             CuotaPrima.MontoSinDescuento = montoCuotaPrima;
             CuotaPrima.Cuo.Monto_Pago__c = CuotaPrima.monto;
             calcularCoutasSaldoEntrada(); 
+            mostrarConfirmar = true;
+            if(Oportunidad.Proyecto__r.Minimo_Reserva__c != null && Oportunidad.Proyecto__r.Minimo_Reserva__c > montoCuotaPrima){
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'El monto mínimo de reserva es: ' + Oportunidad.Proyecto__r.Minimo_Reserva__c ));
+                mostrarConfirmar = false;
+            }
         } else { 
             montoCuotaPrima = monto * porcentajeCuotaPrima / 100; 
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No puede cambiar el valor de el primer pago a menor a 0.')); 
@@ -1021,6 +1030,11 @@ public without sharing  class extensionCotizacion {
         montoCuotaPrima = CuotaPrima.Monto;
         CuotaPrima.Cuo.Monto_Pago__c = CuotaPrima.monto;
         CuotaPrima.MontoSinDescuento = CuotaPrima.monto;
+        mostrarConfirmar = true;
+        if(Oportunidad.Proyecto__r.Minimo_Reserva__c != null && Oportunidad.Proyecto__r.Minimo_Reserva__c > montoCuotaPrima){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'El monto mínimo de reserva es: ' + Oportunidad.Proyecto__r.Minimo_Reserva__c ));
+            mostrarConfirmar = false;
+        }
         calcularCoutasSaldoEntrada();
         calcularCoutasSaldo();
     }
@@ -1050,31 +1064,31 @@ public without sharing  class extensionCotizacion {
     
     public void actualizarMonto(){
         try{
-        monto = propiedadSeleccionada.getMontoTotal() + getValorAdicionales() - descuento;
-        recalcularPorcentajeEntrada();
-        CuotaPrima.Monto = monto * porcentajeCuotaPrima/100;
-        CuotaPrima.Monto = CuotaPrima.Monto.setScale(2);
-        CuotaPrima.MontoSinDescuento = CuotaPrima.Monto;
-        CuotaPrima.Cuo.Monto_Pago__c = CuotaPrima.Monto;
-        montoCuotaPrima = CuotaPrima.Monto;
-        cuotaPrima.monto = cuotaPrima.Cuo.Monto_Pago__c;
-        cuotaPrima.montoSinDescuento = cuotaPrima.Cuo.Monto_Pago__c;
-        montoCuotaPrima = cuotaPrima.monto;
-        descuentoMaximo = 0;
-        totalAdicionales = getValorAdicionales();
-        valorCotizado = precioLista + totalAdicionales - totalDescuento;
-           
-        if(descuentoMaximoPor == null){
-            descuentoMaximoPor = 0;
-        }
-        if(valorPresente == null){
-            valorPresente = 0;
-        }
-        
-        descuentoMaximo = (valorPresente-montoBase)*(descuentoMaximoPor/100);
-        descuentoMaximo = descuentoMaximo.setScale(2);
-        
-        recalcularValorEntrada(); 
+            monto = propiedadSeleccionada.getMontoTotal() + getValorAdicionales() - descuento;
+            recalcularPorcentajeEntrada();
+            CuotaPrima.Monto = monto * porcentajeCuotaPrima/100;
+            CuotaPrima.Monto = CuotaPrima.Monto.setScale(2);
+            CuotaPrima.MontoSinDescuento = CuotaPrima.Monto;
+            CuotaPrima.Cuo.Monto_Pago__c = CuotaPrima.Monto;
+            montoCuotaPrima = CuotaPrima.Monto;
+            cuotaPrima.monto = cuotaPrima.Cuo.Monto_Pago__c;
+            cuotaPrima.montoSinDescuento = cuotaPrima.Cuo.Monto_Pago__c;
+            montoCuotaPrima = cuotaPrima.monto;
+            descuentoMaximo = 0;
+            totalAdicionales = getValorAdicionales();
+            valorCotizado = precioLista + totalAdicionales - totalDescuento;
+            
+            if(descuentoMaximoPor == null){
+                descuentoMaximoPor = 0;
+            }
+            if(valorPresente == null){
+                valorPresente = 0;
+            }
+            
+            descuentoMaximo = (valorPresente-montoBase)*(descuentoMaximoPor/100);
+            descuentoMaximo = descuentoMaximo.setScale(2);
+            
+            recalcularValorEntrada(); 
         }catch(Exception e){
             
         }
@@ -1132,10 +1146,14 @@ public without sharing  class extensionCotizacion {
         SaldoPor = 100 - EntradaPor;
         Saldo = monto * SaldoPor / 100;
         Saldo = Saldo.setScale(2);
-        
-                
+        mostrarConfirmar = true;
+        if(Oportunidad.Proyecto__r.CI_Porcentaje_Entrada__c != null && Oportunidad.Proyecto__r.CI_Porcentaje_Entrada__c > EntradaPor){
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'El porcentaje de entrada mínimo es: ' + Oportunidad.Proyecto__r.CI_Porcentaje_Entrada__c + '%'));
+             mostrarConfirmar = false;
+        }
         calcularCoutasSaldoEntrada();
         calcularCoutasSaldo();
+        
     }
     
     public void recalcularPorcentajeEntrada(){
@@ -1144,6 +1162,11 @@ public without sharing  class extensionCotizacion {
         Entrada = Entrada.setScale(2);
         Saldo = monto - Entrada;
         SaldoPor = 100 - EntradaPor;
+        mostrarConfirmar = true;
+        if(Oportunidad.Proyecto__r.CI_Porcentaje_Entrada__c != null && Oportunidad.Proyecto__r.CI_Porcentaje_Entrada__c > EntradaPor){
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'El porcentaje de entrada mínimo es: ' + Oportunidad.Proyecto__r.CI_Porcentaje_Entrada__c + '%' ));
+            mostrarConfirmar = false;
+        }
         calcularCoutasSaldoEntrada();
         calcularCoutasSaldo();
     }

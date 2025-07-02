@@ -38,6 +38,7 @@
 		<members>CI_ParametroEtapa__c</members>
 		<members>CI_ParametroLote__c</members>
 		<members>Descuento__c</members>
+		<members>EspecificacionTecnica__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -58,6 +59,8 @@
 		<members>Lote__c-Formato Inmueble</members>
 		<members>Urbanizacion__c-Formato Etapa</members>
 		<members>User-User Layout</members>
+		<members>EspecificacionTecnica__c-Formato Especificación Técnica</members>
+		<members>Modelo__c-Formato Modelo</members>
 		<name>Layout</name>
 	</types>
 	<types>
@@ -67,6 +70,10 @@
 	<types>
 		<members>ModuloCotizacionNuevo</members>
 		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>Cotizacion__c.RG1_Entrada_contra_Monto_Reserva</members>
+		<name>ValidationRule</name>
 	</types>
 	<types>
 		<members>Cotizacion__c.AprobacionDescuentoCotizacion</members>

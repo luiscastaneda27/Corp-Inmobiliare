@@ -6,45 +6,25 @@
 	</types>
 	<types>
 		<members>vfCotizacionNew</members>
+		<members>vfNewFinanciamiento</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
-		<members>Cotizacion__c.AprobarDescuentoCotizacion</members>
-		<name>ApprovalProcess</name>
+		<members>EspecificacionTecnica__c</members>
+		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>Cotizacion__c.NombrePropietario__c</members>
-		<name>CustomField</name>
-	</types>
-	<types>
-		<members>unfiled$public/AprobacionDescuentoCotizacion</members>
-		<members>unfiled$public/RechazoDescuentoCotizacion</members>
-		<members>unfiled$public/SolicitudDescuentoCotizacion</members>
-		<name>EmailTemplate</name>
-	</types>
-	<types>
-		<members>PaginaRegistroCotizacion</members>
-		<name>FlexiPage</name>
+		<members>EspecificacionTecnica__c-Formato Especificación Técnica</members>
+		<members>Modelo__c-Formato Modelo</members>
+		<name>Layout</name>
 	</types>
 	<types>
 		<members>ModuloCotizacionNuevo</members>
 		<name>PermissionSet</name>
 	</types>
 	<types>
-		<members>Cotizacion__c.AprobacionDescuentoCotizacion</members>
-		<members>Cotizacion__c.EnvioCorreoAprobador</members>
-		<members>Cotizacion__c.RechazoDescuento</members>
-		<name>WorkflowAlert</name>
-	</types>
-	<types>
-		<members>Cotizacion__c.ActualizaEstadoAnulada</members>
-		<members>Cotizacion__c.ActualizaEstadoAprobado</members>
-		<members>Cotizacion__c.ActualizarEstadoaEnAprobacion</members>
-		<name>WorkflowFieldUpdate</name>
-	</types>
-	<types>
-		<members>Cotizacion__c</members>
-		<name>Workflow</name>
+		<members>Cotizacion__c.RG1_Entrada_contra_Monto_Reserva</members>
+		<name>ValidationRule</name>
 	</types>
 	<version>62.0</version>
 </Package>
