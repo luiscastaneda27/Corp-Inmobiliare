@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RG6_Validacion_Cuotas_Minimo_Reserva</fullName>
+    <active>false</active>
+    <description>Validación para ver el número de cuotas en las que se debe completar el valor mínimo de reserva</description>
+    <errorConditionFormula>(ISBLANK($CustomMetadata.Sales_SLA_config__mdt.RG6.Proyecto__c) || CONTAINS( CI_Proyecto__r.Codigo_Proyecto__c , $CustomMetadata.Sales_SLA_config__mdt.RG6.Proyecto__c))
+
+&amp;&amp;
+
+CI_Cuota_Inicial__c &lt; VALUE( $CustomMetadata.Sales_SLA_config__mdt.RG6.Valor_de_Comparacion__c )
+
+&amp;&amp; NOT( Ingresa_Preferencial__c )</errorConditionFormula>
+    <errorMessage>El minimo de reserva no se cumple en las cuotas esperadas</errorMessage>
+</ValidationRule>

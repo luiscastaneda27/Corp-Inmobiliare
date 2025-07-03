@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>extensionCotizacion</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>vfCotizacionNew</members>
-		<members>vfNewFinanciamiento</members>
-		<name>ApexPage</name>
-	</types>
-	<types>
-		<members>EspecificacionTecnica__c</members>
-		<name>CustomObject</name>
-	</types>
-	<types>
-		<members>EspecificacionTecnica__c-Formato Especificación Técnica</members>
-		<members>Modelo__c-Formato Modelo</members>
-		<name>Layout</name>
-	</types>
-	<types>
-		<members>ModuloCotizacionNuevo</members>
-		<name>PermissionSet</name>
-	</types>
-	<types>
-		<members>Cotizacion__c.RG1_Entrada_contra_Monto_Reserva</members>
+		<members>Cotizacion__c.RG2_Validacion_de_porcentaje_Minimo</members>
+		<members>Cotizacion__c.RG4_Validacion_porcentaje_Minimo_Rioja</members>
+		<members>Cotizacion__c.RG6_Validacion_Cuotas_Minimo_Reserva</members>
+		<members>Cotizacion__c.RG9_Validar_Cuotas_Minimo_Reserva_Rioja</members>
 		<name>ValidationRule</name>
 	</types>
 	<version>62.0</version>
