@@ -153,7 +153,7 @@
                                 <img src="/sfc/servlet.shepherd/version/download/{!img_PB}" style="width:300px;height:350px;"/>
                             </td>
                             <td style="width:50%;">
-                                <img src="/sfc/servlet.shepherd/version/download/{!img_PA}" style="width:300px;height:350px;"/>
+                                <img src="/sfc/servlet.shepherd/version/download/{!img_PA}" style="width:300px;height:350px;{!If(img_PA = null, 'display: none;','')}"/>
                             </td>
                         </tr>
                     </table>

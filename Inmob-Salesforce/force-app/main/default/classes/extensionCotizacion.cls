@@ -666,7 +666,7 @@ public without sharing  class extensionCotizacion {
             query += 'Promocion__r.Estado__c, Promocion__r.Prescindible__c, Vigencia_Inicio__c, Vigencia_Fin__c, Valor__c ';
             query += 'FROM Promocion_Agregada__c ';
             query += 'WHERE Valor__c = 0 and Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY ';
-            query += 'and Etapa__c = \''+urbanizacionSeleccionada+'\' ';
+            query += 'and Proyecto__c = \''+proyectoSeleccionado+'\' ';
             valuesFilterPromo = Database.query(query);
             listaPromociones = new List<PromocionFeedResponse>();
             for(Promocion_Agregada__c item:valuesFilterPromo){

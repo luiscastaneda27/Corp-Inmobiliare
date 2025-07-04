@@ -34,8 +34,8 @@ public class CI_apex {
         }
         for(ContentVersion cv: [SELECT Id, Title, ContentDocumentId FROM ContentVersion WHERE ContentDocumentId IN :docIds AND IsLatest = true]){
             img_FA = cv.Title.contains('_FA') ? cv.Id : img_FA;
-            img_PA = cv.Title.contains('_PA') ? cv.Id : img_PA;
             img_PB = cv.Title.contains('_PB') ? cv.Id : img_PB;
+            img_PA = cv.Title.contains('_PA') ? cv.Id : img_PA;
         }
         loadPayments();
     }

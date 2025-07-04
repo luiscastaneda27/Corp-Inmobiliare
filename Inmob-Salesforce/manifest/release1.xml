@@ -34,6 +34,7 @@
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
 		<members>User.Director__c</members>
 		<members>User.Gerente__c</members>
+		<members>Promocion_Agregada__c.Proyecto__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -63,6 +64,7 @@
 		<members>User-User Layout</members>
 		<members>EspecificacionTecnica__c-Formato Especificación Técnica</members>
 		<members>Proyecto__c-Formato Proyecto</members>
+		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
 		<members>Modelo__c-Formato Modelo</members>
 		<name>Layout</name>
 	</types>

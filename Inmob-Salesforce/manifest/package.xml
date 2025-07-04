@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>CI_apex</members>
+		<members>extensionCotizacion</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -10,10 +11,12 @@
 		<name>ApexPage</name>
 	</types>
 	<types>
+		<members>Promocion_Agregada__c.Proyecto__c</members>
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
+		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
 		<members>Proyecto__c-Formato Proyecto</members>
 		<name>Layout</name>
 	</types>

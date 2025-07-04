@@ -166,6 +166,10 @@
         <fields>NAME</fields>
         <relatedList>Modelo__c.CI_Proyecto__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Promocion_Agregada__c.Proyecto__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
