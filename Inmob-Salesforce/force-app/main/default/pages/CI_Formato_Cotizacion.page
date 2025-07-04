@@ -100,14 +100,14 @@
                                     <tbody>
                                         <tr style="font-size: 13px">
                                             <td  width="25%" ><strong>Modelo</strong></td>
-                                            <td  width="25%" >{!Cotizacion__c.Lote__r.CI_Modelo_Casa__r.Name}</td>
+                                            <td  width="25%" >{!Cotizacion__c.CI_Modelo__r.Name}</td>
                                             <td  width="25%" ><strong>Área Construcción</strong></td>
                                             <td  width="25%" > <apex:outputText value="{0, number, ###,###,###,###.00}">
-                                                <apex:param value="{!Cotizacion__c.Lote__r.CI_Metros_Const__c}" /></apex:outputText> m<sup>2</sup></td>
+                                                <apex:param value="{!Cotizacion__c.CI_Modelo__r.CI_Area_Const__c}" /></apex:outputText> m<sup>2</sup></td>
                                         </tr>
                                         <tr>
                                             <td  width="25%" ><strong>Manzana</strong></td>
-                                            <td  width="25%" >{!Cotizacion__c.Lote__r.CI_Manzana__r.name}</td>
+                                            <td  width="25%" >{!Cotizacion__c.CI_Manzana__r.name}</td>
                                             <td  width="25%" ><strong>Área de Terreno:</strong></td>
                                             <td  width="25%" ><apex:outputText value="{0, number, ###,###,###,###.00}">
                                                 <apex:param value="{!Cotizacion__c.Lote__r.CI_Metros_Terreno__c}" /></apex:outputText> m<sup>2</sup></td>
@@ -116,7 +116,7 @@
                                             <td  width="25%" ><strong>Lote</strong></td>
                                             <td  width="25%" >{!Cotizacion__c.Lote__r.Name}</td>
                                             <td  width="25%" ><strong>Plantas:</strong></td>
-                                            <td  width="25%" >{!Cotizacion__c.Lote__r.CI_Planta__c}</td>
+                                            <td  width="25%" >{!Cotizacion__c.CI_Modelo__r.CI_Num_plantas__c}</td>
                                         </tr>
                                     </tbody>
                                 </table> 
@@ -171,7 +171,7 @@
                                 <td style="width:25%;" >Precio de Lista</td>
                                 <td Style="width:25%;">
                                     <apex:outputText value="{0, number, currency}">
-                                        <apex:param value="{!Cotizacion__c.Lote__r.CI_Precio_Actual__c}" />
+                                        <apex:param value="{!Cotizacion__c.Precio_Lista__c}" />
                                     </apex:outputText> 
                                 </td>
                                 <td style="width:25%;">{!Cotizacion__c.Porcentaje_Cuota_Entrada__c}% Cuota de Entrada</td>
@@ -298,7 +298,7 @@
                         </apex:repeat>    	
                     </table> 
                     <div style="font-size:14px;width:100%;margin-top:25px;font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;">
-                        <b>Nota:</b> {!Cotizacion__c.Oportunidad__r.Proyecto__r.ComentarioCotizacion__c}
+                        <b>Nota: </b> <apex:outputField value="{!Cotizacion__c.Oportunidad__r.Proyecto__r.ComentarioCotizacion__c}" /> 
                     </div>
                 </div> 
             </apex:form>

@@ -77,6 +77,10 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>Cotizacion__c.Formato_Cotizacion</members>
+		<name>QuickAction</name>
+	</types>
+	<types>
 		<members>Cotizacion__c.RG1_Entrada_contra_Monto_Reserva</members>
 		<members>Cotizacion__c.RG2_Validacion_de_porcentaje_Minimo</members>
 		<members>Cotizacion__c.RG4_Validacion_porcentaje_Minimo_Rioja</members>

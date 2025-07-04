@@ -1,4 +1,4 @@
-public class CI_apex {
+public without sharing class CI_apex {
     
     String id = ApexPages.currentPage().getParameters().get('id');
     public String idInmueble{get;set;}

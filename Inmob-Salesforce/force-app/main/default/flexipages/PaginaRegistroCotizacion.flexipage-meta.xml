@@ -26,9 +26,28 @@
                         </valueListItems>
                         <valueListItems>
                             <value>Cotizacion__c.Formato_Cotizacion</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>CustomButton.Cotizacion__c.CI_Formato_Plan_Pago</value>
+                            <visibilityRule>
+                                <booleanFilter>(1 AND 2) OR (3 AND 4)</booleanFilter>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>NE</operator>
+                                    <rightValue>En Aprobación</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>NE</operator>
+                                    <rightValue>Vigente</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Vigente</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.UsuarioAprobador__r.Alias}</leftValue>
+                                    <operator>EQUAL</operator>
+                                </criteria>
+                            </visibilityRule>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
