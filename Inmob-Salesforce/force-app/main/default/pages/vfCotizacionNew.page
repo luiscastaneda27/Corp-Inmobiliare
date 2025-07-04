@@ -177,7 +177,7 @@
               <div class="slds-no-flex">
                 <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Guardar" action="{!Guardar}" disabled="false" rerender="theForm" status="mySaveStatus1" rendered="{!NOT(NoModificable)}"/>
                 <apex:commandButton styleclass="slds-button slds-button_neutral" style="border-radius: 5px;" value="Cancelar" action="{!Cancel}"/>
-                <apex:commandButton styleclass="slds-button slds-button_neutral" style="border-radius: 5px;" value="Financiamiento" action="{!redirectToFinanciamiento}" rendered="{!NOT(NoFinanciable)}"/>
+                <apex:commandButton styleclass="slds-button slds-button_neutral" style="border-radius: 5px;" value="Financiamiento" action="{!redirectToFinanciamiento}" />
               </div>
                          
               <div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-button_last" id="divOpenSideMenu">
