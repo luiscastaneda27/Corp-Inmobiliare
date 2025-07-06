@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>extensionCotizacion</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>Promocion__c.Costo__c</members>
-		<name>CustomField</name>
-	</types>
-	<types>
-		<members>Promocion_Agregada__c</members>
-		<name>CustomObject</name>
-	</types>
-	<types>
-		<members>Promocion__c-Formato Promoción</members>
 		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
 		<name>Layout</name>
 	</types>
