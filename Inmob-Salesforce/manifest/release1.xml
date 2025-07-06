@@ -26,15 +26,16 @@
 		<members>Cotizacion__c.Gerente__c</members>
 		<members>Cotizacion__c.Institucion_Financiera__c</members>
 		<members>Cotizacion__c.Monto_Base__c</members>
-		<members>Cotizacion__c.Precio_Venta__c</members>
 		<members>Cotizacion__c.NombrePropietario__c</members>
+		<members>Cotizacion__c.Precio_Venta__c</members>
 		<members>Cotizacion__c.UsuarioAprobador__c</members>
 		<members>Lote__c.ParametroConfigurados__c</members>
-		<members>Urbanizacion__c.ParametroConfigurados__c</members>
+		<members>Promocion_Agregada__c.Proyecto__c</members>
+		<members>Promocion__c.Costo__c</members>
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
+		<members>Urbanizacion__c.ParametroConfigurados__c</members>
 		<members>User.Director__c</members>
 		<members>User.Gerente__c</members>
-		<members>Promocion_Agregada__c.Proyecto__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -42,6 +43,7 @@
 		<members>CI_ParametroLote__c</members>
 		<members>Descuento__c</members>
 		<members>EspecificacionTecnica__c</members>
+		<members>Promocion_Agregada__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -59,13 +61,14 @@
 		<members>CI_ParametroLote__c-Parámetro por Lote Layout</members>
 		<members>Cotizacion__c-Formato Cotización</members>
 		<members>Descuento__c-Formato Descuento</members>
+		<members>EspecificacionTecnica__c-Formato Especificación Técnica</members>
 		<members>Lote__c-Formato Inmueble</members>
+		<members>Modelo__c-Formato Modelo</members>
+		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
+		<members>Promocion__c-Formato Promoción</members>
+		<members>Proyecto__c-Formato Proyecto</members>
 		<members>Urbanizacion__c-Formato Etapa</members>
 		<members>User-User Layout</members>
-		<members>EspecificacionTecnica__c-Formato Especificación Técnica</members>
-		<members>Proyecto__c-Formato Proyecto</members>
-		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
-		<members>Modelo__c-Formato Modelo</members>
 		<name>Layout</name>
 	</types>
 	<types>
@@ -89,6 +92,10 @@
 		<name>ValidationRule</name>
 	</types>
 	<types>
+		<members>Cotizacion__c</members>
+		<name>Workflow</name>
+	</types>
+	<types>
 		<members>Cotizacion__c.AprobacionDescuentoCotizacion</members>
 		<members>Cotizacion__c.EnvioCorreoAprobador</members>
 		<members>Cotizacion__c.RechazoDescuento</members>
@@ -99,10 +106,6 @@
 		<members>Cotizacion__c.ActualizaEstadoAprobado</members>
 		<members>Cotizacion__c.ActualizarEstadoaEnAprobacion</members>
 		<name>WorkflowFieldUpdate</name>
-	</types>
-	<types>
-		<members>Cotizacion__c</members>
-		<name>Workflow</name>
 	</types>
 	<version>62.0</version>
 </Package>

@@ -730,7 +730,7 @@ public without sharing  class extensionCotizacion {
         query += 'WHERE valor__c != 0 and Etapa__c=\''+urbanizacionSeleccionada+'\' and ';
         query += 'Etapa__r.Codigo_Empresa__c = \''+empresaImplantacion+'\' and ';
         query += 'Etapa__r.Proyecto__c = \''+proyectoImplantacion+'\' and ';
-        //query += 'Modelo__c = \''+proyectoImplantacion+'\' and ';
+        query += 'Modelo__c = \''+modeloImplantacion+'\' and ';
         query += 'Vigencia_Inicio__c <= TODAY and Vigencia_Fin__c >= TODAY ORDER BY Promocion__r.Name';
                
         List<string> listaPromocionIds = new List<string>();
@@ -744,17 +744,17 @@ public without sharing  class extensionCotizacion {
         for(Promocion_Agregada__c item : valuesFilterAdi) {
             //Misma Etapa, Misma Empresa Promoción agregada (se comparar contra el Lote en la implantación), Mismo Proyecto en Promoción agregada (se comparar contra el Lote en la implantación), 
             //Sin nivel en la Promoción, Promoción agregada sin modelo, debe mostrar el adicional.
-            if(item.Promocion__r.Nivel__c == false && item.Modelo__c == null) {
+           /* if(item.Promocion__r.Nivel__c == false && item.Modelo__c == null) {
             	mapValues.put(item.id, item);
-            }
+            }*/
             //Misma Etapa, Misma Empresa Promoción agregada (se comparar contra el Lote en la implantación), Mismo Proyecto en Promoción agregada (se comparar contra el Lote en la implantación), 
             //Si tiene nivel en la Promoción, Mismo modelo en promoción agregada:
      		//	a- Si no tiene metros de terreno, muestra el adicional.
-     		if(item.Promocion__r.Nivel__c == true && item.Modelo__c == modeloImplantacion && (item.CI_Metros_Terreno__c == null || item.CI_Metros_Terreno__c == 0)) {
+     		if(item.Modelo__c == modeloImplantacion && (item.CI_Metros_Terreno__c == null || item.CI_Metros_Terreno__c == 0)) {
             	mapValues.put(item.id, item);  
             }
             //	b- Si tiene metros de terreno debe coincidir el metraje de la implantación, para mostrar el adicional.
-            if(item.Promocion__r.Nivel__c == true && item.Modelo__c == modeloImplantacion && item.CI_Metros_Terreno__c == metrosTerreno) {
+            if( item.Modelo__c == modeloImplantacion && item.CI_Metros_Terreno__c == metrosTerreno) {
             	mapValues.put(item.id, item);  
             }
 

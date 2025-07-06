@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>CI_apex</members>
+		<members>extensionCotizacion</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>CI_Formato_Cotizacion</members>
-		<members>vfCotizacionNew</members>
-		<name>ApexPage</name>
+		<members>Promocion__c.Costo__c</members>
+		<name>CustomField</name>
 	</types>
 	<types>
-		<members>PaginaRegistroCotizacion</members>
-		<name>FlexiPage</name>
+		<members>Promocion_Agregada__c</members>
+		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>ModuloCotizacionNuevo</members>
-		<name>PermissionSet</name>
-	</types>
-	<types>
-		<members>Cotizacion__c.Formato_Cotizacion</members>
-		<name>QuickAction</name>
+		<members>Promocion__c-Formato Promoción</members>
+		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
+		<name>Layout</name>
 	</types>
 	<version>62.0</version>
 </Package>
