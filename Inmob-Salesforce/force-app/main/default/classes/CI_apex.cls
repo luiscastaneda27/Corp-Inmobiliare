@@ -76,17 +76,17 @@ public without sharing class CI_apex {
     }
     
     public List<Detalle_Promocion__c> getPromosCotiza() {     
-        List<Detalle_Promocion__c> promosCotiza = Database.query('Select id, name, Cotizacion__c, Promocion__c, Promocion__r.Name, Promocion__r.CI_Valor__c, CI_Fecha_Promo_Agre__c, Valor_Promocion__c From Detalle_Promocion__c Where Cotizacion__c =: id order by Promocion__r.CI_Valor__c Desc');
+        List<Detalle_Promocion__c> promosCotiza = Database.query('Select id, name, Cotizacion__c, Promocion__c, Promocion__r.Name, CI_Fecha_Promo_Agre__c, Valor_Promocion__c From Detalle_Promocion__c Where Cotizacion__c =: id order by Promocion__r.CI_Valor__c Desc');
         return promosCotiza;
     }
     
     public List<Detalle_Promocion__c> getPromos() {     
-        List<Detalle_Promocion__c> promos = Database.query('Select id, name, Cotizacion__c, Promocion__c, Promocion__r.Name, Promocion__r.CI_Valor__c, CI_Fecha_Promo_Agre__c From Detalle_Promocion__c Where Cotizacion__c =: id and (Valor_Promocion__c=0 or Valor_Promocion__c=null)');
+        List<Detalle_Promocion__c> promos = Database.query('Select id, name, Cotizacion__c, Promocion__c, Promocion__r.Name, CI_Fecha_Promo_Agre__c From Detalle_Promocion__c Where Cotizacion__c =: id and (Valor_Promocion__c=0 or Valor_Promocion__c=null)');
         return promos;
     }
     
     public List<Detalle_Promocion__c> getAdic() {     
-        List<Detalle_Promocion__c> adic = Database.query('Select id, name, Cotizacion__c, Promocion__c, Promocion__r.Name, Promocion__r.CI_Valor__c, CI_Fecha_Promo_Agre__c, Valor_Promocion__c From Detalle_Promocion__c Where Cotizacion__c =: id and Valor_Promocion__c>0');
+        List<Detalle_Promocion__c> adic = Database.query('Select id, name, Cotizacion__c, Promocion__c, Promocion__r.Name, CI_Fecha_Promo_Agre__c, Valor_Promocion__c From Detalle_Promocion__c Where Cotizacion__c =: id and Valor_Promocion__c>0');
         return adic;
     }
     
