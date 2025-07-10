@@ -4,6 +4,7 @@
 		<members>CI_apex</members>
 		<members>extensionCotizacion</members>
 		<members>extensionCotizacion_test</members>
+		<members>ProcesoRebajaEntradaEntrega</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -34,6 +35,10 @@
 		<members>Promocion__c.Costo__c</members>
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
 		<members>Urbanizacion__c.ParametroConfigurados__c</members>
+		<members>Urbanizacion__c.PlazoEntradaConstruccion__c</members>
+		<members>Urbanizacion__c.PlazoEntradaConstruir__c</members>
+		<members>Urbanizacion__c.PlazoEntregaConstruccion__c</members>
+		<members>Urbanizacion__c.PlazoEntregaConstruir__c</members>
 		<members>User.Director__c</members>
 		<members>User.Gerente__c</members>
 		<name>CustomField</name>
