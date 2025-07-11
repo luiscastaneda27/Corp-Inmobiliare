@@ -1,0 +1,11 @@
+<aura:component controller="CI_apex" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+	<aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Cotizacion" type="Cotizacion__c" />
+    <aura:attribute name="Aprobada" type="string" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.getCampos}" />
+
+    <article class="slds-card" style="top:20px !important;">
+    	<lightning:spinner aura:id="mySpinner" alternativeText="Procesando..." title="Procesando..." variant="brand" size="large" class="slds-show"/>
+    </article>
+</aura:component>

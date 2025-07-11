@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oportunidades_Aprobadas</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <columns>Estado_de_Aprobacion__c</columns>
+    <columns>Estado_de_Venta__c</columns>
+    <columns>CI_Proyecto__c</columns>
+    <columns>CI_Cant_cotiza__c</columns>
+    <columns>CI_Origen_del_prospecto__c</columns>
+    <columns>CI_F_Cierre_PANACEA__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Estado_de_Aprobacion__c</field>
+        <operation>contains</operation>
+        <value>Enviado,Aprobado,Fallido</value>
+    </filters>
+    <filters>
+        <field>Estado_de_Venta__c</field>
+        <operation>notEqual</operation>
+        <value>Reestructurado,Anulado,Resciliado</value>
+    </filters>
+    <label>Oportunidades Aprobadas</label>
+    <sharedTo>
+        <role>Jefe_Ventas_Rioja</role>
+        <role>Jefe_Ventas_Vittoria</role>
+    </sharedTo>
+</ListView>

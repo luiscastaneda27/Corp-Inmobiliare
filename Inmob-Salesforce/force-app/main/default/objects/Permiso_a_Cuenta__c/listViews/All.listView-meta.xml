@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>CI_Cuenta__c</columns>
+    <columns>CI_Oportunidad__c</columns>
+    <columns>CI_Proyecto__c</columns>
+    <columns>CI_Propietario__c</columns>
+    <columns>CI_Permite_Edicion__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Oportunidad__c</field>
+        <operation>equals</operation>
+        <value>PAUL CRUZ</value>
+    </filters>
+    <label>Todos</label>
+</ListView>

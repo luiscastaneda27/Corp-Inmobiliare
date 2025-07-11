@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Lista_Usuarios__c</fullName>
+    <label>Lista de Usuarios</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Xiomara Pérez</fullName>
+                <default>false</default>
+                <label>Xiomara Pérez</label>
+            </value>
+            <value>
+                <fullName>Eder Sánchez</fullName>
+                <default>false</default>
+                <label>Eder Sánchez</label>
+            </value>
+            <value>
+                <fullName>Gabriela Lindao</fullName>
+                <default>false</default>
+                <label>Gabriela Lindao</label>
+            </value>
+            <value>
+                <fullName>Jefferson Cedeño</fullName>
+                <default>false</default>
+                <label>Jefferson Cedeño</label>
+            </value>
+            <value>
+                <fullName>Antonio Ávila</fullName>
+                <default>false</default>
+                <label>Antonio Ávila</label>
+            </value>
+            <value>
+                <fullName>Joffre Castillo</fullName>
+                <default>false</default>
+                <label>Joffre Castillo</label>
+            </value>
+            <value>
+                <fullName>Freddy Macías</fullName>
+                <default>false</default>
+                <label>Freddy Macías</label>
+            </value>
+            <value>
+                <fullName>Jorge Aguilar</fullName>
+                <default>false</default>
+                <label>Jorge Aguilar</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

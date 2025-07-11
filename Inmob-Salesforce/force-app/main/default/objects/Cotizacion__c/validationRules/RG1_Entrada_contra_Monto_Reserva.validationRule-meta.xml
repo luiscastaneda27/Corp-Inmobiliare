@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RG1_Entrada_contra_Monto_Reserva</fullName>
+    <active>true</active>
+    <description>Valida que la entrada debe ser mayor a el monto de reserva parametrizado para el proyecto</description>
+    <errorConditionFormula>Valor_de_Entrada__c &gt; CI_Proyecto__r.Minimo_Reserva__c &amp;&amp; NOT( Ingresa_Preferencial__c )</errorConditionFormula>
+    <errorMessage>El monto de la entrada debe de ser mayor que el monto mínimo de reserva para este proyecto.</errorMessage>
+</ValidationRule>

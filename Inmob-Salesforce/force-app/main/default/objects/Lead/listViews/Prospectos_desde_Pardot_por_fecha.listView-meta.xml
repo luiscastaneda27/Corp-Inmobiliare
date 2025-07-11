@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospectos_desde_Pardot_por_fecha</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>CI_Origen__c</columns>
+    <columns>CI_Cod_Modelo__c</columns>
+    <columns>CI_Modelo__c</columns>
+    <columns>CI_Horario__c</columns>
+    <columns>CI_Web_to_Lead__c</columns>
+    <columns>CI_Motivo_Baja__c</columns>
+    <columns>CI_Dias_sin_gestionar__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Web_to_Lead__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/1990 1:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>3/19/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>New,Working,Trabajando,Dado de Baja</value>
+    </filters>
+    <label>Prospectos desde Pardot por fecha</label>
+    <sharedTo>
+        <role>Coordinador_Ventas_Rioja</role>
+        <roleAndSubordinates>Coordinador_Ventas_Rioja</roleAndSubordinates>
+    </sharedTo>
+</ListView>

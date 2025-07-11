@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_SLA_Oportunidad__c</fullName>
+    <description>Días transcurridos desde que se creó la Oportunidad.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    (  
+        NOT(
+            OR(
+                ISPICKVAL(StageName, &apos;Vendida&apos;),
+                ISPICKVAL(StageName, &apos;No negociada&apos;)
+            )
+        )
+    ), 
+    IF(
+        ISBLANK(CI_Assignment_date_time__c),
+        NOW()-CreatedDate,
+        NOW()-CI_Assignment_date_time__c
+    ),
+    0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Días transcurridos desde que se creó la Oportunidad.</inlineHelpText>
+    <label>SLA Oportunidad</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

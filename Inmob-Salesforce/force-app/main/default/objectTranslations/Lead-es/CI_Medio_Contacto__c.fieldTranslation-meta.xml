@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Medio de Contacto --></label>
+    <name>CI_Medio_Contacto__c</name>
+    <picklistValues>
+        <masterLabel>CELULAR</masterLabel>
+        <translation><!-- CELULAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EMAIL</masterLabel>
+        <translation><!-- EMAIL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TELÉFONO</masterLabel>
+        <translation><!-- TELÉFONO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WHATSAPP</masterLabel>
+        <translation><!-- WHATSAPP --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

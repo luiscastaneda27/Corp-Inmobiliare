@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Apoderado Legal</layout>
+        <sections>
+            <label><!-- Actividad Económica --></label>
+            <section>Actividad Económica</section>
+        </sections>
+        <sections>
+            <label><!-- Actividad de Independiente --></label>
+            <section>Actividad de Independiente</section>
+        </sections>
+        <sections>
+            <label><!-- Nueva sección --></label>
+            <section>Nueva sección</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Información Adicional</layout>
+        <sections>
+            <label><!-- Políticamente Expuesto PEP --></label>
+            <section>Políticamente Expuesto PEP</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Apoderado Legal --></label>
+        <name>Apoderado_Legal</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Contacto --></label>
+        <name>Contacto</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Información Adicional --></label>
+        <name>Informacion_Adicional</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Los datos de PEP son requeridos. --></errorMessage>
+        <name>Validar_Campos_PEP</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Pardot_Email --></label>
+        <name>pi__Send_Pardot_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Pardot_Emails --></label>
+        <name>pi__Send_Pardot_Emails</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Single_Pardot_Email --></label>
+        <name>pi__Send_Single_Pardot_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_Prospect_Insight --></label>
+        <name>pi__Send_to_Prospect_Insight</name>
+    </webLinks>
+</CustomObjectTranslation>

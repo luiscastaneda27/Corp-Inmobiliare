@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>todos</fullName>
+    <columns>CI_Promocion__c</columns>
+    <columns>NAME</columns>
+    <columns>Codigo_Empresa__c</columns>
+    <columns>Codigo_Etapa__c</columns>
+    <columns>Codigo_Manzana__c</columns>
+    <columns>Codigo_Modelo__c</columns>
+    <columns>Codigo_Promocion__c</columns>
+    <columns>Codigo_Proyecto__c</columns>
+    <columns>Codigo_Venta__c</columns>
+    <columns>Valor_Promocion__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Promocion__c</field>
+        <operation>contains</operation>
+        <value>aire</value>
+    </filters>
+    <filters>
+        <field>Codigo_Manzana__c</field>
+        <operation>equals</operation>
+        <value>04</value>
+    </filters>
+    <filters>
+        <field>Codigo_Modelo__c</field>
+        <operation>equals</operation>
+        <value>AR</value>
+    </filters>
+    <label>todos</label>
+</ListView>

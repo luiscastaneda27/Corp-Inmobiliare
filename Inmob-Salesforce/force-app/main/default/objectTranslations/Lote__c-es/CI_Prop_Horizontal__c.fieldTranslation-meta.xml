@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Propiedad Horizontal --></label>
+    <name>CI_Prop_Horizontal__c</name>
+</CustomFieldTranslation>

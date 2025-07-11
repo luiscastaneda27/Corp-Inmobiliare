@@ -1,0 +1,128 @@
+<aura:component implements="force:appHostable" access="global" controller="ProspectManager">
+	<aura:attribute name="offset" type="integer" />
+    <aura:attribute name="next" type="boolean" />
+    <aura:attribute name="prev" type="boolean" />
+    <aura:attribute name="usuarios" type="Object[]"/>
+    <aura:attribute name="userorigen" type="string" />
+    <aura:attribute name="userdestino" type="string" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="lstOpps" type="String[]" /> 
+    <aura:attribute name="totallstOpps" type="integer" default="0" /> 
+    <aura:attribute name="ejecutivosagreg" type="String[]" />   
+    <aura:attribute name="ejecutivosel" type="integer" default="0"/>  
+    <aura:attribute name="idsagregados" type="String[]" /> 
+    <aura:attribute name="ofertaselect" type="integer" default="0" />
+    <aura:handler name="init" value="{!this}" action="{!c.cargarusers}" />
+    <aura:if isTrue="{!v.showSpinner}">
+      <lightning:spinner />
+    </aura:if>
+    <article class="slds-card" style="margin-bottom: 2px;">
+      <div class="slds-card__body slds-card__body_inner">
+		<div class="slds-grid slds-wrap">
+      			<div class="slds-col slds-size_1-of-3" style="padding-left: 20px;">
+            		  <lightning:select aura:id="ejecutivoselect"
+                           name="Ejecutivo Origen"
+                           label="Seleccione un ejecutivo origen"
+                           value="{!v.userorigen}"
+                           onchange="{!c.loadoffers}">
+                           <option>Seleccione</option>
+                           <aura:iteration items="{!v.usuarios}" var="acct" indexVar="index">
+                              <option value="{!index}" >{!acct.Name}</option>
+                           </aura:iteration>
+                        </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-of-3" style="padding-left: 20px;">
+                  <lightning:select aura:id="ejecutivoselect"
+                           name="Ejecutivo Origen"
+                           label="Seleccione un ejecutivo destino"
+                           value="{!v.userdestino}"
+                           onchange="{!c.validausuariodestino}">
+                           <option>Seleccione</option>
+                           <aura:iteration items="{!v.usuarios}" var="acct" indexVar="index">
+                              <option value="{!index}" >{!acct.Name}</option>
+                           </aura:iteration>
+                        </lightning:select>
+                </div>
+                 <div class="slds-col slds-size_1-of-3" style="padding-left: 20px;">
+                       <button class="slds-button slds-button--brand" onclick="{!c.ChangeOwner}" style="top:20px" title="asigna solo prospectos seleccionados">Asignar Seleccionados</button>
+                   <button class="slds-button slds-button--brand" onclick="{!c.asignarall}" style="top:20px">Asignar todo</button>
+
+                 </div>
+            </div> 
+         <br/>
+      </div>
+   </article>
+    <div class="slds-grid slds-wrap">
+      <div class="slds-col slds-size_1-of-1">
+         <div class="slds-border_right">
+             
+             <lightning:card title="{!'Oportunidades a reasignar: '+v.ofertaselect+' de '+v.totallstOpps}" iconName="standard:opportunity">
+             <aura:if isTrue="{!(v.lstOpps.length != 0)}"> 
+                 <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+                        <thead>
+                            <tr class="slds-text-heading_label">
+                                <th style="width:3.25rem;" class="slds-text-align--right">
+                                  <div class="slds-form-element">
+                                     <div class="slds-form-element__control">
+                                        <label class="slds-checkbox">
+                                           <!--header checkbox for select all-->
+                                           <ui:inputCheckbox aura:id="selectalloffers" change="{!c.selectalloffers}"/>
+                                           <span class="slds-checkbox--faux"></span>
+                                           <span class="slds-form-element__label text"></span>
+                                        </label>
+                                     </div>
+                                  </div>
+                               </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Nombre Prospecto">Nombre Prospecto</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Oportunidad">Oportunidad</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Fecha Cierre">Fecha Cierre</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Use the Apex model and controller to fetch server side data -->
+                            <aura:iteration items="{!v.lstOpps}" var="opp">
+                                <tr>
+                                    <td scope="row" class="slds-text-align--right">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__control">
+                                                <label class="slds-checkbox">
+                                                    <ui:inputCheckbox name="" text="{!opp.Id}" aura:id="boxofferoneone" value="{!opp.CI_Reasigment__c}" change="{!c.checkboxSelectOffer}" />
+                                                    <span class="slds-checkbox--faux"></span>
+                                                    <span class="slds-form-element__label text"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-truncate" title="{!opp.Account.Name}">
+                                           <div class="slds-truncate" title="{!opp.Account.Name}">{!opp.Account.Name}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title="{!opp.Name}">
+                                           <div class="slds-truncate" title="{!opp.Name}">{!opp.Name}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title="{!opp.CloseDate}">{!opp.CloseDate}</div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <input class="slds-button slds-button--brand slds-not-selected slds-float--right" type="button" onclick="{!c.OnNext}" value="Next" disabled="{!v.next}" style="margin-left: 2px;" />
+                    <input class="slds-button slds-button--brand slds-not-selected slds-float--right" type="button" onclick="{!c.OnPrevious}" value="Prev" disabled="{!v.prev}" />
+                 </aura:if>
+             
+             </lightning:card>
+          </div>
+        </div> 
+    </div>    
+</aura:component>

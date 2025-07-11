@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RG7_Validacion_de_Ultima_Fecha_Proye</fullName>
+    <active>true</active>
+    <description>Valida la fecha de la ultima cuota financiada contra la fecha de entrega de el proyecto.</description>
+    <errorConditionFormula>Fecha_de_Ultima_Cuota__c &gt;  Lote__r.CI_Fecha_Limite_Venta__c &amp;&amp;  NOT(Ingresa_Preferencial__c)</errorConditionFormula>
+    <errorMessage>No puede ingresar una cuota mayor a la fecha límite de venta de el inmueble</errorMessage>
+</ValidationRule>

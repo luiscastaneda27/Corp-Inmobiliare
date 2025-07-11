@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Medio --></label>
+    <name>CI_Medio__c</name>
+    <picklistValues>
+        <masterLabel>CINE</masterLabel>
+        <translation><!-- CINE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EL TELÉGRAFO</masterLabel>
+        <translation><!-- EL TELÉGRAFO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EL UNIVERSO, CLASIFICADOS</masterLabel>
+        <translation><!-- EL UNIVERSO, CLASIFICADOS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EL UNIVERSO, LA REVISTA</masterLabel>
+        <translation><!-- EL UNIVERSO, LA REVISTA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FACEBOOK</masterLabel>
+        <translation><!-- FACEBOOK --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FERIA BIESS</masterLabel>
+        <translation><!-- FERIA BIESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FERIA HABITAT</masterLabel>
+        <translation><!-- FERIA HABITAT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GOOGLE</masterLabel>
+        <translation><!-- GOOGLE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ISLA MALL DEL SOL</masterLabel>
+        <translation><!-- ISLA MALL DEL SOL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MAIL</masterLabel>
+        <translation><!-- MAIL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MAILS</masterLabel>
+        <translation><!-- MAILS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PLUSVALIA.com</masterLabel>
+        <translation><!-- PLUSVALIA.com --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RADIO</masterLabel>
+        <translation><!-- RADIO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERIDOS</masterLabel>
+        <translation><!-- REFERIDOS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REVISTA BIENES RAÍCES</masterLabel>
+        <translation><!-- REVISTA BIENES RAÍCES --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REVISTA HOGAR</masterLabel>
+        <translation><!-- REVISTA HOGAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REVISTA MARIELA</masterLabel>
+        <translation><!-- REVISTA MARIELA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REVISTA VISTAZO</masterLabel>
+        <translation><!-- REVISTA VISTAZO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TV.</masterLabel>
+        <translation><!-- TV. --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VALLAS</masterLabel>
+        <translation><!-- VALLAS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VISITAS A EMPRESAS</masterLabel>
+        <translation><!-- VISITAS A EMPRESAS --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

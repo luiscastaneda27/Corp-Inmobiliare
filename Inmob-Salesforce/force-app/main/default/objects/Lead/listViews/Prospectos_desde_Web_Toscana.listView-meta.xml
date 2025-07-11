@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospectos_desde_Web_Toscana</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CI_Origen__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Proyecto__c</field>
+        <operation>equals</operation>
+        <value>VILLA ITALIA</value>
+    </filters>
+    <label>Prospectos desde Web Toscana</label>
+    <sharedTo>
+        <role>Asesor_Comercial_Villa_Italia</role>
+        <role>Coordinador_Ventas_Villa_Italia</role>
+        <roleAndSubordinates>Asesor_Comercial_Villa_Italia</roleAndSubordinates>
+    </sharedTo>
+</ListView>

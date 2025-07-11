@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Creada_desde_Lead__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo de bandera para validar si la oportunidad se generó por Conversión del Lead.</description>
+    <inlineHelpText>Campo de bandera para validar si la oportunidad se generó por Conversión del Lead.</inlineHelpText>
+    <label>Creada desde Lead</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

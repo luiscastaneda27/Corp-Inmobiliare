@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>Existe_Oportunidad</name>
+        <label>¿Existe Oportunidad?</label>
+        <locationX>391</locationX>
+        <locationY>52</locationY>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>Si_Existe</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Oportunidad.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Oportunidad.Cotizacion__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Actualizar_Oportunidad</targetReference>
+            </connector>
+            <label>Si Existe</label>
+        </rules>
+    </decisions>
+    <description>Flujo para actualizar Fecha de la última cotización.</description>
+    <interviewLabel>CI Última Cotización Seleccionada en Oportunidad {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CI Última Cotización Seleccionada en Oportunidad</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Obtener_Oportunidad</name>
+        <label>Obtener Oportunidad</label>
+        <locationX>215</locationX>
+        <locationY>50</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existe_Oportunidad</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>IdOportunidad</elementReference>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <outputReference>Oportunidad</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Cotizacion__c</queriedFields>
+        <queriedFields>CI_Fecha_ultima_cot__c</queriedFields>
+        <queriedFields>LastModifiedDate</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <name>Actualizar_Oportunidad</name>
+        <label>Actualizar Oportunidad</label>
+        <locationX>602</locationX>
+        <locationY>50</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>IdOportunidad</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CI_Fecha_ultima_cot__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Obtener_Oportunidad</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>IdOportunidad</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Oportunidad</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

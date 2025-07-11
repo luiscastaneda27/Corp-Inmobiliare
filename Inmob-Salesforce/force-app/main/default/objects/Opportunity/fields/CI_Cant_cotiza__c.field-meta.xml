@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Cant_cotiza__c</fullName>
+    <description>Cantidad de cotizaciones creadas en la oportunidad.</description>
+    <inlineHelpText>Cantidad de cotizaciones creadas en la oportunidad.</inlineHelpText>
+    <label>Cantidad de cotizaciones</label>
+    <summaryForeignKey>Cotizacion__c.CI_Oportunidad_PD__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tipo --></label>
+    <name>CI_Tipo__c</name>
+    <picklistValues>
+        <masterLabel>Abierto</masterLabel>
+        <translation><!-- Abierto --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cuota Inicial</masterLabel>
+        <translation><!-- Cuota Inicial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ult. Día</masterLabel>
+        <translation><!-- Ult. Día --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

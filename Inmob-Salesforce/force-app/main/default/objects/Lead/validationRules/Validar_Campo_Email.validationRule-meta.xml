@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Campo_Email</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+NOT( ISBLANK( CI_Web_to_Lead__c ) ), 
+ISBLANK( Email ),
+NOT(ISCHANGED(CI_Fecha_ultima_gestion__c )) 
+)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>Campo Requerido, favor completar.</errorMessage>
+</ValidationRule>

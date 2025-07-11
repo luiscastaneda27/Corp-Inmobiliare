@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Campo para controlar cuando se realizó la última gestión en el prospecto. --></help>
+    <label><!-- Fecha de la última gestión --></label>
+    <name>CI_Fecha_ultima_gestion__c</name>
+</CustomFieldTranslation>

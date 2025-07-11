@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validacion_cotizacion_preferencial</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Cotizacion__c != Null,
+Cotizacion__r.Ingresa_Preferencial__c == True,
+Cotizacion__r.CI_Aprobar_cotizacion_pref__c == False
+)</errorConditionFormula>
+    <errorMessage>No puede enviar una Oportunidad cuya Cotización Preferencial no ha sido aprobada.</errorMessage>
+</ValidationRule>

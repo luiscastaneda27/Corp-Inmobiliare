@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Notificar_DDBM__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Notificar dado de baja de oportunidad manual.</description>
+    <inlineHelpText>Notificar dado de baja de oportunidad manual.</inlineHelpText>
+    <label>Notificar Dado de Baja Manual</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

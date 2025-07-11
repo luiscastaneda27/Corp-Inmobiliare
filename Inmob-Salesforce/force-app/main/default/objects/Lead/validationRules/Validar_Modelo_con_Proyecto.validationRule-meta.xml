@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Modelo_con_Proyecto</fullName>
+    <active>true</active>
+    <errorConditionFormula>If ( CI_Modelo__c != null, CI_Modelo__r.CI_Codigo_Proyecto__c !=  Cod_Proyecto__c, null )</errorConditionFormula>
+    <errorDisplayField>CI_Modelo__c</errorDisplayField>
+    <errorMessage>El modelo no corresponde al proyecto.</errorMessage>
+</ValidationRule>

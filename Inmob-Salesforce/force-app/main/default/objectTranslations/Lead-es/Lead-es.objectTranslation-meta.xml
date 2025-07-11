@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Prospecto</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Prospectos</value>
+    </caseValues>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Datos del Cónyuge --></label>
+            <section>Datos del Cónyuge</section>
+        </sections>
+        <sections>
+            <label><!-- Información del Referido --></label>
+            <section>Información del Referido</section>
+        </sections>
+        <sections>
+            <label><!-- SLA del Prospecto --></label>
+            <section>SLA del Prospecto</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Lead Layout Referido</layout>
+        <sections>
+            <label><!-- Datos del Cónyuge --></label>
+            <section>Datos del Cónyuge</section>
+        </sections>
+        <sections>
+            <label><!-- Información del Referido --></label>
+            <section>Información del Referido</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Dar de Baja --></label>
+        <name>Dar_de_Baja</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Dar de baja --></label>
+        <name>Dar_de_baja_flow</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Prospecto principal --></label>
+        <name>CI_Prospecto_principal</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Prospecto referido --></label>
+        <name>CI_Prospecto_referido</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Un Asesor no puede cambiar el propietario del Prospecto. --></errorMessage>
+        <name>CI_Cambiar_Propietario</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Un Asesor no puede cambiar el propietario del Prospecto. --></errorMessage>
+        <name>CI_Cambiar_Propietario1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Un Asesor no puede cambiar el propietario del Prospecto. --></errorMessage>
+        <name>CI_Cambiar_Propietario2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Celular</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Email</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Horario</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Identificacion</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Debe ingresar un motivo de baja --></errorMessage>
+        <name>Validar_Campo_Motivo_Baja</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Nombre</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Solo puede cambiar el valor de este campo si usted creo el registro. --></errorMessage>
+        <name>Validar_Campo_Origen</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Personeria</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Debe completar los campos requeridos: Tipo de Persona, Tipo de Identificación, Identificación, Email, Medio de Contacto. --></errorMessage>
+        <name>Validar_Campo_Requeridos</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campo Requerido, favor completar. --></errorMessage>
+        <name>Validar_Campo_Tipo_de_Identificacion</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Los datos del cónyuge son requeridos. --></errorMessage>
+        <name>Validar_Campos_Conyuge</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- El modelo no corresponde al proyecto. --></errorMessage>
+        <name>Validar_Modelo_con_Proyecto</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No puede cambiar el estado del candidato una vez dado de baja. --></errorMessage>
+        <name>Validar_Status_Baja</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No puede Modificar prospecto Convertido a Oportunidad --></errorMessage>
+        <name>Validar_Status_Baja1</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Pardot_Email --></label>
+        <name>pi__Send_Pardot_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Pardot_Emails --></label>
+        <name>pi__Send_Pardot_Emails</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Single_Pardot_Email --></label>
+        <name>pi__Send_Single_Pardot_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_Prospect_Insight --></label>
+        <name>pi__Send_to_Prospect_Insight</name>
+    </webLinks>
+</CustomObjectTranslation>

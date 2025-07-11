@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validacion_Oportunidad_Vendida_Asesor</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(StageName),
+OR(
+ISPICKVAL(StageName,&quot;Vendida&quot;)
+),
+$Profile.Name==&quot;Asesor de Ventas&quot;
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Un Asesor no puede cambiar la Etapa de la Oportunidad a &quot;Vendida&quot; manualmente.</errorMessage>
+</ValidationRule>

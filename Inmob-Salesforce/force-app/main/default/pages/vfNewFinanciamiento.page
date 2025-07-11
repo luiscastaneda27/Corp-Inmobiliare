@@ -220,12 +220,7 @@
                                     <nav>
                                         <ol class="slds-breadcrumb slds-line-height_reset">
                                             <li class="slds-breadcrumb__item">
-                                                <span>Edición de Financiamiento</span><br/><br/>
-                                                <b>Proyecto: </b>{!propiedadSeleccionada.implan.Lote__r.CI_Proyecto__r.Name}
-                                                <b>Etapa: </b> {!propiedadSeleccionada.implan.Lote__r.CI_manzana__r.Etapa__r.Name}
-                                                <b>Manzana: </b> {!propiedadSeleccionada.implan.Lote__r.CI_manzana__r.Name}
-                                                <b>Lote: </b> {!propiedadSeleccionada.implan.Lote__r.Name}
-                                                <b>Modelo:</b> {!propiedadSeleccionada.implan.Modelo__r.Name}
+                                                <span>Edición de Financiamiento</span>
                                             </li>
                                         </ol>
                                     </nav>
@@ -257,7 +252,7 @@
                                     <div class="slds-form-element__group">
                                         <div class="slds-form-element__row">
                                             <div class="slds-form-element slds-size_1-of-1">
-                                                <label class="slds-form-element__label" for="input-01">Precio Cotizado</label>
+                                                <label class="slds-form-element__label" for="input-01">Precio Neto</label>
                                                 <apex:outputText value="{0, number, Currency}" label="Precio Venta" styleclass="slds-input" html-readonly="">
                                                     <apex:param value="{!MontoCotizado}"></apex:param>
                                                     <apex:actionSupport event="onchange" action="{!actualizaPrecioLista}" status="status" reRender="theForm"/>
@@ -312,13 +307,14 @@
                                                 </apex:outputText>
                                             </div>
                                         </div>
-                                        <!--div class="slds-form-element__row">
+                                        <div class="slds-form-element__row">
                                             <div class="slds-form-element slds-size_1-of-1">
                                                 <label class="slds-form-element__label" for="input-02">Ingresa Preferencial</label>
+                                                <!--apex:inputCheckbox value="{!IngresaPreferencial}"/-->
                                                 <apex:inputField value="{!Cotizacion__c.Ingresa_Preferencial__c}" rendered="{!Oportunidad.Estado_de_Aprobacion__c!='Aprobado'}"/>
                                                 <apex:outputField value="{!Cotizacion__c.Ingresa_Preferencial__c}" rendered="{!Oportunidad.Estado_de_Aprobacion__c=='Aprobado'}"/>
                                             </div>
-                                        </div-->
+                                        </div>
                                     </div>
                                 </fieldset>
                             </div>
@@ -566,7 +562,7 @@
                                                     <div class="slds-form-element__row">
                                                         <div class="slds-form-element slds-size_1-of-2">
                                                             <label class="slds-form-element__label" for="input-04">Cuotas</label>
-                                                            <apex:inputText value="{!plazoEntrega}" label="Cuotas" rendered="{!tipoFinanciamiento != 'CH'}" styleClass="slds-input">
+                                                            <apex:inputText value="{!plazo}" label="Cuotas" rendered="{!tipoFinanciamiento != 'CH'}" styleClass="slds-input">
                                                                 <apex:actionSupport action="{!calcularCoutasSaldo}" event="onchange" status="status" reRender="theForm" oncomplete="toggleFinanciamientoEntrada();"/>
                                                             </apex:inputText>
                                                         </div>

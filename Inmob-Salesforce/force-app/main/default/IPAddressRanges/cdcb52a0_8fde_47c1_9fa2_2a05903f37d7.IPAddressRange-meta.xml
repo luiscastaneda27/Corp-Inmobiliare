@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IPAddressRange xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Cirion</description>
+    <endIpAddress>201.234.193.196</endIpAddress>
+    <ipAddressFeature>EmailIpFiltering</ipAddressFeature>
+    <ipAddressUsageScope>Exclusion</ipAddressUsageScope>
+    <masterLabel>Cirion</masterLabel>
+    <startIpAddress>201.234.193.194</startIpAddress>
+</IPAddressRange>

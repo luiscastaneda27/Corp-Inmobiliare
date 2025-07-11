@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospectos_Manuales</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CI_Fecha_ultima_gestion__c</columns>
+    <columns>CI_Origen__c</columns>
+    <columns>CI_Cod_Modelo__c</columns>
+    <columns>CI_Modelo__c</columns>
+    <columns>CI_Horario__c</columns>
+    <columns>CI_Motivo_Baja__c</columns>
+    <columns>LEAD.LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Web_to_Lead__c</field>
+        <operation>greaterOrEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>2/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>2/17/2024 12:00 AM</value>
+    </filters>
+    <label>Prospectos Manuales x Fecha</label>
+    <sharedTo>
+        <role>Coordinador_Ventas_Rioja</role>
+    </sharedTo>
+</ListView>

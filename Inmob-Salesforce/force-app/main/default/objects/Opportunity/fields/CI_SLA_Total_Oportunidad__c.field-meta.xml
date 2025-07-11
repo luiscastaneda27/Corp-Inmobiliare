@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_SLA_Total_Oportunidad__c</fullName>
+    <description>Total en días desde que se creó el registro (Prospecto-Cuenta-Oportunidad).</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(
+        CI_Creada_desde_Lead__c = true,
+        ISBLANK(CI_Assignment_date_time__c)
+    ),
+    Account.CI_SLA_Total__c + CI_SLA_Oportunidad__c,
+    CI_SLA_Oportunidad__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total en días desde que se creó el registro (Prospecto-Cuenta-Oportunidad).</inlineHelpText>
+    <label>SLA_Total_Oportunidad</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

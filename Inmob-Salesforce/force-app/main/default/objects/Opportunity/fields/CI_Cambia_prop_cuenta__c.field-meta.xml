@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Cambia_prop_cuenta__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check para enviar notificación a asesor y jefe de cambio de propietario de la cuenta.</description>
+    <inlineHelpText>Check para enviar notificación a asesor y jefe de cambio de propietario de la cuenta.</inlineHelpText>
+    <label>Cambiar propietario de cuenta</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

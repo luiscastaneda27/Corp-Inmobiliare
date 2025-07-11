@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Estado --></label>
+    <name>CI_Estado__c</name>
+    <picklistValues>
+        <masterLabel>Anulada</masterLabel>
+        <translation><!-- Anulada --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Disponible</masterLabel>
+        <translation><!-- Disponible --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inactiva</masterLabel>
+        <translation><!-- Inactiva --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reservada</masterLabel>
+        <translation><!-- Reservada --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vendida</masterLabel>
+        <translation><!-- Vendida --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

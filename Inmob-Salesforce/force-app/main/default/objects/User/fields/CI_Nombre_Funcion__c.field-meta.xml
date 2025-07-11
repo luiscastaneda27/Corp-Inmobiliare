@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Nombre_Funcion__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+CONTAINS(UserRole.Name, &apos;Rioja&apos;), &apos;LA RIOJA&apos;,
+IF(
+CONTAINS(UserRole.Name, &apos;Vittoria&apos;), &apos;LA GRAN VITTORIA&apos;, &apos;VILLA ITALIA&apos;
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Nombre Función</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

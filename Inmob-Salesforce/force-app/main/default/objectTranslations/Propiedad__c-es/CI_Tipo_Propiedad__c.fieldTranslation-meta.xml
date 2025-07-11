@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tipo de Propiedad --></label>
+    <name>CI_Tipo_Propiedad__c</name>
+    <picklistValues>
+        <masterLabel>ACM</masterLabel>
+        <translation><!-- ACM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DEPARTAMENTO</masterLabel>
+        <translation><!-- DEPARTAMENTO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GARAJE</masterLabel>
+        <translation><!-- GARAJE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LOCALES COMERCIALES</masterLabel>
+        <translation><!-- LOCALES COMERCIALES --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OFICINA</masterLabel>
+        <translation><!-- OFICINA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TERRENO</masterLabel>
+        <translation><!-- TERRENO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TOWN HOUSE</masterLabel>
+        <translation><!-- TOWN HOUSE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VIVIENDA</masterLabel>
+        <translation><!-- VIVIENDA --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

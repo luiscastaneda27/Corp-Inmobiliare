@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>true</isVisibleByExternalUsers>
+    <language>es</language>
+    <masterLabel>Alda_11_abril_19Model</masterLabel>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>Alda- 11 abril 19-Model.jpg</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>

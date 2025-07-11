@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tipo Venta --></label>
+    <name>CI_Tipo_Venta__c</name>
+    <picklistValues>
+        <masterLabel>BCO-IFIS</masterLabel>
+        <translation><!-- BCO-IFIS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CRE-DIR</masterLabel>
+        <translation><!-- CRE-DIR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DACION EN PAGO</masterLabel>
+        <translation><!-- DACION EN PAGO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PERMUTAS</masterLabel>
+        <translation><!-- PERMUTAS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REEST. C/ENT</masterLabel>
+        <translation><!-- REEST. C/ENT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TRUEQUE</masterLabel>
+        <translation><!-- TRUEQUE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VTAS CONT.</masterLabel>
+        <translation><!-- VTAS CONT. --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Motivo por el cual se da de baja al candidato. --></help>
+    <label><!-- Motivo de Baja --></label>
+    <name>CI_Motivo_Baja__c</name>
+    <picklistValues>
+        <masterLabel>ATENDIDO POR OTRO ASESOR</masterLabel>
+        <translation><!-- ATENDIDO POR OTRO ASESOR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENTE COMPRÓ OTRO BIEN INMUEBLE</masterLabel>
+        <translation><!-- CLIENTE COMPRÓ OTRO BIEN INMUEBLE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENTE NO ES PERFIL CREDITICIO</masterLabel>
+        <translation><!-- CLIENTE NO ES PERFIL CREDITICIO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENTE NO GUSTÓ DEL PROYECTO</masterLabel>
+        <translation><!-- CLIENTE NO GUSTÓ DEL PROYECTO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENTE SIN PRESUPUESTO</masterLabel>
+        <translation><!-- CLIENTE SIN PRESUPUESTO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENTE YA EXISTE EN EL PROYECTO</masterLabel>
+        <translation><!-- CLIENTE YA EXISTE EN EL PROYECTO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CONFUSIÓN MARCA Y UBICACIÓN</masterLabel>
+        <translation><!-- CONFUSIÓN MARCA Y UBICACIÓN --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PENITENCIARIA</masterLabel>
+        <translation><!-- PENITENCIARIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PERFIL FALSO</masterLabel>
+        <translation><!-- PERFIL FALSO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PERFIL INGRESADO MANUALMENTE</masterLabel>
+        <translation><!-- PERFIL INGRESADO MANUALMENTE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PLAZO 90 DÍAS</masterLabel>
+        <translation><!-- PLAZO 90 DÍAS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROCESO AUTOMÁTICO</masterLabel>
+        <translation><!-- PROCESO AUTOMÁTICO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SIN INTERÉS DE COMPRA</masterLabel>
+        <translation><!-- SIN INTERÉS DE COMPRA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SÓLO DEJÓ EMAIL SIN RESPUESTA</masterLabel>
+        <translation><!-- SÓLO DEJÓ EMAIL SIN RESPUESTA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SÓLO DEJÓ TELÉFONO SIN RESPUESTA</masterLabel>
+        <translation><!-- SÓLO DEJÓ TELÉFONO SIN RESPUESTA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TELÉFONO CORRECTO, EMAIL SIN RESPUESTA</masterLabel>
+        <translation><!-- TELÉFONO CORRECTO, EMAIL SIN RESPUESTA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TELÉFONO INCORRECTO, EMAIL SIN RESPUESTA</masterLabel>
+        <translation><!-- TELÉFONO INCORRECTO, EMAIL SIN RESPUESTA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VENTA CERRADA</masterLabel>
+        <translation><!-- VENTA CERRADA --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

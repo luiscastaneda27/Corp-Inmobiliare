@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Omitir_validaciones__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Permitir la creación de registros duplicados.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Permitir la creación de registros duplicados.</inlineHelpText>
+    <label>Omitir validaciones</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reenviar_a_ERP</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Reenviar a ERP</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/35.0/connection.js&quot;)}
+
+var regStatus = &quot;{!Opportunity.Estado_de_Aprobacion__c}&quot;;
+
+if(regStatus === &quot;Aprobado&quot; || regStatus === &quot;Rechazado&quot;){
+    var oppToUpdate = new sforce.SObject(&quot;Opportunity&quot;);
+    oppToUpdate.Estado_de_Aprobacion__c= &quot;Enviado&quot;;
+
+    sforce.connection.update([oppToUpdate]);
+
+    window.location.reload();
+}
+else{
+    alert(&quot;La oportunidad debe aprobarse o rechazarse primero antes de que pueda reenviarse al ERP&quot;);
+}</url>
+</WebLink>

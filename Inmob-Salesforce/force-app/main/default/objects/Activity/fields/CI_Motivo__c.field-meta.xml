@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Motivo__c</fullName>
+    <label>Motivo</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NO CONTESTA AÚN</fullName>
+                <default>false</default>
+                <label>NO CONTESTA AÚN</label>
+            </value>
+            <value>
+                <fullName>NO PUEDE ATENDER</fullName>
+                <default>false</default>
+                <label>NO PUEDE ATENDER</label>
+            </value>
+            <value>
+                <fullName>POR VISITAR OBRA</fullName>
+                <default>false</default>
+                <label>POR VISITAR OBRA</label>
+            </value>
+            <value>
+                <fullName>REVISANDO INFORMACIÓN</fullName>
+                <default>false</default>
+                <label>REVISANDO INFORMACIÓN</label>
+            </value>
+            <value>
+                <fullName>CLIENTE YA VISITÓ OBRA</fullName>
+                <default>false</default>
+                <label>CLIENTE YA VISITÓ OBRA</label>
+            </value>
+            <value>
+                <fullName>CLIENTE CON INTERÉS FUTURO</fullName>
+                <default>false</default>
+                <label>CLIENTE CON INTERÉS FUTURO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

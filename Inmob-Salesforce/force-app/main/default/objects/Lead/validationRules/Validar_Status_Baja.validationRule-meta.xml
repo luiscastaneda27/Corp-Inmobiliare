@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Status_Baja</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(Status),
+ISPICKVAL(PRIORVALUE(Status),&quot;Dado de Baja&quot;),
+$Profile.Name==&quot;Asesor de Ventas&quot;
+)
+
+/*AND(
+NOT(ISNEW()),
+ISCHANGED(Status),
+ISPICKVAL(PRIORVALUE(Status),&quot;Dado de Baja&quot;),
+$Profile.Name&lt;&gt;&quot;System Administrator&quot;
+)*/</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>No puede cambiar el estado del candidato una vez dado de baja.</errorMessage>
+</ValidationRule>

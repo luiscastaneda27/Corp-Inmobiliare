@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tipo de Vivienda --></label>
+    <name>CI_Tipo_Vivienda__c</name>
+    <picklistValues>
+        <masterLabel>ARRENDADA</masterLabel>
+        <translation><!-- ARRENDADA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HIPOTECADA</masterLabel>
+        <translation><!-- HIPOTECADA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROPIA</masterLabel>
+        <translation><!-- PROPIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VIVE CON FAMILIARES</masterLabel>
+        <translation><!-- VIVE CON FAMILIARES --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

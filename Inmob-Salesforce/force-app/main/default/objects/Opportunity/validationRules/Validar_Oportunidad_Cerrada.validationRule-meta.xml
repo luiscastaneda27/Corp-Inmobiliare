@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Oportunidad_Cerrada</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+$Profile.Name == &quot;Asesor de Ventas&quot;,
+ISPICKVAL(PRIORVALUE(StageName),&quot;No negociada&quot;),
+OR (
+ISCHANGED(StageName),
+ISCHANGED(Name),
+ISCHANGED(CI_Proyecto__c),
+ISCHANGED(Proyecto__c),
+ISCHANGED(CloseDate),
+ISCHANGED(Fecha_de_Reserva__c),
+ISCHANGED(Probability),
+ISCHANGED(Estado_de_Aprobacion__c),
+ISCHANGED(CI_Score__c),
+ISCHANGED(CI_Origen_del_prospecto__c),
+ISCHANGED(LeadSource),
+ISCHANGED(CI_Assignment_date_time__c),
+ISCHANGED(CI_Motivo_Baja__c)
+)
+)</errorConditionFormula>
+    <errorMessage>No puede Modificar una oportunidad No Negociada</errorMessage>
+</ValidationRule>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copia_de_Oportunidades_Ultima_Gesti_n_RIOJA</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CI_Dias_sin_gestionar__c</columns>
+    <columns>OPPORTUNITY.LAST_STAGE_CHANGE</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+        <field>Proyecto__c</field>
+        <operation>contains</operation>
+        <value>VITTORIA</value>
+    </filters>
+    <filters>
+        <field>CI_Dias_sin_gestionar__c</field>
+        <operation>greaterThan</operation>
+        <value>30</value>
+    </filters>
+    <filters>
+        <field>CI_Dias_sin_gestionar__c</field>
+        <operation>lessOrEqual</operation>
+        <value>100</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Nueva,Trabajando,Probable,Negociando</value>
+    </filters>
+    <label>Oportunidades Ultima Gestión VITTORIA</label>
+</ListView>

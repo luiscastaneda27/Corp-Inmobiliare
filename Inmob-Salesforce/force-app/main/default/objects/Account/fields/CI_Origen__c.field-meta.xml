@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Origen__c</fullName>
+    <label>Origen</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>OBRA</fullName>
+                <default>false</default>
+                <label>OBRA</label>
+            </value>
+            <value>
+                <fullName>OFICINA</fullName>
+                <default>false</default>
+                <label>OFICINA</label>
+            </value>
+            <value>
+                <fullName>FERIA BIESS</fullName>
+                <default>false</default>
+                <label>FERIA BIESS</label>
+            </value>
+            <value>
+                <fullName>FERIA HABITAT</fullName>
+                <default>false</default>
+                <label>FERIA HABITAT</label>
+            </value>
+            <value>
+                <fullName>ACTIVACION</fullName>
+                <default>false</default>
+                <label>ACTIVACION</label>
+            </value>
+            <value>
+                <fullName>PROPERATI</fullName>
+                <default>false</default>
+                <label>PROPERATI</label>
+            </value>
+            <value>
+                <fullName>REFERIDOS</fullName>
+                <default>false</default>
+                <label>REFERIDOS</label>
+            </value>
+            <value>
+                <fullName>WHATSAPP</fullName>
+                <default>false</default>
+                <label>WHATSAPP</label>
+            </value>
+            <value>
+                <fullName>FORMULARIO FACEBOOK</fullName>
+                <default>false</default>
+                <label>FORMULARIO FACEBOOK</label>
+            </value>
+            <value>
+                <fullName>FORMULARIO INSTAGRAM</fullName>
+                <default>false</default>
+                <label>FORMULARIO INSTAGRAM</label>
+            </value>
+            <value>
+                <fullName>TIKTOK</fullName>
+                <default>false</default>
+                <label>TIKTOK</label>
+            </value>
+            <value>
+                <fullName>FORMULARIO META</fullName>
+                <default>false</default>
+                <label>FORMULARIO META</label>
+            </value>
+            <value>
+                <fullName>Web</fullName>
+                <default>false</default>
+                <label>Web</label>
+            </value>
+            <value>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+                <label>Mailing</label>
+            </value>
+            <value>
+                <fullName>VALLAS Y LETREROS</fullName>
+                <default>false</default>
+                <label>VALLAS Y LETREROS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Implantación --></label>
+    <name>Implantaci_n_Principal__c</name>
+    <relationshipLabel><!-- Cotizaciones --></relationshipLabel>
+</CustomFieldTranslation>

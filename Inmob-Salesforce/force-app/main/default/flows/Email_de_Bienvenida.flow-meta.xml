@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Correo_Bienvenida_La_Gran_Vittoria</name>
+        <label>Correo Bienvenida La Gran Vittoria</label>
+        <locationX>314</locationX>
+        <locationY>839</locationY>
+        <actionName>Lead.Bienvenida_La_Gran_Vittoria</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Bienvenida_La_Gran_Vittoria</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Correo_Contactenos_La_Gran_Vittoria</name>
+        <label>Correo Contactenos La Gran Vittoria</label>
+        <locationX>1370</locationX>
+        <locationY>839</locationY>
+        <actionName>Lead.Contactenos_La_Gran_Vittoria</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Contactenos_La_Gran_Vittoria</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Correo_Contactenos_La_Rioja</name>
+        <label>Correo Contactenos La Rioja</label>
+        <locationX>1106</locationX>
+        <locationY>839</locationY>
+        <actionName>Lead.Contactenos_La_Rioja</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Contactenos_La_Rioja</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Correo_Contactenos_Villa_Italia</name>
+        <label>Correo Contactenos Villa Italia</label>
+        <locationX>1634</locationX>
+        <locationY>839</locationY>
+        <actionName>Lead.Contactenos_Villa_Italia</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Contactenos_Villa_Italia</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Correo_de_asignacion_al_asesor</name>
+        <label>Correo de asignación al asesor</label>
+        <locationX>842</locationX>
+        <locationY>431</locationY>
+        <actionName>Lead.CI_Correo_de_Asignaci_n_al_Asesor</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Tiene_Modelo</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.CI_Correo_de_Asignaci_n_al_Asesor</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Correo_de_Bienvenida_La_Rioja</name>
+        <label>Correo de Bienvenida La Rioja</label>
+        <locationX>50</locationX>
+        <locationY>839</locationY>
+        <actionName>Lead.Bienvenida_La_Rioja</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Bienvenida_La_Rioja</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Correo_de_Bienvenida_Villa_Italia</name>
+        <label>Correo de Bienvenida Villa Italia</label>
+        <locationX>578</locationX>
+        <locationY>839</locationY>
+        <actionName>Lead.Bienvenida_Villa_Italia</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Bienvenida_Villa_Italia</nameSegment>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <decisions>
+        <name>Tiene_Modelo</name>
+        <label>Tiene Modelo</label>
+        <locationX>974</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>Verifica_Proyecto_SM</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>SI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Modelo__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Modelo__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Verifica_Proyecto</targetReference>
+            </connector>
+            <label>SI</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>validar_aseslr</name>
+        <label>validar aseslr</label>
+        <locationX>974</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Tiene_Modelo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>valida_asesor</name>
+            <conditionLogic>(1 OR 2 ) AND (3 or 5) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.Profile.Description</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Asesor de Ventas</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CI_Asignado__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CI_Origen__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Web</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CI_Ref_Web_To_Lead__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>S</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.EsWeb__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_de_asignacion_al_asesor</targetReference>
+            </connector>
+            <label>valida asesor</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Verifica_Proyecto</name>
+        <label>Verifica Proyecto</label>
+        <locationX>446</locationX>
+        <locationY>731</locationY>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>La_Rioja</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Proyecto__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>La Rioja</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_de_Bienvenida_La_Rioja</targetReference>
+            </connector>
+            <label>La Rioja</label>
+        </rules>
+        <rules>
+            <name>La_Gran_Vittoria</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Proyecto__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>La Gran Vittoria</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_Bienvenida_La_Gran_Vittoria</targetReference>
+            </connector>
+            <label>La Gran Vittoria</label>
+        </rules>
+        <rules>
+            <name>Villa_Italia</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Proyecto__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Villa Italia</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_de_Bienvenida_Villa_Italia</targetReference>
+            </connector>
+            <label>Villa Italia</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Verifica_Proyecto_SM</name>
+        <label>Verifica Proyecto SM</label>
+        <locationX>1502</locationX>
+        <locationY>731</locationY>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>La_Rioja_SM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Proyecto__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>La Rioja</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_Contactenos_La_Rioja</targetReference>
+            </connector>
+            <label>La Rioja SM</label>
+        </rules>
+        <rules>
+            <name>La_Gran_Vittoria_SM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Proyecto__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>La Gran Vittoria</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_Contactenos_La_Gran_Vittoria</targetReference>
+            </connector>
+            <label>La Gran Vittoria SM</label>
+        </rules>
+        <rules>
+            <name>Villa_Italia_SM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CI_Cod_Proyecto__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Villa Italia</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correo_Contactenos_Villa_Italia</targetReference>
+            </connector>
+            <label>Villa Italia SM</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Email de Bienvenida {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Email de Bienvenida</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>848</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>validar_aseslr</targetReference>
+        </connector>
+        <filterFormula> (ISNEW() &amp;&amp; NOT(ISPICKVAL({!$Record.CI_Origen__c}, &apos;FORMULARIO META&apos;)))  || (ISCHANGED({!$Record.CI_Asignado__c}) &amp;&amp; ({!$Record.CI_Asignado__c}) &amp;&amp; ( NOT(ISPICKVAL({!$Record.CI_Origen__c}, &apos;FORMULARIO META&apos;))))</filterFormula>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>1100</triggerOrder>
+    <variables>
+        <name>CuerpoCorreo</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

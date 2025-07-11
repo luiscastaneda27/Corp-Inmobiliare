@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tipo de Cuota --></label>
+    <name>CI_Tipo_de_Cuota__c</name>
+    <picklistValues>
+        <masterLabel>ADIC.</masterLabel>
+        <translation><!-- ADIC. --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ADIC. C/INT</masterLabel>
+        <translation><!-- ADIC. C/INT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FIJA</masterLabel>
+        <translation><!-- FIJA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FIJA C/INT</masterLabel>
+        <translation><!-- FIJA C/INT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VARIABLE</masterLabel>
+        <translation><!-- VARIABLE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VARIABLE C/INT</masterLabel>
+        <translation><!-- VARIABLE C/INT --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Contiene las reglas que se usan para validar las reglas de ventas</description>
+    <label>Sales SLA rule</label>
+    <pluralLabel>Sales SLA Rules</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

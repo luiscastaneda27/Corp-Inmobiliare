@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_campo_Asunto</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+if(CreatedBy.FirstName == &quot;B2BMA&quot;,1,
+CASE(
+   Subject,
+   &apos;Llamada&apos;, 1,
+   &apos;Email&apos;, 1,
+   &apos;Mensaje de texto&apos; , 1,
+   &apos;Cotizacion&apos;, 1,
+   &apos;Otro&apos;, 1,
+   &apos;Nuevo Prospecto creado por el Asesor&apos;, 1,
+   &apos;Nuevo Prospecto Creado&apos;, 1,
+   &apos;Nueva Cuenta Creada&apos;, 1,
+   &apos;Nueva Oportunidad Creada&apos;, 1,
+   &apos;Nuevo Prospecto Asignado desde Pardot&apos;, 1,
+   &apos;El Prospecto está volviendo a cotizar&apos;, 1,
+   &apos;Cotizacion Web&apos;,1,
+   0
+)) &lt;&gt; 1,
+$Profile.Name == &quot;Asesor de Ventas&quot; 
+)</errorConditionFormula>
+    <errorDisplayField>Subject</errorDisplayField>
+    <errorMessage>Debe ingresar un asunto de la lista de tareas permitidos.</errorMessage>
+</ValidationRule>

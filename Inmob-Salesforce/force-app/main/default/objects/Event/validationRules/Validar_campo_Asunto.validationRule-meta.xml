@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_campo_Asunto</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+CASE(
+   Subject,
+   &apos;Llamada&apos;, 1,
+   &apos;Email&apos;, 1,
+   &apos;Reunión&apos;, 1,
+   &apos;Enviar Cotización&apos;, 1, 
+   &apos;Otro&apos;, 1,
+   &apos;Entrevista en Obra&apos;, 1,
+   &apos;Cita en Obra&apos;, 1,
+   0
+) &lt;&gt; 1,
+$Profile.Name == &quot;Asesor de Ventas&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Subject</errorDisplayField>
+    <errorMessage>Debe ingresar un asunto de la lista.</errorMessage>
+</ValidationRule>

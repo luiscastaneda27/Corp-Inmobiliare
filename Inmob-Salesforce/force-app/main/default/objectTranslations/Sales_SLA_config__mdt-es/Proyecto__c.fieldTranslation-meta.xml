@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Vacio para todos, los valores de codigo de proyecto se esperan separados por comas --></help>
+    <label><!-- Proyecto --></label>
+    <name>Proyecto__c</name>
+</CustomFieldTranslation>

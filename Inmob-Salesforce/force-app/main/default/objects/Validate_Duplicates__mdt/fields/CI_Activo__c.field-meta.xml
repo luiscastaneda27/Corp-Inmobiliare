@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Activo__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo que valida si se aplica la validación de oportunidades duplicadas por Asesor.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Campo que valida si se aplica la validación de oportunidades duplicadas por Asesor.</inlineHelpText>
+    <label>Activo</label>
+    <type>Checkbox</type>
+</CustomField>

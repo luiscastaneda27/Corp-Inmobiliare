@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RG2_Validacion_de_porcentaje_Minimo</fullName>
+    <active>true</active>
+    <description>Validación de porcentaje mínimo por proyecto</description>
+    <errorConditionFormula>(ISBLANK($CustomMetadata.Sales_SLA_config__mdt.SG2.Proyecto__c) || CONTAINS( CI_Proyecto__r.Codigo_Proyecto__c , $CustomMetadata.Sales_SLA_config__mdt.SG2.Proyecto__c))
+
+&amp;&amp;
+
+ Porcentaje_Cuota_Entrada__c*100 &lt;  VALUE( $CustomMetadata.Sales_SLA_config__mdt.SG2.Valor_de_Comparacion__c )
+
+&amp;&amp;
+
+NOT( Ingresa_Preferencial__c )</errorConditionFormula>
+    <errorMessage>El porcentaje mínimo de entrada debe de ser mayor o igual al permitido para este proyecto.</errorMessage>
+</ValidationRule>

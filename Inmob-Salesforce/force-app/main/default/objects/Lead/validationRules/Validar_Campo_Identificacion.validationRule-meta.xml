@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Campo_Identificacion</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+NOT( ISBLANK( CI_Web_to_Lead__c ) ),
+ISBLANK( CI_Identificacion__c ),
+$Profile.Name != &apos;B2BMA Integration User&apos;,
+NOT(ISCHANGED(CI_Fecha_ultima_gestion__c )) 
+)</errorConditionFormula>
+    <errorDisplayField>CI_Identificacion__c</errorDisplayField>
+    <errorMessage>Campo Requerido, favor completar.</errorMessage>
+</ValidationRule>

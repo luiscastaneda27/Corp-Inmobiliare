@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Campo que valida si se aplica la validación de oportunidades duplicadas por Asesor. --></help>
+    <label><!-- Activo --></label>
+    <name>CI_Activo__c</name>
+</CustomFieldTranslation>

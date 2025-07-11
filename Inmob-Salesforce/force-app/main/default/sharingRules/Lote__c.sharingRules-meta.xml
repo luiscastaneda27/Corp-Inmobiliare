@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>INMUEBLES_LA_GRAN_VITTORIA</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>INMUEBLES LA GRAN VITTORIA</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Ventas_Vittoria</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>CI_Nombre_Proyecto__c</field>
+            <operation>equals</operation>
+            <value>LA GRAN VITTORIA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>INMUEBLES_LA_RIOJA</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>INMUEBLES LA RIOJA</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Ventas_Rioja</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>CI_Nombre_Proyecto__c</field>
+            <operation>equals</operation>
+            <value>LA RIOJA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>INMUEBLES_VILLA_ITALIA</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>INMUEBLES VILLA ITALIA</label>
+        <sharedTo>
+            <roleAndSubordinates>Jefe_Ventas_Villa_Italia</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>CI_Nombre_Proyecto__c</field>
+            <operation>equals</operation>
+            <value>VILLA ITALIA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

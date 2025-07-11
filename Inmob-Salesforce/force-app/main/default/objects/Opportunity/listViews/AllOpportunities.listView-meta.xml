@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllOpportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CI_Dias_sin_gestionar__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Estado_de_Aprobacion__c</columns>
+    <columns>CI_Origen_del_prospecto__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <columns>CI_Cant_cotiza__c</columns>
+    <columns>CI_Proyecto__c</columns>
+    <columns>CI_F_Cierre_PANACEA__c</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>5/1/2024 10:32 PM</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Vendida</value>
+    </filters>
+    <filters>
+        <field>CI_F_Cierre_PANACEA__c</field>
+        <operation>equals</operation>
+        <value>LAST_MONTH</value>
+    </filters>
+    <label>Todas las oportunidades</label>
+</ListView>

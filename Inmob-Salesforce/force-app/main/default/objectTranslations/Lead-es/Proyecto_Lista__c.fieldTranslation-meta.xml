@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Proyecto Lista --></label>
+    <name>Proyecto_Lista__c</name>
+    <picklistValues>
+        <masterLabel>LA GRAN VITTORIA</masterLabel>
+        <translation><!-- LA GRAN VITTORIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LA RIOJA</masterLabel>
+        <translation><!-- LA RIOJA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VILLA ITALIA</masterLabel>
+        <translation><!-- VILLA ITALIA --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

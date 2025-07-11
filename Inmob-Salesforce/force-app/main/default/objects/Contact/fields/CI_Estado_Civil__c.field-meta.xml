@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Estado_Civil__c</fullName>
+    <label>Estado Civil</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CASADO</fullName>
+                <default>false</default>
+                <label>CASADO</label>
+            </value>
+            <value>
+                <fullName>SOLTERO</fullName>
+                <default>false</default>
+                <label>SOLTERO</label>
+            </value>
+            <value>
+                <fullName>DIVORCIADO</fullName>
+                <default>false</default>
+                <label>DIVORCIADO</label>
+            </value>
+            <value>
+                <fullName>VIUDO</fullName>
+                <default>false</default>
+                <label>VIUDO</label>
+            </value>
+            <value>
+                <fullName>UNIÓN LIBRE</fullName>
+                <default>false</default>
+                <label>UNIÓN LIBRE</label>
+            </value>
+            <value>
+                <fullName>CASADO SEPARACIÓN BIENES</fullName>
+                <default>false</default>
+                <label>CASADO SEPARACIÓN BIENES</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

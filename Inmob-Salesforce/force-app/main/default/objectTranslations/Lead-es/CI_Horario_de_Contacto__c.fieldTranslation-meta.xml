@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Horario de Contacto --></label>
+    <name>CI_Horario_de_Contacto__c</name>
+    <picklistValues>
+        <masterLabel>10h00</masterLabel>
+        <translation><!-- 10h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>10h30</masterLabel>
+        <translation><!-- 10h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>11h00</masterLabel>
+        <translation><!-- 11h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>11h30</masterLabel>
+        <translation><!-- 11h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>12h00</masterLabel>
+        <translation><!-- 12h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>12h30</masterLabel>
+        <translation><!-- 12h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>13h00</masterLabel>
+        <translation><!-- 13h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>13h30</masterLabel>
+        <translation><!-- 13h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>14h00</masterLabel>
+        <translation><!-- 14h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>14h30</masterLabel>
+        <translation><!-- 14h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>15h00</masterLabel>
+        <translation><!-- 15h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>15h30</masterLabel>
+        <translation><!-- 15h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>16h00</masterLabel>
+        <translation><!-- 16h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>16h30</masterLabel>
+        <translation><!-- 16h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>17h00</masterLabel>
+        <translation><!-- 17h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>17h30</masterLabel>
+        <translation><!-- 17h30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>9h00</masterLabel>
+        <translation><!-- 9h00 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>9h30</masterLabel>
+        <translation><!-- 9h30 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

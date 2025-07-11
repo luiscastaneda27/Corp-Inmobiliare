@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Canal de Captación --></label>
+    <name>CI_Canal_Captacion__c</name>
+    <picklistValues>
+        <masterLabel>FERIA</masterLabel>
+        <translation><!-- FERIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ISLA MALL DEL SOL</masterLabel>
+        <translation><!-- ISLA MALL DEL SOL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ISLA ROTONDA</masterLabel>
+        <translation><!-- ISLA ROTONDA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ISLA SUR</masterLabel>
+        <translation><!-- ISLA SUR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OBRA</masterLabel>
+        <translation><!-- OBRA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OFICINA  PLAZA  QUIL</masterLabel>
+        <translation><!-- OFICINA  PLAZA  QUIL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OTROS</masterLabel>
+        <translation><!-- OTROS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PUBLICIDAD</masterLabel>
+        <translation><!-- PUBLICIDAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERIDO</masterLabel>
+        <translation><!-- REFERIDO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RIOCENTRO NORTE</masterLabel>
+        <translation><!-- RIOCENTRO NORTE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VISITAS A EMPRESAS</masterLabel>
+        <translation><!-- VISITAS A EMPRESAS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WEB</masterLabel>
+        <translation><!-- WEB --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

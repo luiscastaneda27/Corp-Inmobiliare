@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Origen --></label>
+    <name>CI_Origen__c</name>
+    <picklistValues>
+        <masterLabel>ACTIVACION</masterLabel>
+        <translation><!-- ACTIVACION --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FERIA BIESS</masterLabel>
+        <translation><!-- FERIA BIESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FERIA HABITAT</masterLabel>
+        <translation><!-- FERIA HABITAT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FORMULARIO META</masterLabel>
+        <translation><!-- FORMULARIO META --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GOOGLE</masterLabel>
+        <translation><!-- GOOGLE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MAILING</masterLabel>
+        <translation><!-- MAILING --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OBRA</masterLabel>
+        <translation><!-- OBRA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OFICINA</masterLabel>
+        <translation><!-- OFICINA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROPERATI</masterLabel>
+        <translation><!-- PROPERATI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERIDOS</masterLabel>
+        <translation><!-- REFERIDOS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TIKTOK</masterLabel>
+        <translation><!-- TIKTOK --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>UNION ANDINA</masterLabel>
+        <translation><!-- UNION ANDINA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VALLAS Y LETREROS</masterLabel>
+        <translation><!-- VALLAS Y LETREROS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WEB</masterLabel>
+        <translation><!-- WEB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WHATSAPP</masterLabel>
+        <translation><!-- WHATSAPP --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

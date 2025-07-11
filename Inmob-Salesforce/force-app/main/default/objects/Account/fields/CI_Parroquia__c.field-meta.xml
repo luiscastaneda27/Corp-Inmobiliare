@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Parroquia__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Parroquia</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.CI_Ciudad__c</field>
+            <operation>equals</operation>
+            <valueField>Parroquia__c.CI_Codigo_Ciudad__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Parroquia__c</referenceTo>
+    <relationshipLabel>Cuentas</relationshipLabel>
+    <relationshipName>Cuentas</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

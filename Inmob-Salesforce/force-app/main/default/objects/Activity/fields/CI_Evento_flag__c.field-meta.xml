@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Evento_flag__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo de excepción en la configuración de dado de baja a Oportunidad.</description>
+    <inlineHelpText>Campo de excepción en la configuración de dado de baja a Oportunidad.</inlineHelpText>
+    <label>Evento flag</label>
+    <type>Checkbox</type>
+</CustomField>

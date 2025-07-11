@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Campos_Conyuge</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(
+TEXT( CI_Estado_Civil__c ) = &quot;C&quot;,
+TEXT( CI_Estado_Civil__c ) = &quot;U&quot;
+),
+OR (
+ISBLANK( TEXT ( CI_Tipo_Ident_C__c ) ),
+ISBLANK( CI_Identificacion_C__c ),
+ISBLANK( CI_Nombre_C__c ),
+ISBLANK( CI_Apellidos_C__c )
+),
+$Profile.Name == &quot;B2BMA Integration User&quot;
+)</errorConditionFormula>
+    <errorMessage>Los datos del cónyuge son requeridos.</errorMessage>
+</ValidationRule>

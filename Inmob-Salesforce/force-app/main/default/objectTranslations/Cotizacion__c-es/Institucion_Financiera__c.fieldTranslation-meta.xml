@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Institución Financiera --></label>
+    <name>Institucion_Financiera__c</name>
+    <picklistValues>
+        <masterLabel>0000000000005</masterLabel>
+        <translation><!-- 0000000000005 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0000000000234</masterLabel>
+        <translation><!-- 0000000000234 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0000000000250</masterLabel>
+        <translation><!-- 0000000000250 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0000000011115</masterLabel>
+        <translation><!-- 0000000011115 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0190055965001</masterLabel>
+        <translation><!-- 0190055965001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990005737001</masterLabel>
+        <translation><!-- 0990005737001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990029105001</masterLabel>
+        <translation><!-- 0990029105001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990048673001</masterLabel>
+        <translation><!-- 0990048673001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990049459001</masterLabel>
+        <translation><!-- 0990049459001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990141516172</masterLabel>
+        <translation><!-- 0990141516172 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990388997001</masterLabel>
+        <translation><!-- 0990388997001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0990579017007</masterLabel>
+        <translation><!-- 0990579017007 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0991473998001</masterLabel>
+        <translation><!-- 0991473998001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0992347430001</masterLabel>
+        <translation><!-- 0992347430001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0992426357001</masterLabel>
+        <translation><!-- 0992426357001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>0992698578001</masterLabel>
+        <translation><!-- 0992698578001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1760002600001</masterLabel>
+        <translation><!-- 1760002600001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1760002790021</masterLabel>
+        <translation><!-- 1760002790021 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1768022190001</masterLabel>
+        <translation><!-- 1768022190001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1790010937001</masterLabel>
+        <translation><!-- 1790010937001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1790022186005</masterLabel>
+        <translation><!-- 1790022186005 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1790075494001</masterLabel>
+        <translation><!-- 1790075494001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1790098354001</masterLabel>
+        <translation><!-- 1790098354001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1790477142001</masterLabel>
+        <translation><!-- 1790477142001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1790864316001</masterLabel>
+        <translation><!-- 1790864316001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1791109384001</masterLabel>
+        <translation><!-- 1791109384001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>9999999999999</masterLabel>
+        <translation><!-- 9999999999999 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

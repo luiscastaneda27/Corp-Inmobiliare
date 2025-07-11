@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Status_Baja1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Administrador del sistema&quot;,
+ISPICKVAL(PRIORVALUE(Status),&quot;Qualified&quot;),
+OR (
+ISCHANGED(Status),
+ISCHANGED(FirstName),
+ISCHANGED(LastName),
+ISCHANGED(MiddleName),
+ISCHANGED(Suffix),
+ISCHANGED(CI_Identificacion__c),
+ISCHANGED(CI_Personeria__c),
+ISCHANGED(CI_Tipo_Iden__c),
+ISCHANGED(CI_Identificacion__c),
+ISCHANGED(CI_Email__c),
+ISCHANGED(CI_Ciudad__c),
+ISCHANGED(CI_Pais__c),
+ISCHANGED(Phone),
+ISCHANGED(CI_Medio_Contacto__c),
+ISCHANGED(CI_Estado_Civil__c),
+ISCHANGED(CI_Horario__c),
+ISCHANGED(CI_Motivo_Baja__c),
+ISCHANGED(CI_Movil__c),
+ISCHANGED(CI_Proyecto__c),
+ISCHANGED(CI_Proyecto_User__c),
+ISCHANGED(LeadSource),
+ISCHANGED(CI_Origen__c),
+ISCHANGED(Company),
+ISCHANGED(CI_Tipo_Ident_C__c),
+ISCHANGED(CI_Identificacion_C__c),
+ISCHANGED(CI_Nombre_C__c),
+ISCHANGED(CI_Apellidos_C__c),
+ISCHANGED(CI_Fecha_Nacimiento_C__c),
+ISCHANGED(CI_Referido__c)
+)
+)</errorConditionFormula>
+    <errorMessage>No puede Modificar prospecto Convertido a Oportunidad</errorMessage>
+</ValidationRule>

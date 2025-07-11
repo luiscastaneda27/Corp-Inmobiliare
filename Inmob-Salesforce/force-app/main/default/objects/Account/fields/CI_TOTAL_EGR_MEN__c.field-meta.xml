@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_TOTAL_EGR_MEN__c</fullName>
+    <formula>CI_Descuento_IESS__c + CI_Arriendo__c + CI_Servicios_Basicos__c + CI_Alimentacion__c + Educacion__c + CI_Otros_Gastos__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>TOTAL EGRESOS MENSUALES</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

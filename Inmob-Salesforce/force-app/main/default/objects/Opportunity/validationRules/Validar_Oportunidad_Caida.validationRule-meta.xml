@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Oportunidad_Caida</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(StageName),
+ISPICKVAL(PRIORVALUE(StageName),&quot;No negociada&quot;),
+$Profile.Name==&quot;Asesor de Ventas&quot;
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>No puede cambiar la etapa de la oportunidad una vez que está caída.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Todas_las_oportunidades_Toscana</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CI_Dias_sin_gestionar__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Estado_de_Aprobacion__c</columns>
+    <columns>CI_Origen_del_prospecto__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <columns>CI_Cant_cotiza__c</columns>
+    <columns>CI_Proyecto__c</columns>
+    <columns>Proyecto__c</columns>
+    <columns>CI_F_Cierre_PANACEA__c</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Proyecto__c</field>
+        <operation>equals</operation>
+        <value>Villa Italia</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>contains</operation>
+        <value>Nueva,Trabajando,Probable,Negociando,Calificada</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>notContain</operation>
+        <value>procesos</value>
+    </filters>
+    <filters>
+        <field>Proyecto__c</field>
+        <operation>contains</operation>
+        <value>villa</value>
+    </filters>
+    <label>Todas las oportunidades Toscana</label>
+</ListView>

@@ -17,11 +17,6 @@
                 <label>Nueva</label>
             </value>
             <value>
-                <fullName>Vigente</fullName>
-                <default>false</default>
-                <label>Vigente</label>
-            </value>
-            <value>
                 <fullName>En Aprobación</fullName>
                 <default>false</default>
                 <label>En Aprobación</label>
@@ -30,6 +25,11 @@
                 <fullName>Aprobado</fullName>
                 <default>false</default>
                 <label>Aprobado</label>
+            </value>
+            <value>
+                <fullName>Vigente</fullName>
+                <default>false</default>
+                <label>Vigente</label>
             </value>
             <value>
                 <fullName>Emitida</fullName>

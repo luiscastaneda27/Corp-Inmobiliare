@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospectos_desde_Pardot</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>CI_Origen__c</columns>
+    <columns>CI_Proyecto_User__c</columns>
+    <columns>CI_Fecha_ultima_gestion__c</columns>
+    <columns>CI_Web_to_Lead__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CI_Web_to_Lead__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>6/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>6/30/2024 12:00 AM</value>
+    </filters>
+    <label>Prospectos desde Pardot</label>
+</ListView>

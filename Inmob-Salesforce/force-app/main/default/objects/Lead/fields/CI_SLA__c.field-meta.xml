@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_SLA__c</fullName>
+    <description>Días transcurridos desde que se creó el Prospecto.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    NOT(ISPICKVAL(Status, &apos;Qualified&apos;)),
+    If(
+        ISBLANK(CI_Fecha_de_asignacion__c),
+        NOW()-CreatedDate,
+        TODAY()- CI_Fecha_de_asignacion__c
+    ),
+    CI_Fecha_de_conversion__c-CreatedDate
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Días transcurridos desde que se creó el Prospecto.</inlineHelpText>
+    <label>SLA</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

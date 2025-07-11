@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Dias_de_gestion_transcurridos__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR( ISPICKVAL(StageName , &apos;Vendida&apos;),ISPICKVAL(StageName , &apos;No negociada&apos;)),0,DATETIMEVALUE(TODAY())  -  CreatedDate)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Días de gestión transcurridos</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

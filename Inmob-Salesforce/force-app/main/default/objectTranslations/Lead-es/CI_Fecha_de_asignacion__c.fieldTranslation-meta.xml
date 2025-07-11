@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Campo que controla la fecha en que se asigna y reasigna un propietario al Prospecto. --></help>
+    <label><!-- Fecha de asignación --></label>
+    <name>CI_Fecha_de_asignacion__c</name>
+</CustomFieldTranslation>

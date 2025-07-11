@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tipo de Relación --></label>
+    <name>Tipo_de_Relacion__c</name>
+    <picklistValues>
+        <masterLabel>Empleado</masterLabel>
+        <translation><!-- Empleado --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Familiar</masterLabel>
+        <translation><!-- Familiar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Negocios</masterLabel>
+        <translation><!-- Negocios --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

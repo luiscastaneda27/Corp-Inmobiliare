@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RG3_Validacion_de_Cantidad_Cuotas</fullName>
+    <active>true</active>
+    <description>La cantidad de cuotas de entrada debe de ser menor o igual a las permitido para este proyecto.</description>
+    <errorConditionFormula>(ISBLANK($CustomMetadata.Sales_SLA_config__mdt.SG3.Proyecto__c) || CONTAINS( CI_Proyecto__r.Codigo_Proyecto__c , $CustomMetadata.Sales_SLA_config__mdt.SG3.Proyecto__c))
+
+&amp;&amp;
+
+Numero_Total_de_Cuotas__c &gt;  VALUE( $CustomMetadata.Sales_SLA_config__mdt.SG3.Valor_de_Comparacion__c )
+
+&amp;&amp; NOT( Ingresa_Preferencial__c )</errorConditionFormula>
+    <errorMessage>La cantidad de cuotas de entrada debe de ser menor o igual a las permitido para este proyecto.</errorMessage>
+</ValidationRule>

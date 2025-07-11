@@ -385,24 +385,19 @@
                             <apex:outputField value="{!item.implan.Lote__r.CI_Metros_Terreno__c}"/>
                         </div>
                     </apex:column>
-                    <apex:column headerValue="Precio lista" >
-                        <apex:outputText value="{0, number, Currency}" >
+                    <apex:column headerValue="Monto Base" >
+                        <apex:outputText value="{0, number, Currency}" rendered="{!propiedadSeleccionada == null || Oportunidad.Estado_de_Aprobacion__c=='Aprobado'}">
                             <apex:param value="{!item.montoTotal}" />
                         </apex:outputText>
+                        <apex:inputText value="{!item.montoFinal}" rendered="{!propiedadSeleccionada != null && Oportunidad.Estado_de_Aprobacion__c!='Aprobado'}">
+                            <apex:actionSupport event="onchange" action="{!actualizarMonto}" reRender="theForm" status="loadingValues"/>
+                        </apex:inputText>
                     </apex:column>
-                    <!--apex:column headerValue="Fecha de Límite de Venta" onclick="highlighRowLote('{!item.implan.Id}')">
+                    <apex:column headerValue="Fecha de Límite de Venta" onclick="highlighRowLote('{!item.implan.Id}')">
                         <apex:outputField value="{!item.implan.Lote__r.CI_Fecha_Limite_Venta__c}"/>
-                    </apex:column-->
+                    </apex:column>
                 </apex:dataTable>
           </div>
-            <apex:outputPanel rendered="{!propiedadSeleccionada != null}">
-                <p style="font-size; 24px;white-space: pre;">
-                    <b>Precio de lista: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!precioLista}" /></apex:outputText> <br/>
-                    <b>&nbsp;+ Total Adicionales&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!totalAdicionales}" /></apex:outputText> <br/>
-                    <b>&nbsp;- Descuento&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!totalDescuento}" /></apex:outputText> <br/>
-                    <b>Precio cotizado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <apex:outputText value="{0, number, Currency}" > <apex:param value="{!valorCotizado}" /></apex:outputText>
-                </p>
-            </apex:outputPanel>
         </article>
         
         <!-- section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" -->
@@ -490,7 +485,7 @@
             </div>
             <footer class="slds-modal__footer">
               <button class="slds-button slds-button_neutral" onclick="toggleVerAdicionales();return false;">Cancel</button>
-              <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Guardar" action="{!agregarAdicionales}" 
+              <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Guardar" action="{!actualizarMonto}" 
                                                             disabled="false" rerender="theForm" status="mySaveStatus1"/>
               </footer>
             </div>
@@ -531,7 +526,7 @@
             </div>
             <footer class="slds-modal__footer">
               <button class="slds-button slds-button_neutral" onclick="toggleVerHistorico();return false;">Cancel</button>
-              <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Guardar" action="{!agregarAdicionales}" 
+              <apex:commandButton styleclass="slds-button slds-button_brand" style="border-radius: 5px;" value="Guardar" action="{!actualizarMonto}" 
                                                             disabled="false" rerender="theForm" status="mySaveStatus1"/>
               </footer>
             </div>

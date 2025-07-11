@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Linea de Negocio --></label>
+    <name>CI_Linea_Negocio__c</name>
+    <picklistValues>
+        <masterLabel>ESTACIONAMIENTO</masterLabel>
+        <translation><!-- ESTACIONAMIENTO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>INMUEBLES</masterLabel>
+        <translation><!-- INMUEBLES --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LOCALES COMERCIALES</masterLabel>
+        <translation><!-- LOCALES COMERCIALES --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

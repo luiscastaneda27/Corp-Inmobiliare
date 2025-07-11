@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Plazo --></label>
+    <name>CI_Plazo__c</name>
+    <picklistValues>
+        <masterLabel>ANUAL</masterLabel>
+        <translation><!-- ANUAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BIMESTRAL</masterLabel>
+        <translation><!-- BIMESTRAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MENSUAL</masterLabel>
+        <translation><!-- MENSUAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SEMESTRAL</masterLabel>
+        <translation><!-- SEMESTRAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TRIMESTRAL</masterLabel>
+        <translation><!-- TRIMESTRAL --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CI_Motivo_Baja__c</fullName>
+    <label>Motivo de Baja</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PERFIL FALSO</fullName>
+                <default>false</default>
+                <label>PERFIL FALSO</label>
+            </value>
+            <value>
+                <fullName>ATENDIDO POR OTRO ASESOR</fullName>
+                <default>false</default>
+                <label>ATENDIDO POR OTRO ASESOR</label>
+            </value>
+            <value>
+                <fullName>CONFUSIÓN MARCA Y UBICACIÓN</fullName>
+                <default>false</default>
+                <label>CONFUSIÓN MARCA Y UBICACIÓN</label>
+            </value>
+            <value>
+                <fullName>TELÉFONO CORRECTO, EMAIL SIN RESPUESTA</fullName>
+                <default>false</default>
+                <label>TELÉFONO CORRECTO, EMAIL SIN RESPUESTA</label>
+            </value>
+            <value>
+                <fullName>TELÉFONO INCORRECTO, EMAIL SIN RESPUESTA</fullName>
+                <default>false</default>
+                <label>TELÉFONO INCORRECTO, EMAIL SIN RESPUESTA</label>
+            </value>
+            <value>
+                <fullName>SÓLO DEJÓ EMAIL SIN RESPUESTA</fullName>
+                <default>false</default>
+                <label>SÓLO DEJÓ EMAIL SIN RESPUESTA</label>
+            </value>
+            <value>
+                <fullName>SÓLO DEJÓ TELÉFONO SIN RESPUESTA</fullName>
+                <default>false</default>
+                <label>SÓLO DEJÓ TELÉFONO SIN RESPUESTA</label>
+            </value>
+            <value>
+                <fullName>CLIENTE SIN PRESUPUESTO</fullName>
+                <default>false</default>
+                <label>CLIENTE SIN PRESUPUESTO</label>
+            </value>
+            <value>
+                <fullName>CLIENTE NO ES PERFIL CREDITICIO</fullName>
+                <default>false</default>
+                <label>CLIENTE NO ES PERFIL CREDITICIO</label>
+            </value>
+            <value>
+                <fullName>SIN INTERÉS DE COMPRA</fullName>
+                <default>false</default>
+                <label>SIN INTERÉS DE COMPRA</label>
+            </value>
+            <value>
+                <fullName>CLIENTE COMPRÓ OTRO BIEN INMUEBLE</fullName>
+                <default>false</default>
+                <label>CLIENTE COMPRÓ OTRO BIEN INMUEBLE</label>
+            </value>
+            <value>
+                <fullName>CLIENTE YA EXISTE EN EL PROYECTO</fullName>
+                <default>false</default>
+                <label>CLIENTE YA EXISTE EN EL PROYECTO</label>
+            </value>
+            <value>
+                <fullName>VENTA CERRADA</fullName>
+                <default>false</default>
+                <label>VENTA CERRADA</label>
+            </value>
+            <value>
+                <fullName>PERFIL INGRESADO MANUALMENTE</fullName>
+                <default>false</default>
+                <label>PERFIL INGRESADO MANUALMENTE</label>
+            </value>
+            <value>
+                <fullName>CLIENTE NO GUSTÓ DEL PROYECTO</fullName>
+                <default>false</default>
+                <label>CLIENTE NO GUSTÓ DEL PROYECTO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

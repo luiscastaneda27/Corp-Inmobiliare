@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <article class="slds-card">
+    	<div class="slds-card__body slds-card__body_inner">    
+            <lightning:recordEditForm objectApiName="Opportunity" recordId="{!v.recordId}" onload="{!c.setDefaults}" onsuccess="{!c.handleSuccess}">
+                <lightning:messages />
+                <lightning:inputField aura:id="Motivo" fieldName="CI_Motivo_Baja__c" required="true"/>
+                <lightning:inputField aura:id="Etapa" disabled="true" fieldName="StageName" />
+                <div class="slds-m-top_medium">
+                    <!-- lightning:button label="Cancelar" onclick="{!c.handleClick}" / -->
+                    <lightning:button class="slds-button slds-button_brand" type="submit" label="Guardar" />
+                </div>
+            </lightning:recordEditForm>
+        </div>
+    </article>        
+</aura:component>

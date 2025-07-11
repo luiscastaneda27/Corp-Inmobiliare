@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyOpportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Cotizacion__c</columns>
+    <columns>OPPORTUNITY.WON</columns>
+    <columns>CI_F_Cierre_PANACEA__c</columns>
+    <columns>CI_Fecha_prox_act__c</columns>
+    <columns>CI_Dias_sin_gestionar__c</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Nueva,Trabajando,Probable,Negociando,Calificada</value>
+    </filters>
+    <label>Mis Oportunidades</label>
+</ListView>

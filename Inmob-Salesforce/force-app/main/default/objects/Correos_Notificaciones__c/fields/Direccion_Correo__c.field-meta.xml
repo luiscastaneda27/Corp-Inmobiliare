@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Direccion_Correo__c</fullName>
+    <description>Dirección a la que se notificará el proceso, este correo también sera utilizado para encontrar el usuario en salesforce para realizar asignaciones</description>
+    <externalId>false</externalId>
+    <label>Dirección Correo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

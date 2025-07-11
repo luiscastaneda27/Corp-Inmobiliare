@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Fecha/hora en que el prospecto se convirtió a Cuenta. --></help>
+    <label><!-- Fecha de conversión --></label>
+    <name>CI_Fecha_de_conversion__c</name>
+</CustomFieldTranslation>

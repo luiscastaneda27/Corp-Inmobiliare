@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validar_Campo_Requeridos</fullName>
+    <active>true</active>
+    <description>Campos requeridos del Prospecto principal si ya se validó la existencia por cédula.</description>
+    <errorConditionFormula>AND (
+NOT ( ISBLANK( CI_Identificacion__c ) ),
+OR (
+ISBLANK( TEXT ( CI_Personeria__c ) ),
+ISBLANK( TEXT ( CI_Medio_Contacto__c ) ),
+ISBLANK( Email ),
+ISBLANK( TEXT ( CI_Tipo_Iden__c ) )    
+)
+)</errorConditionFormula>
+    <errorMessage>Debe completar los campos requeridos: Tipo de Persona, Tipo de Identificación, Identificación, Email, Medio de Contacto.</errorMessage>
+</ValidationRule>

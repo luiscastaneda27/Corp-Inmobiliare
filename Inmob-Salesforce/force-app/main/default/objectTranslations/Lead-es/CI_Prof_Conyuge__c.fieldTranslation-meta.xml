@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Profesión Cónyuge --></label>
+    <name>CI_Prof_Conyuge__c</name>
+    <picklistValues>
+        <masterLabel>ABOGADO</masterLabel>
+        <translation><!-- ABOGADO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ADMINISTRADOR</masterLabel>
+        <translation><!-- ADMINISTRADOR --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
