@@ -1,0 +1,23 @@
+.dataTables_wrapper .dataTables_filter input {
+      background-color: #fff;
+      color: #16325c;
+      border: 1px solid #d8dde6;
+      border-radius: .25rem;
+      //width: 100%;
+      transition: border .1s linear,background-color .1s linear;
+      display: inline-block;
+      padding: 0 1rem 0 .75rem;
+      line-height: 1.875rem;
+      min-height: calc(1.875rem + (1px * 2));
+  }
+  body {
+    background: rgba(176, 196, 223, 1.0) !important;
+    background-image: url(../images/lightning_blue_background.png) !important;
+    background-repeat: repeat-x !important;
+    background-position: top left !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }  
+  .slds-card {
+    border: transparent !important;
+  }
