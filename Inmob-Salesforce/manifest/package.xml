@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>ProcesoRebajaEntradaEntrega</members>
+		<members>ProcesoAnulacionCotizacion</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>Urbanizacion__c.PlazoEntradaConstruccion__c</members>
-		<members>Urbanizacion__c.PlazoEntradaConstruir__c</members>
-		<members>Urbanizacion__c.PlazoEntregaConstruccion__c</members>
-		<members>Urbanizacion__c.PlazoEntregaConstruir__c</members>
+		<members>Cotizacion__c.ComentarioAnulacion__c</members>
+		<members>Proyecto__c.DiasAnulacionCotizacion__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
-		<members>Promocion_Agregada__c-Formato Promoción Agregada</members>
-		<members>Urbanizacion__c-Formato Etapa</members>
+		<members>Cotizacion__c-Formato Cotización</members>
+		<members>Proyecto__c-Formato Proyecto</members>
 		<name>Layout</name>
 	</types>
 	<types>
 		<members>ModuloCotizacionNuevo</members>
 		<name>PermissionSet</name>
-	</types>
-	<types>
-		<members>Cotizacion__c.RG5_Validacion_Fecha_Reserva</members>
-		<name>ValidationRule</name>
 	</types>
 	<version>62.0</version>
 </Package>

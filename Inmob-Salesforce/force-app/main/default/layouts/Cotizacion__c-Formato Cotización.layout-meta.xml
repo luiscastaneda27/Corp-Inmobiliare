@@ -157,9 +157,9 @@
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
+        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
-        <label>Nueva sección</label>
+        <label>Comentarios</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -168,6 +168,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Comentario_Cliente__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ComentarioAnulacion__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

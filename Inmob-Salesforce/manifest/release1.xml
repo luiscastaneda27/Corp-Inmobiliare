@@ -5,6 +5,7 @@
 		<members>extensionCotizacion</members>
 		<members>extensionCotizacion_test</members>
 		<members>ProcesoRebajaEntradaEntrega</members>
+		<members>ProcesoAnulacionCotizacion</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -22,6 +23,7 @@
 		<members>Cotizacion__c.CI_Precio_Neto__c</members>
 		<members>Cotizacion__c.CI_Tipo_Venta__c</members>
 		<members>Cotizacion__c.DiferenciaEntregaEntrada__c</members>
+		<members>Cotizacion__c.ComentarioAnulacion__c</members>
 		<members>Cotizacion__c.EntradaEntrega__c</members>
 		<members>Cotizacion__c.Estado__c</members>
 		<members>Cotizacion__c.Gerente__c</members>
@@ -34,6 +36,7 @@
 		<members>Promocion_Agregada__c.Proyecto__c</members>
 		<members>Promocion__c.Costo__c</members>
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
+		<members>Proyecto__c.DiasAnulacionCotizacion__c</members>
 		<members>Urbanizacion__c.ParametroConfigurados__c</members>
 		<members>Urbanizacion__c.PlazoEntradaConstruccion__c</members>
 		<members>Urbanizacion__c.PlazoEntradaConstruir__c</members>
