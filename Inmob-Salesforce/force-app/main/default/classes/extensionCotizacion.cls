@@ -61,6 +61,7 @@ public without sharing  class extensionCotizacion {
     public Map<String, CI_ParametroEtapa__c> mapParametroEtapa {get;set;}
     public Map<String, CI_ParametroLote__c> mapParametroLote {get;set;}
     public Decimal diasPorMes {get;set;}
+    public Boolean userEsAdmin {get;set;}
     
     public extensionCotizacion(ApexPages.StandardController stdController) {
         
@@ -111,7 +112,8 @@ public without sharing  class extensionCotizacion {
         diasPorMes = 30.42;
         OpcionesModelo = new List<SelectOption>();
         
-        usuario = [SELECT Id, profile.Name FROM User WHERE Id=: System.UserInfo.getUserId()];
+        usuario = [SELECT Id, Profile.Name FROM User WHERE Id=: System.UserInfo.getUserId()];
+        userEsAdmin = usuario.Profile.Name == 'Administrador del sistema' || usuario.Profile.Name == 'System Administrator';
         System.debug('La cotización es: '+cotizacion.Id);
         mapParametroEtapa = new Map<String, CI_ParametroEtapa__c>();
         for(CI_ParametroEtapa__c item:[Select Id, CI_CuotaEntrada__c, CI_CuotaInicial__c, CI_Etapa__c, CI_FormaPago__c From CI_ParametroEtapa__c ]){
@@ -412,6 +414,7 @@ public without sharing  class extensionCotizacion {
         cotizacion.CI_Cuota_Inicial__c = cuotaPrima.monto; 
         cotizacion.Estado__c = 'Vigente';
         cotizacion.UsuarioAprobador__c = getUsuarioAprobador();
+        cotizacion.UsuarioAprobador__c = !useresAdmin ? cotizacion.UsuarioAprobador__c : null;
         cotizacion.DiferenciaEntregaEntrada__c = diferenciaPlazo;
         cotizacion.EntradaEntrega__c = propiedadSeleccionada.entradaEntrega;
         cotizacion.Numero_Total_de_Cuotas__c = getNumeroPagosEntrada(); 
@@ -511,14 +514,15 @@ public without sharing  class extensionCotizacion {
         Integer entrega = cotizacion.Fecha_Cuota_Entrada__c.daysBetween(cotizacion.Fecha_Cuota_Saldo__c);
         entrega = Math.round( (Decimal) entrega / diasPorMes) + 1;
         String userId;
+        Decimal porcentajeReal = (descuento / (propiedadSeleccionada.getMontoTotal() + getValorAdicionales() ) ) * 100;
         cotizacion.Gerente__c = null;
         for(Descuento__c d :[Select DescuentoEjecutivo__c, DescuentoJefe__c, DescuentoGerente__c from Descuento__c where MesesEntrega__c = :entrega and Etapa__c = :cotizacion.CI_Etapa__c ]){
-            if(descuentoPor > d.DescuentoEjecutivo__c && descuentoPor <= d.DescuentoJefe__c){
+            if(porcentajeReal > d.DescuentoEjecutivo__c && porcentajeReal <= d.DescuentoJefe__c){
                 userId = oportunidad.Owner.managerId;
                 cotizacion.Gerente__c = [Select Id From User Where UserName = : oportunidad.Owner.Gerente__c].Id;
-            }else if(descuentoPor > d.DescuentoJefe__c && descuentoPor <= d.DescuentoGerente__c){
+            }else if(porcentajeReal > d.DescuentoJefe__c && porcentajeReal <= d.DescuentoGerente__c){
                 userId = [Select Id From User Where UserName = : oportunidad.Owner.Gerente__c].Id;
-            }else if(descuentoPor > d.DescuentoGerente__c){
+            }else if(porcentajeReal > d.DescuentoGerente__c){
                 for(User u: [Select Id, UserName From User Where UserName = : oportunidad.Owner.Director__c Or UserName = : oportunidad.Owner.Gerente__c]){
                     if(u.UserName == oportunidad.Owner.Director__c){
                         userId = u.Id;
