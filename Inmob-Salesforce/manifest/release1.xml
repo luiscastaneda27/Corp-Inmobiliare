@@ -88,6 +88,7 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>Cotizacion__c.AnularCotizacion</members>
 		<members>Cotizacion__c.Formato_Cotizacion</members>
 		<name>QuickAction</name>
 	</types>

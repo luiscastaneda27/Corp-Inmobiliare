@@ -49,6 +49,32 @@
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
+                        <valueListItems>
+                            <value>Cotizacion__c.AnularCotizacion</value>
+                            <visibilityRule>
+                                <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Nueva</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Vigente</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>En Aprobación</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Aprobado</rightValue>
+                                </criteria>
+                            </visibilityRule>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
