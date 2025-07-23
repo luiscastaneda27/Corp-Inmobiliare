@@ -102,8 +102,8 @@ public without sharing  class extensionCotizacion {
         cotizacion = (Cotizacion__c)controller.getRecord();
         cantidadLineas = 10;
         IngresaPreferencial = false;
-        NoModificable = false;
-        NoFinanciable = false;
+        //NoModificable = false;
+        //NoFinanciable = false;
         mostrarConfirmar = true;
         precioLista = 0;
         totalAdicionales = 0;
@@ -119,6 +119,7 @@ public without sharing  class extensionCotizacion {
         for(CI_ParametroEtapa__c item:[Select Id, CI_CuotaEntrada__c, CI_CuotaInicial__c, CI_Etapa__c, CI_FormaPago__c From CI_ParametroEtapa__c ]){
             mapParametroEtapa.put(item.CI_Etapa__c + item.CI_FormaPago__c, item);
         }
+        
         if(cotizacion.Id != null){
                
             //Inicio validando que exista proceso de aprobación
@@ -142,24 +143,6 @@ public without sharing  class extensionCotizacion {
             for(Proyecto__c item:listaProyectos) { 
                 opcionesProyecto.add(new SelectOption(item.Id,item.Name)); 
             } 
-            NoModificable = true;
-            NoFinanciable = true; 
-            if(Oportunidad.Estado_de_Venta__c!='Vendido' && Oportunidad.Estado_de_Aprobacion__c=='Aprobado'){
-                NoModificable = false;
-                NoFinanciable = false; 
-            } 
-            if(!usuario.profile.Name.contains('Asesor') && oportunidad.Cotizacion__c == null){
-                NoModificable = false; 
-            } 
-            if(usuario.profile.Name != 'Asesor de Ventas' && Oportunidad.Estado_de_Venta__c!='Vendido' && Oportunidad.Estado_de_Aprobacion__c!='Aprobado') {
-                NoModificable = false;
-            } 
-            Sales_SLA_config__mdt configSLA = [SELECT MasterLabel, Valor_de_Comparacion__c 
-                                               FROM Sales_SLA_config__mdt WHERE QualifiedApiName='MOD1_Dias_modificacion'];
-            if(cotizacion.CreatedDate.addDays((Integer.valueOf(configSLA.Valor_de_Comparacion__c)))>system.now()){
-                NoModificable = false; 
-                NoFinanciable = false; 
-            }
             refreshUrbaninzacion(); 
             for(propiedad item:listaPropiedad){
                 item.seleccionada = false; 
