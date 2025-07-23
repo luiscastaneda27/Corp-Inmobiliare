@@ -51,8 +51,6 @@ public without sharing  class extensionCotizacion {
     public Boolean NoFinanciable {get;set;}
     public Boolean mostrarConfirmar {get;set;}
     
-    public String hidesave {get;set;}
-    
     //Variables Nuevas
     public Decimal precioLista {get;set;}
     public Decimal totalAdicionales {get;set;}
@@ -102,8 +100,6 @@ public without sharing  class extensionCotizacion {
         cotizacion = (Cotizacion__c)controller.getRecord();
         cantidadLineas = 10;
         IngresaPreferencial = false;
-        //NoModificable = false;
-        //NoFinanciable = false;
         mostrarConfirmar = true;
         precioLista = 0;
         totalAdicionales = 0;
@@ -122,12 +118,6 @@ public without sharing  class extensionCotizacion {
         
         if(cotizacion.Id != null){
                
-            //Inicio validando que exista proceso de aprobación
-            list<ProcessInstance> existingApprovals = [SELECT Id, TargetObjectId, status FROM ProcessInstance WHERE TargetObjectId =: cotizacion.id order by createdDate Desc];
-            	//Ocultar botón *Guardar* si la cotización preferencial está en aprobación
-            hidesave = existingApprovals.size() > 0 && existingApprovals[0].status == 'Pending' ? 'display:none;' : 'display:row;'; 
-            //Fin validando que exista proceso de aprobación
-            
             oportunidad = [SELECT Id, Name, Account.Name, Account.CI_Email__c, Account.CI_Movil__c, Account.CI_Identificacion__c, 
                            Account.CI_celular__c, Fecha_de_Reserva__c, Account.CI_Tipo_Identi__c, Estado_de_Venta__c,
                            Estado_de_Aprobacion__c, Owner.CI_Nombre_Funcion__c, Proyecto__c,
