@@ -75,6 +75,31 @@
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
+                        <valueListItems>
+                            <value>Cotizacion__c.CrearContrato</value>
+                            <visibilityRule>
+                                <booleanFilter>(1 AND 2 AND 4) OR (3 AND 4)</booleanFilter>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Vigente</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.UsuarioAprobador__r.FirstName}</leftValue>
+                                    <operator>EQUAL</operator>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Aprobado</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Lote__r.CI_Estado__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>D</rightValue>
+                                </criteria>
+                            </visibilityRule>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>

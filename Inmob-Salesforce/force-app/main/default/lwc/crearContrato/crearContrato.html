@@ -1,0 +1,55 @@
+<template>
+    <header class="slds-modal__header">
+        <h1 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            Nuevo contrato
+        </h1>
+    </header>
+    <lightning-card if:true={data.step1} icon-name="standard:contract" title={data.cuenta}>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-radio-group name="tipo"
+                          label="Tipo de Contrato"
+                          options={data.optionsTipo}
+                          value={data.tipo}
+                          type="radio"
+                          onchange={handleChange} ></lightning-radio-group>
+                </lightning-layout-item>
+        </lightning-layout>
+        <footer class="slds-modal__footer">
+            <lightning-button label="Siguiente" class="slds-m-top--medium" variant="brand"
+                onclick={handleClick} name="siguiente" ></lightning-button>
+        </footer>
+    </lightning-card>
+
+
+    <lightning-card if:true={data.step2} icon-name="standard:contract" title={data.cuenta}>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="6">
+                <lightning-combobox label="Estado" options={data.optionsEstados} value={data.estado} name="estado" onchange={handleChange}  ></lightning-combobox>
+                <lightning-input label="Proyecto" value={data.proyecto} disabled > </lightning-input>
+                <lightning-input label="Etapa" value={data.etapa} disabled > </lightning-input>
+                <lightning-input label="Manzana" value={data.manzana}  disabled> </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="6">
+                <lightning-input label="Tipo" value={data.tipo} disabled > </lightning-input>
+                <!--lightning-combobox label="Tipo" options={data.optionsTipo} value={data.tipo} name="tipo" onchange={handleChange} ></lightning-combobox-->
+                <lightning-input label="Modelo" value={data.modelo} disabled > </lightning-input>
+                <lightning-input label="Lote" value={data.lote}  disabled> </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <footer class="slds-modal__footer">
+            <lightning-button label="Guardar" class="slds-m-top--medium" variant="brand"
+                onclick={saveData}></lightning-button>
+        </footer>
+    </lightning-card>
+
+    <template if:true={data.showSpinner}>
+        <div id="activityIndicator" class="slds-spinner_container">
+            <div class="slds-spinner--brand slds-spinner slds-spinner--large" role="alert">
+                <span class="slds-assistive-text">Loading, Please Wait...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </template>
+</template>
