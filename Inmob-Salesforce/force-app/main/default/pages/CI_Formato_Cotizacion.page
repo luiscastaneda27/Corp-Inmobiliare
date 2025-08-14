@@ -53,6 +53,7 @@
                         <td  style="width:20%">
                             <apex:image value="{!$Resource.La_Rioja}" rendered="{!IF(Cotizacion__c.CI_Proyecto__r.Name == 'LA RIOJA',true,false)}" width="100px" height="164px;" />
                             <apex:image value="{!$Resource.La_Gran_Vittoria}" rendered="{!IF(Cotizacion__c.CI_Proyecto__r.Name=='LA GRAN VITTORIA',true,false)}" width="140px" height="140px;" />
+                            <apex:image value="{!$Resource.LaCostanera}" rendered="{!Cotizacion__c.CI_Proyecto__r.Name == 'LA COSTANERA'}" width="100px" height="164px;" />
                             
                         </td>
                         <td  style="width:40%;vertical-align: top;">

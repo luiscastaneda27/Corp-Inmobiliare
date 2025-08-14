@@ -36,6 +36,7 @@
 		<members>Lote__c.ParametroConfigurados__c</members>
 		<members>Promocion_Agregada__c.Proyecto__c</members>
 		<members>Promocion__c.Costo__c</members>
+		<members>Proyecto__c.CorreosVentaNueva__c</members>
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
 		<members>Proyecto__c.DiasAnulacionCotizacion__c</members>
 		<members>Urbanizacion__c.ParametroConfigurados__c</members>
@@ -63,6 +64,7 @@
 	</types>
 	<types>
 		<members>unfiled$public/AprobacionDescuentoCotizacion</members>
+		<members>unfiled$public/ContratoVentaNueva</members>
 		<members>unfiled$public/RechazoDescuentoCotizacion</members>
 		<members>unfiled$public/SolicitudDescuentoCotizacion</members>
 		<name>EmailTemplate</name>

@@ -5,39 +5,20 @@
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>Contrato__c</members>
-		<members>OficialesCreditoCobranzas__c</members>
-		<name>CustomObject</name>
+		<members>Proyecto__c.CorreosVentaNueva__c</members>
+		<name>CustomField</name>
 	</types>
 	<types>
-		<members>OficialesCreditoCobranzas__c</members>
-		<name>CustomTab</name>
-	</types>
-	<types>
-		<members>ContratoPaginaRegistro</members>
-		<members>PaginaRegistroCotizacion</members>
-		<name>FlexiPage</name>
-	</types>
-	<types>
-		<members>Contrato__c-Formato Contrato</members>
-		<members>OficialesCreditoCobranzas__c-Formato Oficial Crédito %2F Cobranzas</members>
+		<members>Proyecto__c-Formato Proyecto</members>
 		<name>Layout</name>
-	</types>
-	<types>
-		<members>crearContrato</members>
-		<name>LightningComponentBundle</name>
-	</types>
-	<types>
-		<members>Contrato</members>
-		<name>PathAssistant</name>
 	</types>
 	<types>
 		<members>ModuloCotizacionNuevo</members>
 		<name>PermissionSet</name>
 	</types>
 	<types>
-		<members>Cotizacion__c.CrearContrato</members>
-		<name>QuickAction</name>
+		<members>unfiled$public/ContratoVentaNueva</members>
+		<name>EmailTemplate</name>
 	</types>
 	<version>62.0</version>
 </Package>

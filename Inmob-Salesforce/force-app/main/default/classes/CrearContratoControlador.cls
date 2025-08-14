@@ -42,6 +42,7 @@ public class CrearContratoControlador {
         update new Cotizacion__c(Id = contrato.Cotizacion__c, Estado__c = 'Vendido');
         update new Lote__c (Id = contrato.Lote__c, CI_Estado__c = 'V');
         update new Opportunity (Id = contrato.Oportunidad__c, Stagename = 'Vendida', Estado_de_Aprobacion__c = 'Aprobado', Estado_de_Venta__c ='Vendido');
+        sendEmail(contrato.Id);
         return contrato.Id;
     }
     
@@ -68,6 +69,47 @@ public class CrearContratoControlador {
             update item;
         }
         return user;
+    }
+    
+    public static void sendEmail(String recordId){
+        try{
+            Contrato__c contrato = [Select Name, Urbanizacion__r.Name, Proyecto__r.Name,
+                                    Proyecto__r.CorreosVentaNueva__c, Cuenta__r.Name,
+                                    Lote__r.Name, Manzana__r.Name, PrecioCotizado__c,
+                                    toLabel(FormaPago__c), Owner.Name, FechaEntrega__c
+                                    FROM Contrato__c where Id = :recordId];
+            EmailTemplate plantilla = [SELECT Id, Subject, HtmlValue from EmailTemplate where DeveloperName = 'ContratoVentaNueva'];
+            String subject = plantilla.Subject;
+            String htmlBody = plantilla.HtmlValue;
+            subject = subject.replace('{urbanizacion}', contrato.Urbanizacion__r.Name);
+            subject = subject.replace('{proyecto}', contrato.Proyecto__r.Name);
+            
+            htmlBody = htmlBody.replace('{urbanizacion}', contrato.Urbanizacion__r.Name);
+            htmlBody = htmlBody.replace('{manzana}', contrato.Manzana__r.Name);
+            htmlBody = htmlBody.replace('{cliente}', contrato.Cuenta__r.Name);
+            htmlBody = htmlBody.replace('{lote}', contrato.Lote__r.Name);
+            htmlBody = htmlBody.replace('{contrato}', contrato.Name);
+            htmlBody = htmlBody.replace('{valorContrato}', '$'+contrato.PrecioCotizado__c );
+            htmlBody = htmlBody.replace('{fechaEmision}', System.now().format('dd/MM/YYYY'));
+            htmlBody = htmlBody.replace('{formaPago}', contrato?.FormaPago__c);
+            htmlBody = htmlBody.replace('{ejecutivoVenta}', contrato.Owner.Name);
+            htmlBody = htmlBody.replace('{fechaEntrega}', DateTime.newInstance(contrato.FechaEntrega__c.year(), contrato.FechaEntrega__c.month(), contrato.FechaEntrega__c.day()).format('dd/MM/YYYY') );
+            
+            Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+            email.setToAddresses(contrato.Proyecto__r.CorreosVentaNueva__c.split(','));
+            email.setSubject(subject);
+            email.setHtmlBody(htmlBody); 
+            Messaging.SendEmailResult[] results = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+            
+            for (Messaging.SendEmailResult r : results) {
+                System.debug('¿Enviado? ' + r.isSuccess());
+                if (!r.isSuccess()) {
+                    System.debug('Errores: ' + r.getErrors()[0].getMessage());
+                }
+            }
+        }catch(exception ex){
+            System.debug('Error: '+ex.getMessage() +', Línea: '+ex.getLineNumber());
+        }
     }
     
     

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Plantilla para los contratos nuevos</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Contrato venta nueva</name>
+    <style>none</style>
+    <subject>Nueva Venta de {urbanizacion} de {proyecto}</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venta de contrato</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: #f7fafc;
+      padding: 40px;
+    }
+    .tabla-wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      border: 2px solid #87CEFA;
+      border-radius: 14px;
+      overflow: hidden; /* para que el borde redondeado aplique al contenido */
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+      background: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse; /* bordes juntos */
+    }
+    thead th {
+      background: #f0f9ff;
+      color: #0f172a;
+    }
+    th, td {
+      border: 1px solid #87CEFA;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    tbody tr:hover {
+      background: rgba(135,206,250,0.10);
+    }
+  </style>
+</head>
+<body>
+  <div class="tabla-wrap">
+    <table>
+      
+      <tbody>
+        <tr>
+          <td>Urbanización</td>
+          <td>{urbanizacion}</td>
+        </tr>
+        <tr>
+          <td>Manzana</td>
+          <td>{manzana}</td>
+        </tr>
+        <tr>
+          <td>Lote</td>
+          <td>{lote}</td>
+        </tr>
+        <tr>
+          <td>Cliente</td>
+          <td>{cliente}</td>
+        </tr>
+        <tr>
+          <td>Contrato</td>
+          <td>{contrato}</td>
+        </tr>
+        <tr>
+          <td>Valor de Conrato</td>
+          <td>{valorContrato}</td>
+        </tr>
+        <tr>
+          <td>Fecha de Emisión</td>
+          <td>{fechaEmision}</td>
+        </tr>
+        <tr>
+          <td>Forma de pago</td>
+          <td>{formaPago}</td>
+        </tr>
+        <tr>
+          <td>Ejecutivo de venta</td>
+          <td>{ejecutivoVenta}</td>
+        </tr>
+        <tr>
+          <td>Fecha de entrega</td>
+          <td>{fechaEntrega}</td>
+        </tr>    
+         </tbody>
+    </table>
+  </div>
+</body>
+</html>
