@@ -1,0 +1,34 @@
+.doc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    padding-left: 10px;
+}
+
+.doc-item {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.doc-item:last-child {
+    border-bottom: none;
+}
+
+.doc-icon {
+    margin-right: 0.5rem;
+    --sds-c-icon-color-foreground-default: #1a73e8; /* azul estilo Salesforce */
+}
+
+.doc-link {
+    font-weight: 500;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.doc-link:hover {
+    color: #0c4fb7;
+    text-decoration: underline;
+}

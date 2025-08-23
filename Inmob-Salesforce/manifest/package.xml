@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>CrearContratoControlador</members>
-		<name>ApexClass</name>
+		<members>AutorizacionBuroPdf</members>
+		<members>ResponsabilidadClientePdf</members>
+		<name>ApexPage</name>
 	</types>
 	<types>
-		<members>Proyecto__c.CorreosVentaNueva__c</members>
-		<name>CustomField</name>
-	</types>
-	<types>
-		<members>Proyecto__c-Formato Proyecto</members>
+		<members>Contrato__c-Formato Contrato</members>
 		<name>Layout</name>
+	</types>
+	<types>
+		<members>imprimirDocumentos</members>
+		<name>LightningComponentBundle</name>
 	</types>
 	<types>
 		<members>ModuloCotizacionNuevo</members>
 		<name>PermissionSet</name>
 	</types>
 	<types>
-		<members>unfiled$public/ContratoVentaNueva</members>
-		<name>EmailTemplate</name>
+		<members>Contrato__c.ImprimirDocumentos</members>
+		<name>QuickAction</name>
 	</types>
 	<version>62.0</version>
 </Package>

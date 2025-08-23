@@ -1,0 +1,75 @@
+<apex:page standardController="Contrato__c" renderAs="pdf"  showheader="false" sidebar="false" cache="false" expires="0"
+           applyHtmlTag="false" standardStylesheets="false" showQuickActionVfHeader="false" docType="html-5.0" id="page" applyBodyTag="false">
+     <html>
+        <head>
+            
+            <style type="text/css" media="print">
+                body{
+                font-size:14px;
+                font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;
+                }  
+                @page {
+                margin-top: 55px;
+                margin-bottom: 55px;
+                margin-left: 55px;
+                margin-right: 55px;
+                @top-center {
+                content: element(header);
+                }
+            </style> 
+            
+        </head>
+        <body>
+              <apex:form >
+                <table border="0" cellpadding="0" cellspacing="0" style="width:100%; font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;">
+                    <tr>
+                        <td  style="width:20%">
+                            <apex:image value="{!$Resource.La_Rioja}" rendered="{!IF(Contrato__c.Proyecto__r.Name == 'LA RIOJA',true,false)}" width="100px" height="164px;" />
+                            <apex:image value="{!$Resource.La_Gran_Vittoria}" rendered="{!IF(Contrato__c.Proyecto__r.Name=='LA GRAN VITTORIA',true,false)}" width="140px" height="140px;" />
+                            <apex:image value="{!$Resource.LaCostanera}" rendered="{!Contrato__c.Proyecto__r.Name == 'COSTANERA'}" width="100px" height="164px;" />
+                            
+                        </td>
+                    </tr>
+                  </table>
+                  <p style="width:100%; text-align: center; font-size:17px; font-weight: bold;">
+                      AUTORIZACIÓN
+                  </p>
+                  <p style="width:100%;">
+                      Yo, <spam style="border-bottom:2px solid #000;" ><apex:outputField value="{!Contrato__c.Cuenta__r.Name}" /> </spam>
+                      con cédula de identidad
+                      No. <spam style="border-bottom:2px solid #000;"><apex:outputField value="{!Contrato__c.Cuenta__r.CI_Identificacion__c}" /> </spam> autorizo de forma expresa, voluntaria e irrevocable a la
+                      compañía <spam><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></spam>, a sus empleados, representantes, trabajadores, y/o a quien
+                      esta designe para que obtenga las veces que considere necesario de cualquier fuente de
+                      información, referencias relativas a mi comportamiento crediticio, al cumplimiento de
+                      mis obligaciones, manejo de mi(s) tarjeta(s) de crédito, y, en general cualquier
+                      información que la compañía considere relevante para conocer mi comportamiento
+                      crediticio, desempeño como deudor y/o garante, mi capacidad de pago y/o para análisis y
+                      valoración en el tiempo.<br/><br/>
+                      
+                      Así como, confiero mi autorización para procesar, reportar y suministrar cualquier
+                      información de carácter financiero y comercial referente a mis obligaciones crediticias, o
+                      la información de las empresas de las cuales soy accionista, a la central de riesgos, buró
+                      de crédito, Equifax, o cualquier fuente de información financiera a nivel nacional.<br/><br/>
+                      
+                      De igual forma, autorizo a la compañía <spam><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></spam> para que pueda utilizar mis
+                      datos personales según el tratamiento y políticas internas de la compañía, las cuales me
+                      han sido informadas y explicadas en su totalidad.<br/><br/>
+                      
+                      Esta autorización podrá ser utilizada las veces que <spam><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></spam> considere necesaria
+                      y podrá presentarla ante terceros para los usos aquí estipulados.
+                  </p>
+                  <font> <apex:outputField value="{!Contrato__c.Proyecto__r.CI_Ciudad__r.CI_Descripcion__c}" />,</font>
+                  <p style="width:100%; text-align: center;padding-top: 70px;">
+                      <span style="display:inline-block; width:300px; border-top:2px solid #000; margin-top:30px;"></span><br/>
+                      <span style="display:inline-block; width:300px; text-align:left; margin-top:5px;">
+                          Nombres y Apellidos:<br/>C.I.:
+                      </span>
+                  </p>
+                  
+                  <p style="width:100%; text-align: center; padding-top: 170px;">
+                  <apex:outputField value="{!Contrato__c.Proyecto__r.CI_Direccion_Proyecto__c}" />
+                  </p>
+            </apex:form>
+         </body>
+    </html>
+</apex:page>

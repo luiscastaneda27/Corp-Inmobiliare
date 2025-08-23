@@ -381,6 +381,14 @@
         <object>OficialesCreditoCobranzas__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>AutorizacionBuroPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ResponsabilidadClientePdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <tabSettings>
         <tab>OficialesCreditoCobranzas__c</tab>
         <visibility>Visible</visibility>

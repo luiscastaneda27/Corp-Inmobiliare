@@ -1,0 +1,23 @@
+<template>
+    <header class="slds-modal__header">
+        <h1 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            Impresión de Documentos
+        </h1>
+    </header>
+    <lightning-card icon-name="standard:document" title={allData.title}>
+        <template if:true={documents}>
+            <ul class="doc-list">
+                <template for:each={documents} for:item="doc">
+                    <li key={doc.url} class="doc-item">
+                        <lightning-icon 
+                            icon-name="doctype:pdf" 
+                            size="small" 
+                            class="doc-icon">
+                        </lightning-icon>
+                        <a href={doc.url} target="_blank" class="doc-link">{doc.name}</a>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </lightning-card>
+</template>
