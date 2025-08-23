@@ -11,9 +11,9 @@
 	</types>
 	<types>
 		<members>AutorizacionBuroPdf</members>
-		<members>ResponsabilidadClientePdf</members>
 		<members>CI_Formato_Cotizacion</members>
 		<members>CI_Formato_PP</members>
+		<members>ResponsabilidadClientePdf</members>
 		<members>vfCotizacionNew</members>
 		<members>vfNewFinanciamiento</members>
 		<name>ApexPage</name>
@@ -38,8 +38,8 @@
 		<members>Lote__c.ParametroConfigurados__c</members>
 		<members>Promocion_Agregada__c.Proyecto__c</members>
 		<members>Promocion__c.Costo__c</members>
-		<members>Proyecto__c.CorreosVentaNueva__c</members>
 		<members>Proyecto__c.ComentarioCotizacion__c</members>
+		<members>Proyecto__c.CorreosVentaNueva__c</members>
 		<members>Proyecto__c.DiasAnulacionCotizacion__c</members>
 		<members>Urbanizacion__c.ParametroConfigurados__c</members>
 		<members>Urbanizacion__c.PlazoEntradaConstruccion__c</members>
@@ -108,10 +108,10 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>Contrato__c.ImprimirDocumentos</members>
 		<members>Cotizacion__c.AnularCotizacion</members>
 		<members>Cotizacion__c.CrearContrato</members>
 		<members>Cotizacion__c.Formato_Cotizacion</members>
-		<members>Contrato__c.ImprimirDocumentos</members>
 		<name>QuickAction</name>
 	</types>
 	<types>
