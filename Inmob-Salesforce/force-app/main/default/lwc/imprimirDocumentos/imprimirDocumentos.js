@@ -16,7 +16,7 @@ export default class ImprimirDocumentos extends LightningElement {
             this.documents.push({name : "Carta de Responsabilidad Cliente", url: "/apex/ResponsabilidadClientePdf?id=" + this.recordId})
             this.documents.push({name : "Declaración Y Autorización Pep Cii", url: "/apex/DeclaracionAutorizacionPepPdf?id=" + this.recordId})
             this.documents.push({name : "Entrevistas De Créditos", url: "/apex/EntrevistaCreditoPdf?id=" + this.recordId})
-            this.documents.push({name : "Documento 5", url: "/apex/nada?id=" + this.recordId})
+            this.documents.push({name : "Especificaciones Técnias", url: "/apex/EspecificacionesTecnicasPdf?id=" + this.recordId})
             this.documents.push({name : "Documento 6", url: "/apex/nada?id=" + this.recordId})
             this.documents.push({name : "Documento 7", url: "/apex/nada?id=" + this.recordId})
             this.documents.push({name : "Documento 8", url: "/apex/nada?id=" + this.recordId})

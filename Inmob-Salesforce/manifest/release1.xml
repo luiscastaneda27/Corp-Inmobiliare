@@ -2,9 +2,8 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>CI_apex</members>
+		<members>ControladorContratoPdfs</members>
 		<members>CrearContratoControlador</members>
-		<members>DeclaracionAutorizacionPepPdf</members>
-		<members>EntrevistaCreditoPdf</members>
 		<members>ProcesoAnulacionCotizacion</members>
 		<members>ProcesoRebajaEntradaEntrega</members>
 		<members>extensionCotizacion</members>
@@ -13,6 +12,9 @@
 	</types>
 	<types>
 		<members>AutorizacionBuroPdf</members>
+		<members>DeclaracionAutorizacionPepPdf</members>
+		<members>EntrevistaCreditoPdf</members>
+		<members>EspecificacionesTecnicasPdf</members>
 		<members>CI_Formato_Cotizacion</members>
 		<members>CI_Formato_PP</members>
 		<members>ResponsabilidadClientePdf</members>

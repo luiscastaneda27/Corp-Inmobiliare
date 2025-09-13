@@ -1,0 +1,148 @@
+<apex:page standardController="Contrato__c" renderAs="pdf"  showheader="false" sidebar="false" cache="false" expires="0" extensions="ControladorContratoPdfs"
+           applyHtmlTag="false" standardStylesheets="false" showQuickActionVfHeader="false" docType="html-5.0" id="page" applyBodyTag="false">
+     <html>
+        <head>
+            
+            <style type="text/css" media="print">
+                body{
+                font-size:13px;
+                font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;
+                }  
+                @page {
+                margin-top: 55px;
+                margin-bottom: 55px;
+                margin-left: 55px;
+                margin-right: 55px;
+                @top-center {
+                content: element(header);
+                }
+            </style> 
+            
+        </head>
+        <body>
+              <apex:form >
+                  <table border="0" cellpadding="0" cellspacing="0" style="width:100%; font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;">
+                      <tr>
+                          <td  style="width:20%">
+                              <apex:image value="{!$Resource.La_Rioja}" rendered="{!IF(Contrato__c.Proyecto__r.Name == 'LA RIOJA',true,false)}" width="100px" height="140px;" />
+                              <apex:image value="{!$Resource.La_Gran_Vittoria}" rendered="{!IF(Contrato__c.Proyecto__r.Name=='LA GRAN VITTORIA',true,false)}" width="140px" height="140px;" />
+                              <apex:image value="{!$Resource.LaCostanera}" rendered="{!Contrato__c.Proyecto__r.Name == 'COSTANERA'}" width="100px" height="164px;" />
+                              
+                          </td>
+                          <td  style="width:70%;text-align: center;font-size:20px;">
+                              Especificaciones Técnicas
+                          </td>
+                          <td  style="width:10%;font-size:9px;padding-top:100px;">
+                              FECHA:  <apex:outputText value="{0,date,dd/MM/yyyy}"><apex:param value="{!NOW()}" /></apex:outputText>
+                          </td>
+                      </tr>
+                  </table>
+                  <div style="border: 1px solid black;">
+                      <table style="width:100%">
+                          <tr>
+                              <td style="font-weight: bold;width:50%;">
+                                 <font style="padding-right:5px;"> Nombre: </font><apex:outputField style="padding-left: 20px;" value="{!Contrato__c.Cuenta__r.Name}" /> 
+                              </td>
+                              <td style="font-weight: bold;width:50%;">
+                                  <font style="padding-right:5px;">Cédula:</font> <apex:outputField value="{!Contrato__c.Cuenta__r.CI_Identificacion__c}" />
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="height:15px;"></td>
+                              <td ></td>
+                          </tr>
+                           <tr>
+                              <td style="font-weight: bold;width:50%;">
+                                 <font style="padding-right:5px;"> Dirección: </font><apex:outputField style="padding-left: 20px;" value="{!Contrato__c.Cuenta__r.Direccion_Empresa__c}" /> 
+                              </td>
+                              <td style="font-weight: bold;width:50%;">
+                                  <font style="padding-right:5px;">Teléfonos:</font> <apex:outputField value="{!Contrato__c.Cuenta__r.CI_Movil__c}" />
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="height:15px;"></td>
+                              <td ></td>
+                          </tr>
+                           <tr>
+                              <td style="font-weight: bold;">
+                                 <font style="padding-right:5px;"> Proyecto: </font><apex:outputField style="padding-left: 20px;" value="{!Contrato__c.Proyecto__r.Name}" /> 
+                              </td>
+                              <td >
+                              </td>
+                          </tr>
+                      </table>
+                      <table style="width:100%;border: 1px solid black;">
+                          <tr>
+                              <td>
+                              		<font>Manzana: </font><apex:outputField value="{!Contrato__c.Manzana__r.Name}" />
+                              </td>
+                              <td>
+                              		<font>Villa: </font><apex:outputField value="{!Contrato__c.Urbanizacion__r.Name}" />
+                              </td>
+                              <td>
+                              		<font>Modelo: </font><apex:outputField value="{!Contrato__c.Implantacion__r.Modelo__r.Name}" />
+                              </td>
+                              <td>
+                              		<font>M2 Terreno: </font><apex:outputField value="{!Contrato__c.Lote__r.CI_Metros_Terreno__c}" />
+                              </td>
+                              <td>
+                              		<font>M2 Construcción: </font><apex:outputField value="{!Contrato__c.Lote__r.CI_Metros_Const__c}" />
+                              </td>
+                          	
+                          </tr>
+                      </table>
+                      <p style="border-bottom: 1px solid black;">
+                          <b> Especificaciones Técnicas</b>
+                      </p>
+                      <table style="width:100%">
+                          <apex:repeat value="{!especificacionesTecnicas}" var="payment">
+                              <tr >
+                                  <td style="width:30%;"><b> {!payment.Caracteristica__r.Name}</b></td>
+                                  <td style="width:70%;">{!payment.Descripcion__c}</td>
+                              </tr>
+                          </apex:repeat>
+                      </table>
+                       <p style="border-bottom: 1px solid black;border-top: 1px solid black;">
+                           No se incluyen dentro de las especificaciones de las viviendas, rejas de protección en ventanas, césped en patio posterior,
+                           instalaciones hidráulicas para suministro de agua caliente, ductos y cableado de televisión.
+                      </p>
+                      <table>
+                          <tr >
+                              <td >
+                                  <b> {!Contrato__c.Cuenta__r.Name}<br/> <font>C.I. #</font>{!Contrato__c.Cuenta__r.CI_Identificacion__c}</b></td>
+                              
+                          </tr>
+                      </table>
+                       <p style="border-bottom: 1px solid black;border-top: 1px solid black;">
+                           <b>Observación:</b>{!Contrato__c.Cotizacion__r.Comentario_Cliente__c}
+                      </p>
+                      
+                      <table style="width:100%;">
+                          <tr>
+                              <td style="border-right: 1px solid black;" >
+                              		Precio Neto:
+                              </td>
+                              <td style="border-right: 1px solid black;">
+                              		<apex:outputField value="{!Contrato__c.PrecioLista__c}" />
+                              </td>
+                              <td style="border-right: 1px solid black;">
+                              		<font>Cuota de entrada: </font>
+                              </td>
+                              <td style="border-right: 1px solid black;">
+                              		<apex:outputField value="{!Contrato__c.ValorEntrada__c}" />
+                              </td>
+                              <td style="border-right: 1px solid black;">
+                              		<font>Valor Reserva: </font>
+                              </td>
+                              <td>
+                              		<apex:outputField value="{!Contrato__c.Cotizacion__r.CI_Reserva__c}" />
+                              </td>
+                          	
+                          </tr>
+                      </table>
+                  </div>
+                 
+            </apex:form>
+         </body>
+    </html>
+</apex:page>
