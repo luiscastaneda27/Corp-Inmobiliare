@@ -1,0 +1,103 @@
+<apex:page standardController="Contrato__c" renderAs="pdf"  showheader="false" sidebar="false" cache="false" expires="0"
+           applyHtmlTag="false" standardStylesheets="false" showQuickActionVfHeader="false" docType="html-5.0" id="page" applyBodyTag="false">
+     <html>
+        <head>
+            
+            <style type="text/css" media="print">
+                body{
+                font-size:13px;
+                font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;
+                }  
+                @page {
+                margin-top: 55px;
+                margin-bottom: 55px;
+                margin-left: 55px;
+                margin-right: 55px;
+                @top-center {
+                content: element(header);
+                }
+            </style> 
+            
+        </head>
+        <body>
+           
+              <apex:form >
+                  <p style="font-size:14px;" >
+                      <b> DECLARACION Y AUTORIZACIÓN PEP (INICIO/CONTINUIDAD RELACION COMERCIAL/CONTRACTUAL)</b>
+                  </p>
+                  
+                  <p  >
+                      La normativa legal vigente nacional (Reglamento General a la Ley Orgánica de Prevención, Detección y Erradicación
+                      del Delito de Lavado de Activos y del Financiamiento de Delitos.  Título III ¨De las Personas Expuestas Políticamente¨),
+                      así como las normas internacionales, requieren que los Sujetos Obligados identifiquen plenamente a sus clientes 
+                      considerados como figuras políticamente expuestas, así como también deben contar con información de los miembros de su
+                      familia inmediata dentro del segundo grado de consanguinidad o primero de afinidad y sus colaboradores cercanos.
+                      <b>Definición de Persona Expuesta Políticamente (PEP)</b>.- Son todas aquellas personas naturales, nacionales o extranjeras, 
+                      que desempeñan o han desempeñado funciones públicas destacadas en el Ecuador o en el extranjero en representación del 
+                      país, hasta un año (1) después de haber culminado el cargo que originó tal calidad.
+                  </p>
+                  <p  >
+                      <b> Solicitamos llenar el presente formulario con letra legible y sin enmendaduras.</b>
+                  </p>
+                  
+                   <p  >
+                      Yo <b>{!Contrato__c.Cuenta__r.Name}</b>, con documento de identificación N° <b>{!Contrato__c.Cuenta__r.CI_Identificacion__c}</b> ,
+                       informo que he leído las definiciones de ¨Personas Expuestas Políticamente (PEP)¨ y declaro bajo juramento que
+                       SI (___) NO (___) me encuentro ejerciendo o ejercía hace menos de un año, uno de los cargos descritos,
+                       o tengo una relación con las PEP´s incluidas en el presente documento.
+
+                  </p>
+                  
+                  <p>
+                      En el caso que la respuesta sea positiva, indicar: Cargo/Función/Jerarquía o relación con la
+                      Persona Expuesta Políticamente y Entidad donde desempeña o desempeño hace menos de un año tal 
+                      función, así como completar los datos requeridos más adelante. <br/>
+                      Cargo/Función/jerarquía: ____________________________________________________________________<br/>
+                      Fecha de nombramiento designación: __________________________________________________________<br/>
+                      Fecha de culminación de cargo: ______________________________________________________________<br/>
+                      Institución en la que trabaja: ______________________________________________________________
+                      
+                  </p>
+                  
+                  <p>
+                      Asimismo, informo que mis parientes dentro del cuarto grado de consanguinidad o segundo de 
+                      afinidad SI (__) NO (__) ha desempeñado/desempeña uno de los cargos, o ha tenido/tiene una
+                      relación con las PEP's incluidas en el presente documento.
+
+                  </p>
+                  <p>
+                      En el caso que la respuesta sea positiva, indicar el nombre del cónyuge o familiar, 
+                      Cargo/Función/Jerarquía o relación con la Persona Expuesta Políticamente y Entidad donde desempeña o 
+                      desempeño hace menos de un año tal función, así como completar los datos requeridos más adelante. <br/>
+                      Cargo/Función/jerarquía: _____________________________________________________________________<br/>
+                      Fecha de nombramiento designación: ___________________________________________________________<br/>
+                      Fecha de culminación de cargo: ________________________________________________________________<br/>
+                      Institución en la que trabaja: ________________________________________________________________
+
+                  </p>
+                  
+                  <p>
+                      Además, asumo el compromiso de informar cualquier cambio relacionado con la información indicada
+                      en el presente documento en un máximo de treinta (30) días.<br/><br/>
+                      Lugar y fecha:	______________________________________________<br/><br/>
+                      Firma Cliente: 	______________________________________________<br/><br/>
+                      <hr style="border: 1px solid #000;"/> 
+                  <b>Espacio exclusivo para la compañía.</b><br/><br/>
+                  Certifico que la firma que antecede concuerda con los documentos entregados y registrados en nuestros 
+                  documentos:  <br/><br/>
+                  
+                  ___________________________<br/>
+                  Firma y sello del Analista<br/><br/><br/>
+                  
+                  ____________________________<br/>
+                  Nombre y Apellidos del Analista<br/><br/><br/>
+                  
+                  Nota: La presente declaración no constituye una autoincriminación de ninguna clase, ni conlleva 
+                  ninguna clase de responsabilidad administrativa, civil o penal
+                  
+            </p>
+
+            </apex:form>
+         </body>
+    </html>
+</apex:page>

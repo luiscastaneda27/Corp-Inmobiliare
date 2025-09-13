@@ -3,6 +3,8 @@
 	<types>
 		<members>CI_apex</members>
 		<members>CrearContratoControlador</members>
+		<members>DeclaracionAutorizacionPepPdf</members>
+		<members>EntrevistaCreditoPdf</members>
 		<members>ProcesoAnulacionCotizacion</members>
 		<members>ProcesoRebajaEntradaEntrega</members>
 		<members>extensionCotizacion</members>

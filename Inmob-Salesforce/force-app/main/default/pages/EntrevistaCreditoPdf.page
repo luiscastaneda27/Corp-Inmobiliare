@@ -1,0 +1,249 @@
+<apex:page standardController="Contrato__c" renderAs="pdf"  showheader="false" sidebar="false" cache="false" expires="0" 
+           applyHtmlTag="false" standardStylesheets="false" showQuickActionVfHeader="false" docType="html-5.0" id="page" applyBodyTag="false">
+    <html>
+        <head>
+            
+            <style type="text/css" media="print">
+                body{
+                font-size:13px;
+                font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;
+                }  
+                @page {
+                margin-top: 55px;
+                margin-bottom: 55px;
+                margin-left: 55px;
+                margin-right: 55px;
+                @top-center {
+                content: element(header);
+                }
+            </style> 
+            
+        </head>
+        <body>
+            
+            <apex:form >
+                <p style="font-size:14px;" >
+                    <b> PERFIL DEL CLIENTE:</b><br/>
+                </p>
+                <hr style="border: 1px solid #000;"/> 
+                <table width="100%">
+                    <tr>
+                        <td style ="width: 30%;">
+                            <b>PERSONALES</b>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                            NOMBRE:
+                        </td>
+                        <td>
+                            <apex:outputField value="{!Contrato__c.Cuenta__r.Name}" /> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                            CONYUGE:
+                        </td>
+                        <td>
+                            <apex:outputText value="{!Contrato__c.Cuenta__r.CI_Nombre_C__c +' '+ Contrato__c.Cuenta__r.CI_Apellidos_C__c}" /> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                            EDAD:
+                        </td>
+                        <td>
+                            <apex:outputText rendered="{!Contrato__c.Cuenta__r.CI_Fecha_Nacimiento__c != NULL}" value="{!FLOOR((TODAY() - Contrato__c.Cuenta__r.CI_Fecha_Nacimiento__c)/365)} AÑOS"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                            EDAD CONYUGE:
+                        </td>
+                        <td>
+                            <apex:outputText rendered="{!Contrato__c.Cuenta__r.CI_Fecha_Nacimiento_C__c != NULL}" value="{!FLOOR((TODAY() - Contrato__c.Cuenta__r.CI_Fecha_Nacimiento_C__c)/365)} AÑOS"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                            ESTADO CIVIL:
+                        </td>
+                        <td>
+                            <apex:outputField value="{!Contrato__c.Cuenta__r.CI_Estado_Civil__c}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                        </td>
+                        <td>
+                            EC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIGRANTE
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAIS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="width: 30%;">
+                            RESIDENCIA
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </table>
+                <hr style="border: 1px solid #000;"/> 
+                <table width="100%">
+                    <tr>
+                        <td style ="width: 30%;">
+                            <b>INGRESOS</b>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            DEPENDIENTE
+                        </td>
+                        <td>
+                            <apex:outputField value="{!Contrato__c.Cuenta__r.CI_Sueldo_Men_Sol__c}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            INDEPENDIENTE
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            OTROS INGRESOS
+                        </td>
+                        <td>
+                            <apex:outputText rendered="{!Contrato__c.Cuenta__r.CI_Ing_Con__c != null}" value="{!Contrato__c.Cuenta__r.CI_Ing_Con__c}" />&nbsp;&nbsp; <apex:outputText rendered="{!Contrato__c.Cuenta__r.CI_Ing_Con__c != null}" value="(CONYUGE)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            SI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            RUC (años)
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            PROMEDIO DE INGRESOS
+                        </td>
+                        <td>
+                            <apex:outputField value="{!Contrato__c.Cuenta__r.CI_TOTAL_EGR_MEN__c}" />
+                        </td>
+                    </tr>
+                </table>
+                <hr style="border: 1px solid #000;"/> 
+                <table width="100%">
+                    <tr>
+                        <td style ="width: 30%;">
+                            <b>OTROS</b>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            CUENTAS BANCARIAS
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            TARJETAS DE CREDITO
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            CREDITOS VIGENTES
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                             <span style="margin-right:50px;">M2TERRENO</span><span style="margin-right:50px;">M2CONSTRUCC</span><span>MODELO</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            DETALLES DE LA VENTA:
+                        </td>
+                        <td>
+                             <span style="margin-right:110px;margin-left:25px;">{!Contrato__c.Lote__r.CI_Metros_Terreno__c}</span><span style="margin-right:85px;">{!Contrato__c.Lote__r.CI_Metros_Const__c}</span><span>{!Contrato__c.Implantacion__r.Modelo__r.Name}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                             <span style="margin-right:83px;">PRECIO</span><span style="margin-right:50px;">HIPOTECARIO</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                             <span style="margin-right:75px;"> <apex:outputField value="{!Contrato__c.PrecioLista__c}" /> </span><span style="margin-right:50px;"><apex:outputField value="{!Contrato__c.ValorSaldo__c}" /></span>
+                        </td>
+                    </tr>
+                    
+                </table>
+                <hr style="border: 1px solid #000;"/> 
+                <table width="100%">
+                    <tr>
+                        <td >
+                            <b>OBSERVACIONES:</b>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Plan de pagos {!Contrato__c.Cotizacion__r.Porcentaje_Cuota_Entrada__c}% entrada <apex:outputText style="margin-left:5px;" value="{! 100 - Contrato__c.Cotizacion__r.Porcentaje_Cuota_Entrada__c }" />% financiamiento. ({!Contrato__c.Cotizacion__r.Plazo_Cuota_Entrada__c} meses)	<br/>
+                            Clientes Presentan: 	<br/>
+                            Roles de pago 3 ultimos meses.	<br/>
+                            Movimientos de cuenta 3 ultimos meses<br/><br/>
+                            Se recomienda disminuir endeudamiento / No caer en vencidos en el sistema crediticio
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                     <span style="display:inline-block; width:300px; text-align:left; margin-top:5px;">
+                         <b> CLIENTE</b>
+                      <span style="display:inline-block; width:300px; border-top:2px solid #000;"></span><br/>
+                      </span> <br/>
+                    <apex:outputField value="{!Contrato__c.Cuenta__r.Name}" /> <br/><br/><br/>
+                    
+                    <span style="display:inline-block; width:300px; text-align:left; margin-top:5px;">
+                         <b> CREDITO</b>
+                      <span style="display:inline-block; width:300px; border-top:2px solid #000;"></span><br/>
+                      </span> <br/>
+                    <apex:outputField value="{!Contrato__c.OficialCredito__r.Name}" /><br/><br/><br/>
+                    <b> FECHA: </b> <apex:outputText value="{0,date,dd/MM/yyyy}"><apex:param value="{!NOW()}" /></apex:outputText>
+                </p>
+                
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

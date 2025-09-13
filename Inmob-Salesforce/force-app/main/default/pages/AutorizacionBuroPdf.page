@@ -35,10 +35,10 @@
                       AUTORIZACIÓN
                   </p>
                   <p style="width:100%;">
-                      Yo, <spam style="border-bottom:2px solid #000;" ><apex:outputField value="{!Contrato__c.Cuenta__r.Name}" /> </spam>
+                      Yo, <b><apex:outputField value="{!Contrato__c.Cuenta__r.Name}" /></b>
                       con cédula de identidad
-                      No. <spam style="border-bottom:2px solid #000;"><apex:outputField value="{!Contrato__c.Cuenta__r.CI_Identificacion__c}" /> </spam> autorizo de forma expresa, voluntaria e irrevocable a la
-                      compañía <spam><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></spam>, a sus empleados, representantes, trabajadores, y/o a quien
+                      No. <b><apex:outputField value="{!Contrato__c.Cuenta__r.CI_Identificacion__c}" /> </b> autorizo de forma expresa, voluntaria e irrevocable a la
+                      compañía <b><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></b>, a sus empleados, representantes, trabajadores, y/o a quien
                       esta designe para que obtenga las veces que considere necesario de cualquier fuente de
                       información, referencias relativas a mi comportamiento crediticio, al cumplimiento de
                       mis obligaciones, manejo de mi(s) tarjeta(s) de crédito, y, en general cualquier
@@ -51,11 +51,11 @@
                       la información de las empresas de las cuales soy accionista, a la central de riesgos, buró
                       de crédito, Equifax, o cualquier fuente de información financiera a nivel nacional.<br/><br/>
                       
-                      De igual forma, autorizo a la compañía <spam><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></spam> para que pueda utilizar mis
+                      De igual forma, autorizo a la compañía <b><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></b> para que pueda utilizar mis
                       datos personales según el tratamiento y políticas internas de la compañía, las cuales me
                       han sido informadas y explicadas en su totalidad.<br/><br/>
                       
-                      Esta autorización podrá ser utilizada las veces que <spam><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></spam> considere necesaria
+                      Esta autorización podrá ser utilizada las veces que <b><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></b> considere necesaria
                       y podrá presentarla ante terceros para los usos aquí estipulados.
                   </p>
                   <font> <apex:outputField value="{!Contrato__c.Proyecto__r.CI_Ciudad__r.CI_Descripcion__c}" />,</font>

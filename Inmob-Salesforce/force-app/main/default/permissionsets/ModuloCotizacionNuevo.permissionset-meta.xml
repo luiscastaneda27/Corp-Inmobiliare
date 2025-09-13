@@ -386,6 +386,14 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>DeclaracionAutorizacionPepPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>EntrevistaCreditoPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ResponsabilidadClientePdf</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
