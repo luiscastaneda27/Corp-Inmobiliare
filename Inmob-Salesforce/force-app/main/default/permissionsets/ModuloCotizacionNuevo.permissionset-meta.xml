@@ -99,6 +99,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.Adicionales__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contrato__c.Cotizacion__c</field>
         <readable>true</readable>
@@ -106,6 +111,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contrato__c.Cuenta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.CuotaInicial__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.Descuento__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -159,6 +174,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.PrecioCotizado__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.PrecioLista__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contrato__c.Proyecto__c</field>
         <readable>true</readable>
@@ -171,6 +196,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contrato__c.Urbanizacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.ValorEntrada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contrato__c.ValorSaldo__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -281,6 +316,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>OficialesCreditoCobranzas__c.UltimoContratoAsignado__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.FlagValidationRule__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

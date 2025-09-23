@@ -143,7 +143,7 @@
                             PROMEDIO DE INGRESOS
                         </td>
                         <td>
-                            <apex:outputField value="{!Contrato__c.Cuenta__r.CI_TOTAL_EGR_MEN__c}" />
+                            <apex:outputField value="{!Contrato__c.Cuenta__r.CI_TOTAL_ING_MEN__c}" />
                         </td>
                     </tr>
                 </table>
@@ -161,6 +161,7 @@
                             CUENTAS BANCARIAS
                         </td>
                         <td>
+                           {!Contrato__c.Cuenta__r.CI_Num_Cuenta__c}&nbsp;&nbsp;-&nbsp;&nbsp; {!Contrato__c.Cuenta__r.CI_Nombre_Banco__c}  
                         </td>
                     </tr>
                     <tr>
@@ -168,6 +169,7 @@
                             TARJETAS DE CREDITO
                         </td>
                         <td>
+                           {!Contrato__c.Cuenta__r.CI_Emisor__c}
                         </td>
                     </tr>
                     <tr>

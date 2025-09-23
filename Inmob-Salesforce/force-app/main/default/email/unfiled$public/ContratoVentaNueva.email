@@ -63,7 +63,7 @@
           <td>{contrato}</td>
         </tr>
         <tr>
-          <td>Valor de Conrato</td>
+          <td>Valor de Contrato</td>
           <td>{valorContrato}</td>
         </tr>
         <tr>

@@ -46,17 +46,32 @@
                       <apex:outputField value="{!Contrato__c.Cuenta__r.Name}" />  <br/>
                       Ciudad. <apex:outputField value="{!Contrato__c.Proyecto__r.CI_Ciudad__r.CI_Descripcion__c}" />
                   </p>
-                  <p style="width:100%;">
-                      Por medio de la presente informamos, una vez que hemos revisado la documentación que corresponde a sus ingresos y gastos para determinar su capacidad de pago le informamos lo siguiente: <br/> <br/>
-                      1.- Una vez que la vivienda reservada alcance el avance del 80% de construcción se deberá iniciar el proceso de crédito hipotecario con cualquier institución financiera, ajustándose a las condiciones que en su momento rijan.  <br/> <br/>
-                      2.- Para lo detallado en el punto uno, debe mantener un estado financiero saludable, eso implica un bajo nivel de endeudamiento, no tener vencimientos con casas comerciales ni instituciones financieras y un score mínimo de 820 (950 VIP). <br/> <br/>
-                      3.- El ingreso percibido por el trabajo que desempeña ya sea como independiente o bajo relación de dependencia deben reflejarse en las instituciones de control pertinentes (IESS y/o SRI), así como en sus cuentas bancarias. <br/> <br/>
-                      4.- Debe considerar que el ingreso que se considera como capacidad de pago es la utilidad neta (Ingreso declarados – Gastos declarados). <br/> <br/>
-                      5.- La reserva actual implica el compromiso de pagar el precio total de la misma (Comprador), quien podrá hacer el pago del precio pactado de contado o mediante financiamiento bancario asumiendo los gastos que generen la transferencia de dominio y el costo del financiamiento que el mercado financiero otorgue (Tasa de interés) sin que esto sea una responsabilidad de la parte vendedora o que afecte al precio de venta. <br/> <br/>
-                      6.- En caso de que la institución financiera de su elección no apruebe el financiamiento de los gastos mencionados en el punto 5 y/o apruebe un monto menor al que se adeude, será de su total responsabilidad asumir el valor que no sea cubierto. <br/> <br/>
-                      7.- En el evento de aplicar a un crédito VIP o cualquier otro con tasa preferencial, los acabados que deban adicionarse para que la vivienda cumpla con los requisitos solicitados, deberán ser cancelados por el cliente, como un valor adicional, sin que esto afecte el precio de la compraventa pactada.  Este valor adicional será cancelado hasta antes de la inspección correspondiente, por parte de la entidad financiera, valor que no será reembolsable si el cliente no califica para el crédito preferencial.  <br/> <br/>	
+                  <p style="width:100%;text-align: justify;text-align-last: left;">
+                      Por medio de la presente informamos, una vez que hemos revisado la documentación que corresponde a sus ingresos y gastos para determinar su capacidad de pago le informamos lo siguiente: 
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      1.- Una vez que la vivienda reservada alcance el avance del 80% de construcción se deberá iniciar el proceso de crédito hipotecario con cualquier institución financiera, ajustándose a las condiciones que en su momento rijan.
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      2.- Para lo detallado en el punto uno, debe mantener un estado financiero saludable, eso implica un bajo nivel de endeudamiento, no tener vencimientos con casas comerciales ni instituciones financieras y un score mínimo de 820 (950 VIP).
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      3.- El ingreso percibido por el trabajo que desempeña ya sea como independiente o bajo relación de dependencia deben reflejarse en las instituciones de control pertinentes (IESS y/o SRI), así como en sus cuentas bancarias.
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      4.- Debe considerar que el ingreso que se considera como capacidad de pago es la utilidad neta (Ingreso declarados – Gastos declarados).
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      5.- La reserva actual implica el compromiso de pagar el precio total de la misma (Comprador), quien podrá hacer el pago del precio pactado de contado o mediante financiamiento bancario asumiendo los gastos que generen la transferencia de dominio y el costo del financiamiento que el mercado financiero otorgue (Tasa de interés) sin que esto sea una responsabilidad de la parte vendedora o que afecte al precio de venta. </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      6.- En caso de que la institución financiera de su elección no apruebe el financiamiento de los gastos mencionados en el punto 5 y/o apruebe un monto menor al que se adeude, será de su total responsabilidad asumir el valor que no sea cubierto.
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
+                      7.- En el evento de aplicar a un crédito VIP o cualquier otro con tasa preferencial, los acabados que deban adicionarse para que la vivienda cumpla con los requisitos solicitados, deberán ser cancelados por el cliente, como un valor adicional, sin que esto afecte el precio de la compraventa pactada.  Este valor adicional será cancelado hasta antes de la inspección correspondiente, por parte de la entidad financiera, valor que no será reembolsable si el cliente no califica para el crédito preferencial.
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
                       Adicional, la reserva así como la transferencia de dominio entre las partes generarán gastos administrativos que se detallaron en la promesa de compraventa, y que son asumidos por la parte compradora.
-
+                      
                   </p>
                   <p style="width:100%; font-weight: bold;">
                       Atentamente,<br/><br/><br/>

@@ -53,7 +53,7 @@
                           </tr>
                            <tr>
                               <td style="font-weight: bold;width:50%;">
-                                 <font style="padding-right:5px;"> Dirección: </font><apex:outputField style="padding-left: 20px;" value="{!Contrato__c.Cuenta__r.Direccion_Empresa__c}" /> 
+                                 <font style="padding-right:5px;"> Dirección: </font><apex:outputField style="padding-left: 20px;" value="{!Contrato__c.Cuenta__r.CI_Ciudad_domicilio__c}" /> 
                               </td>
                               <td style="font-weight: bold;width:50%;">
                                   <font style="padding-right:5px;">Teléfonos:</font> <apex:outputField value="{!Contrato__c.Cuenta__r.CI_Movil__c}" />
@@ -135,7 +135,7 @@
                               		<font>Valor Reserva: </font>
                               </td>
                               <td>
-                              		<apex:outputField value="{!Contrato__c.Cotizacion__r.CI_Reserva__c}" />
+                              		<apex:outputField value="{!Contrato__c.CuotaInicial__c }" />
                               </td>
                           	
                           </tr>

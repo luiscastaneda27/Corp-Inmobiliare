@@ -34,7 +34,7 @@
                   <p style="width:100%; text-align: center; font-size:17px; font-weight: bold;">
                       AUTORIZACIÓN
                   </p>
-                  <p style="width:100%;">
+                  <p style="width:100%; text-align: justify;text-align-last: left;">
                       Yo, <b><apex:outputField value="{!Contrato__c.Cuenta__r.Name}" /></b>
                       con cédula de identidad
                       No. <b><apex:outputField value="{!Contrato__c.Cuenta__r.CI_Identificacion__c}" /> </b> autorizo de forma expresa, voluntaria e irrevocable a la
@@ -44,17 +44,21 @@
                       mis obligaciones, manejo de mi(s) tarjeta(s) de crédito, y, en general cualquier
                       información que la compañía considere relevante para conocer mi comportamiento
                       crediticio, desempeño como deudor y/o garante, mi capacidad de pago y/o para análisis y
-                      valoración en el tiempo.<br/><br/>
+                      valoración en el tiempo.
                       
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
                       Así como, confiero mi autorización para procesar, reportar y suministrar cualquier
                       información de carácter financiero y comercial referente a mis obligaciones crediticias, o
                       la información de las empresas de las cuales soy accionista, a la central de riesgos, buró
-                      de crédito, Equifax, o cualquier fuente de información financiera a nivel nacional.<br/><br/>
-                      
+                      de crédito, Equifax, o cualquier fuente de información financiera a nivel nacional.
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
                       De igual forma, autorizo a la compañía <b><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></b> para que pueda utilizar mis
                       datos personales según el tratamiento y políticas internas de la compañía, las cuales me
-                      han sido informadas y explicadas en su totalidad.<br/><br/>
-                      
+                      han sido informadas y explicadas en su totalidad.
+                  </p>
+                  <p style="width:100%; text-align: justify;text-align-last: left;"> 
                       Esta autorización podrá ser utilizada las veces que <b><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></b> considere necesaria
                       y podrá presentarla ante terceros para los usos aquí estipulados.
                   </p>
@@ -62,7 +66,7 @@
                   <p style="width:100%; text-align: center;padding-top: 70px;">
                       <span style="display:inline-block; width:300px; border-top:2px solid #000; margin-top:30px;"></span><br/>
                       <span style="display:inline-block; width:300px; text-align:left; margin-top:5px;">
-                          Nombres y Apellidos:<br/>C.I.:
+                          Nombres y Apellidos:{!Contrato__c.Cuenta__r.Name} <br/>C.I.: {!Contrato__c.Cuenta__r.CI_Identificacion__c}
                       </span>
                   </p>
                   

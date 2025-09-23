@@ -26,7 +26,7 @@
                       <b> DECLARACION Y AUTORIZACIÓN PEP (INICIO/CONTINUIDAD RELACION COMERCIAL/CONTRACTUAL)</b>
                   </p>
                   
-                  <p  >
+                  <p  style="width:100%;text-align: justify;text-align-last: left;">>
                       La normativa legal vigente nacional (Reglamento General a la Ley Orgánica de Prevención, Detección y Erradicación
                       del Delito de Lavado de Activos y del Financiamiento de Delitos.  Título III ¨De las Personas Expuestas Políticamente¨),
                       así como las normas internacionales, requieren que los Sujetos Obligados identifiquen plenamente a sus clientes 
@@ -40,7 +40,7 @@
                       <b> Solicitamos llenar el presente formulario con letra legible y sin enmendaduras.</b>
                   </p>
                   
-                   <p  >
+                   <p  style="width:100%;text-align: justify;text-align-last: left;">>
                       Yo <b>{!Contrato__c.Cuenta__r.Name}</b>, con documento de identificación N° <b>{!Contrato__c.Cuenta__r.CI_Identificacion__c}</b> ,
                        informo que he leído las definiciones de ¨Personas Expuestas Políticamente (PEP)¨ y declaro bajo juramento que
                        SI (___) NO (___) me encuentro ejerciendo o ejercía hace menos de un año, uno de los cargos descritos,

@@ -1,4 +1,4 @@
-public class CrearContratoControlador {
+public without sharing class CrearContratoControlador {
     
     @AuraEnabled(cacheable=true)
     public static CotizacionWrapper getQuote(String recordId){
@@ -6,6 +6,7 @@ public class CrearContratoControlador {
         response.cotizacion = [Select 
                                Id, CI_Cuenta__c, CI_Cuenta__r.Name, CI_Proyecto__c, CI_Proyecto__r.Name, 
                                Lote__c, Lote__r.Name, CI_Manzana__c, CI_Manzana__r.Name, 
+                               CI_Tipo_Venta__c, CI_Oportunidad_PD__r.FlagValidationRule__c,
                                CI_Etapa__c, CI_Etapa__r.Name, CI_Modelo__c, CI_Modelo__r.Name, 
                                Implantaci_n_Principal__c, Oportunidad__c, Oportunidad__r.OwnerId,
                                Institucion_Financiera__c, Forma_de_pago__c, Fecha_Cuota_Saldo__c
@@ -34,14 +35,19 @@ public class CrearContratoControlador {
         contrato.FechaEntrega__c = cotizacion.Fecha_Cuota_Saldo__c;
         contrato.Estado__c = response.estado;
         contrato.Tipo__c = response.tipo;
-        contrato.FormaPago__c = cotizacion.Forma_de_pago__c;
+        String tipoV = cotizacion.CI_Tipo_Venta__c;
+        contrato.FormaPago__c = tipoV == '1' ? 'Crédito Hipotecario' : tipoV == '5' ? 'Contado' : 'Crédito Completo' ;
         contrato.InstitucionFinanciera__c = cotizacion.Institucion_Financiera__c;
         contrato.OficialCredito__c = getOficial(contrato.Proyecto__c, 'Crédito');
         contrato.OficialCobranza__c = getOficial(contrato.Proyecto__c, 'Cobranza');
         insert contrato;
         update new Cotizacion__c(Id = contrato.Cotizacion__c, Estado__c = 'Vendido');
         update new Lote__c (Id = contrato.Lote__c, CI_Estado__c = 'V');
-        update new Opportunity (Id = contrato.Oportunidad__c, Stagename = 'Vendida', Estado_de_Aprobacion__c = 'Aprobado', Estado_de_Venta__c ='Vendido');
+        update new Opportunity (Id = contrato.Oportunidad__c, 
+                                Stagename = 'Vendida', 
+                                Estado_de_Aprobacion__c = 'Aprobado', 
+                                Estado_de_Venta__c ='Vendido',
+                                FlagValidationRule__c = !cotizacion.CI_Oportunidad_PD__r.FlagValidationRule__c);
         sendEmail(contrato.Id);
         return contrato.Id;
     }
@@ -78,6 +84,13 @@ public class CrearContratoControlador {
                                     Lote__r.Name, Manzana__r.Name, PrecioCotizado__c,
                                     toLabel(FormaPago__c), Owner.Name, FechaEntrega__c
                                     FROM Contrato__c where Id = :recordId];
+            OrgWideEmailAddress orgWideEmail = [
+                SELECT Id, Address, DisplayName 
+                FROM OrgWideEmailAddress 
+                WHERE Address = 'procesos.automaticos@inmobiliare.com.ec' 
+                LIMIT 1
+            ];
+            
             EmailTemplate plantilla = [SELECT Id, Subject, HtmlValue from EmailTemplate where DeveloperName = 'ContratoVentaNueva'];
             String subject = plantilla.Subject;
             String htmlBody = plantilla.HtmlValue;
@@ -99,6 +112,7 @@ public class CrearContratoControlador {
             email.setToAddresses(contrato.Proyecto__r.CorreosVentaNueva__c.split(','));
             email.setSubject(subject);
             email.setHtmlBody(htmlBody); 
+            email.setOrgWideEmailAddressId(orgWideEmail.Id);
             Messaging.SendEmailResult[] results = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
             
             for (Messaging.SendEmailResult r : results) {
