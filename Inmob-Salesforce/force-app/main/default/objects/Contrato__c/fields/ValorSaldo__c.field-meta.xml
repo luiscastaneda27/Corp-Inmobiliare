@@ -3,7 +3,7 @@
     <fullName>ValorSaldo__c</fullName>
     <formula>Cotizacion__r.Valor_Saldo__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>ValorSaldo</label>
+    <label>Valor Saldo</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
