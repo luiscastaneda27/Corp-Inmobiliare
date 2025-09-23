@@ -5,6 +5,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ConvertirNumeros</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CrearContratoControlador</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -439,6 +443,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>EspecificacionesTecnicasPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PagarePdf</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

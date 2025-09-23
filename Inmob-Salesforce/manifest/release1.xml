@@ -3,6 +3,7 @@
 	<types>
 		<members>CI_apex</members>
 		<members>ControladorContratoPdfs</members>
+		<members>ConvertirNumeros</members>
 		<members>CrearContratoControlador</members>
 		<members>ProcesoAnulacionCotizacion</members>
 		<members>ProcesoRebajaEntradaEntrega</members>
@@ -20,6 +21,7 @@
 		<members>ResponsabilidadClientePdf</members>
 		<members>vfCotizacionNew</members>
 		<members>vfNewFinanciamiento</members>
+		<members>PagarePdf</members>
 		<name>ApexPage</name>
 	</types>
 	<types>

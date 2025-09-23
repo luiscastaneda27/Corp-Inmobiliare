@@ -1,0 +1,141 @@
+<apex:page standardController="Contrato__c" renderAs="pdf"  showheader="false" sidebar="false" cache="false" expires="0" extensions="ControladorContratoPdfs"
+           applyHtmlTag="false" standardStylesheets="false" showQuickActionVfHeader="false" docType="html-5.0" id="page" applyBodyTag="false">
+     <html>
+        <head>
+            
+            <style type="text/css" media="print">
+                body{
+                font-size:13px;
+                font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;
+                }  
+                @page {
+                margin-top: 55px;
+                margin-bottom: 55px;
+                margin-left: 55px;
+                margin-right: 55px;
+                @top-center {
+                content: element(header);
+                }
+            </style> 
+            
+        </head>
+        <body>
+              <apex:form >
+                   <table border="0" cellpadding="0" cellspacing="0" style="width:100%; font-family:'Segoe UI', Helvetica Neue, Arial, Verdana, Trebuchet MS, sans-serif;">
+                      <tr>
+                          <td  style="width:40%;font-size:14px;">
+                              <b>  PAGARÉ A LA ORDEN</b>
+                              
+                          </td>
+                          <td  style="width:40%;">
+                          </td>
+                          <td  style="width:20%;font-size:14px;padding-right:15px;">
+                              <b> Por US$.&nbsp;<apex:outputText value="{0,number,#,##0.00}"> 
+                                  <apex:param value="{!valorEntradaSaldo}" />
+                                  </apex:outputText> </b>
+                          </td>
+                      </tr>
+                  </table>
+                  
+                   <p style="width:100%;text-align: justify;text-align-last: left;">
+                       Debo y pagaré, en esta ciudad o en el lugar en que se me reconvenga, a la orden de <b><apex:outputField value="{!Contrato__c.Proyecto__r.Empresa__r.Name}" /></b> la cantidad de
+                      <b> {!valorEntradaSaldoLetras} DOLARES DE LOS ESTADOS UNIDOS DE AMERICA</b>, valor que me
+                       comprometo a pagar en los siguientes vencimientos sucesivos, en las fechas y los montos que constan detallado en la tabla
+                       inserta a continuación: 
+                  </p>
+                   <table  style="width: 100%;">
+                        <tr>
+                            <td width="15%" ><b>No. de Cuota</b></td>
+                            <td  width="20%" ><b>Fecha de Vencimiento</b></td>
+                            <td  width="17%" ><b>Valor en <br/>Números</b></td>
+                            <td  width="48%" ><b>Valor en Letras</b></td>
+                        </tr>
+                       <apex:repeat value="{!coutasFinanciamiento}" var="finan">
+                           <tr>
+                               <td  >{!finan.orden}</td>
+                               <td  >
+                                   <apex:outputText value="{0, date, dd/MM/YYYY}"> <apex:param value="{!finan.fechaVencimiento}" /> </apex:outputText> 
+
+                               </td>
+                               <td  >
+                                <apex:outputText value="{0,number, #,##0.00}"> 
+                                  <apex:param value="{!finan.valorNumero}" />
+                                  </apex:outputText>
+                               </td>
+                               <td style="font-size:12px;" >{!finan.valorLetras}</td>
+                           </tr>
+                       </apex:repeat>
+                  </table>
+                   <p style="width:100%;text-align: justify;text-align-last: left;">
+                       Me obligo incondicionalmente a pagar al portador la suma mencionada en este pagare, en moneda de curso legal de los
+                       Estados Unidos de América. En caso de mora, pagare además al portador el máximo interés de mora permitido por las
+                       Regulaciones del Directorio del Banco Central del Ecuador, que estuviere vigente en la fecha de vencimiento.
+                  </p>
+                   <p style="width:100%;text-align: justify;text-align-last: left;">
+                       En caso de incumplimiento en el pago de uno o más de los dividendos aquí establecidos, el acreedor está facultado a declarar
+                       anticipadamente de plazo vencido la totalidad de la obligación, aún cuando existan dividendos que no hubieren vencido, y
+                       demandar su inmediato pago. Además, me obligo a cubrir todos los gastos judiciales extrajudiciales, inclusive honorarios
+                       profesionales, que ocasione el cobro de la deuda, para cuya determinación bastará la mera aseveración del portador, a quien
+                       desde ya faculto para hacerlo.
+                  </p>
+                  <p style="width:100%;text-align: justify;text-align-last: left;">
+                      Al fiel cumplimiento de lo estipulado me obligo con todos mis bienes presentes y futuros, propios y gananciales. Al efecto,
+                      faculto irrevocablemente al acreedor a disponer de los dineros, valores, documentos o bienes a mi favor y/o a mi orden, que me
+                      pertenecieren y que existieren en su poder por cualquier concepto, e impute los mismos al pago parcial o total de las
+                      obligaciones que se derivan de este pagaré, sin que se deba para esto el acreedor de aviso alguno, ni recibir nueva autorización.
+                  </p>
+                   <p style="width:100%;text-align: justify;text-align-last: left;">
+                       Me someto a los Jueces y Tribunales de esta ciudad o a los que elija el acreedor y a la vía ejecutiva. El pago no podrá hacerse
+                       por partes, ni aún por mis herederos o sucesores. Sin protesto, eximo al acreedor de la presentación para el pago y de aviso por
+                       falta del mismo.
+                  </p>
+                   <p style="width:100%;text-align: justify;text-align-last: left;">
+                       Siempre que los suscriptores de este pagaré, en sus calidades de deudores o garantes sean más de uno, los términos del
+                       presente documento serán entendidos en plural.
+                  </p>
+                  <p > 
+                      <apex:outputField value="{!Contrato__c.Proyecto__r.CI_Ciudad__r.CI_Descripcion__c}" />,&nbsp;<apex:outputText value="{0,date,dd}"><apex:param value="{!NOW()}" /></apex:outputText>&nbsp;de&nbsp; 
+                      <apex:outputText value="{!CASE(MONTH(DATEVALUE(NOW())),
+                                              1, 'Enero',
+                                              2, 'Febrero',
+                                              3, 'Marzo', 
+                                              4, 'Abril', 
+                                              5, 'Mayo', 
+                                              6, 'Junio',
+                                              7, 'Julio',
+                                              8, 'Agosto',
+                                              9, 'Septiembre',
+                                              10, 'Octubre',
+                                              11, 'Noviembre',
+                                              12, 'Diciembre',
+                                              '-')}" />&nbsp;del&nbsp;
+                      <apex:outputText value="{0,date,yyyy}"><apex:param value="{!NOW()}" /></apex:outputText>
+                  </p>
+                   <p style="width:50%; text-align: center;">
+                       <br/>
+                       <br/>
+                       <b> {!Contrato__c.Cuenta__r.Name} <br/>C.I.# {!Contrato__c.Cuenta__r.CI_Identificacion__c}
+                       </b>
+                  </p>
+                  <p > 
+                      Visto Bueno<br/> <apex:outputField value="{!Contrato__c.Proyecto__r.CI_Ciudad__r.CI_Descripcion__c}" />,&nbsp;<apex:outputText value="{0,date,dd}"><apex:param value="{!NOW()}" /></apex:outputText>&nbsp;de&nbsp; 
+                      <apex:outputText value="{!CASE(MONTH(DATEVALUE(NOW())),
+                                              1, 'Enero',
+                                              2, 'Febrero',
+                                              3, 'Marzo', 
+                                              4, 'Abril', 
+                                              5, 'Mayo', 
+                                              6, 'Junio',
+                                              7, 'Julio',
+                                              8, 'Agosto',
+                                              9, 'Septiembre',
+                                              10, 'Octubre',
+                                              11, 'Noviembre',
+                                              12, 'Diciembre',
+                                              '-')}" />&nbsp;del&nbsp;
+                      <apex:outputText value="{0,date,yyyy}"><apex:param value="{!NOW()}" /></apex:outputText>
+                  </p>
+            </apex:form>
+         </body>
+    </html>
+</apex:page>
